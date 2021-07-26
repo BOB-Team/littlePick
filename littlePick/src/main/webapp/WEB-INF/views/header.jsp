@@ -54,13 +54,13 @@
 							<li class="nav-item submenu dropdown"><a class="nav-link" href="#">신상품</a></li>
 							<li class="nav-item submenu dropdown"><a class="nav-link" href="#">베스트</a></li>
 							<li class="nav-item submenu dropdown"><a class="nav-link" href="#">특가/혜택</a></li>
-							<li class="nav-item submenu dropdown"><a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown"
-								role="button" aria-haspopup="true" aria-expanded="false">커뮤니티</a>
+							<li class="nav-item submenu dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown"
+								role="button" aria-haspopup="true" aria-expanded="false" href="community.do">커뮤니티</a>
 								<ul class="dropdown-menu">
-									<li class="nav-item"><a class="nav-link" href="#">요리 </a></li>
-									<li class="nav-item"><a class="nav-link" href="#">생활</a></li>
-									<li class="nav-item"><a class="nav-link" href="#">건강</a></li>
-									<li class="nav-item"><a class="nav-link" href="#">번개팅</a></li>
+									<li class="nav-item"><a class="nav-link" href="community_board1.do">요리 </a></li>
+									<li class="nav-item"><a class="nav-link" href="community_board2.do">생활</a></li>
+									<li class="nav-item"><a class="nav-link" href="community_board3.do">건강</a></li>
+									<li class="nav-item"><a class="nav-link" href="community_board4.do">번개팅</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -86,13 +86,13 @@
 	<!--================ End Header Menu Area =================-->
 
 
-	<script src="../../resources/vendors/jquery/jquery-3.2.1.min.js"></script>
-	<script src="../../resources/vendors/bootstrap/bootstrap.bundle.min.js"></script>
-	<script src="../../resources/vendors/skrollr.min.js"></script>
-	<script src="../../resources/vendors/owl-carousel/owl.carousel.min.js"></script>
-	<script src="../../resources/vendors/nice-select/jquery.nice-select.min.js"></script>
-	<script src="../../resources/vendors/jquery.ajaxchimp.min.js"></script>
-	<script src="../../resources/vendors/mail-script.js"></script>
-	<script src="../../resources/js/main.js"></script>
+	<script src="resources/vendors/jquery/jquery-3.2.1.min.js"></script>
+	<script src="resources/vendors/bootstrap/bootstrap.bundle.min.js"></script>
+	<script src="resources/vendors/skrollr.min.js"></script>
+	<script src="resources/vendors/owl-carousel/owl.carousel.min.js"></script>
+	<script src="resources/vendors/nice-select/jquery.nice-select.min.js"></script>
+	<script src="resources/vendors/jquery.ajaxchimp.min.js"></script>
+	<script src="resources/vendors/mail-script.js"></script>
+	<script src="resources/js/main.js"></script>
 </body>
 </html>
