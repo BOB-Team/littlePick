@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.itclass.project">
+	<logger name="com.littlepick.basic">
 		<level value="info" />
 	</logger>
 	

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace='com' >
+	<select id="getDate" resultType="string">
+		SELECT sysdate() FROM dual
+	</select>
+	
+	<select id="selectBoard" resultType="comVO">
+		SELECT * FROM board_tb b inner join member_tb m on b.user_num = m.user_num
+		WHERE content_num=13
+	</select>
+	
+	<insert id="insertBoard" parameterType="comVO">
+		INSERT INTO board_tb (content_num, user_num, board_name, content_title, content
+		,content_image, content_date, content_count)
+		VALUES (null, 2, #{board_name}, #{content_title}, #{content}
+		<choose>
+				<when test="content_image != null">
+					, #{content_image}
+				</when>		
+				<otherwise>
+					, 'img_default.png'
+				</otherwise>
+				
+			</choose>
+		, sysdate(), 0)
+	</insert>
+	
+	<select id="commentCount" parameterType="int" resultType="int" >
+		SELECT count(*) FROM comment_tb c inner join board_tb b on c.content_num = b.content_num
+		WHERE c.content_num = #{content_num}
+	</select>
+	
+</mapper>
