@@ -3,18 +3,30 @@
 
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,500");
 
+* {
+  margin: 0px;
+  padding: 0px;
+  text-decoration: none;
+  font-family:sans-serif;
+
+}
+
 body {
 	color: #777;
 	font-family: "Roboto", sans-serif;
-	font-size: 15px;
-	font-weight: 400;
-	line-height: 1.667
+	font-size: 5px;
+	font-weight: 500;
+	line-height: 1.667;
+	
+	background-image:#34495e;
 }
+
 
 ul {
 	list-style-type: none;
 	margin: 0;
-	padding: 0
+	padding: 0;
+  
 }
 
 a:hover {
@@ -55,7 +67,7 @@ h3, .h3 {
 	h3, .h3 {
 		font-size: 36px
 	}
-}
+} 
 
 h4, .h4 {
 	font-size: 20px;
@@ -94,7 +106,7 @@ a {
 		margin: 120px 0
 	}
 	.section-margin.calc-60px {
-		margin: 60px 0 70px 0
+		margin: 120px 0 70px 0
 	}
 }
 
@@ -4302,8 +4314,8 @@ scale
 
 .s_product_text p {
 	padding-top: 20px;
-/* 	border-top: 1px dotted #eeeeee;
-	border-bottom: 1px dotted #eeeeee; */
+	border-top: 1px dotted #eeeeee;
+	border-bottom: 1px dotted #eeeeee;
 	margin-top: 20px;
 	padding-bottom: 26px;
 	margin-bottom: 0
@@ -4367,7 +4379,7 @@ scale
 }
 
 .product_count {
-	display: flex;
+	display: inline-block;
 	position: relative;
 	margin-bottom: 24px
 }
@@ -4381,40 +4393,38 @@ scale
 
 .product_count input {
 	width: 76px;
-	height: 32px;
 	border: 1px solid #eeeeee;
 	border-radius: 3px;
-	padding-left: 10px;
-	text-align: center;
+	padding-left: 10px
 }
 
 .product_count button {
-	display: flex;
+	display: block;
 	border: none;
 	background: transparent;
 	box-shadow: none;
 	cursor: pointer;
-/* 	position: absolute; */
+	position: absolute;
 	right: 0px;
-	font-size: 24px;
+	font-size: 14px;
 	color: #cccccc;
-/* 	-webkit-transition: all 0.3s ease 0s;
+	-webkit-transition: all 0.3s ease 0s;
 	-moz-transition: all 0.3s ease 0s;
 	-o-transition: all 0.3s ease 0s;
-	transition: all 0.3s ease 0s */
+	transition: all 0.3s ease 0s
 }
 
 .product_count button:hover {
 	color: #222
 }
 
-/* .product_count .increase {
+.product_count .increase {
 	top: -4px
 }
 
 .product_count .reduced {
 	bottom: -8px
-} */
+}
 
 .product_description_area {
 	padding-bottom: 100px;
@@ -4801,6 +4811,7 @@ scale
 	padding-bottom: 60px !important
 }
 
+
 @media ( min-width : 1000px) {
 	.footer-only {
 		padding-top: 115px !important;
@@ -4810,17 +4821,8 @@ scale
 
 /* === 추가 코드  === */
 
-.header_area {
-	display: flex;
-	flex-direction: column;	
-	justify-content: center;
-	width:100%;
-	margin :auto;
-
-}
-
-
 .main_menu{
+	/* border-bottom : 3px solid #384AEB; */
 	margin-bottom : 0px;
 }
 .top_container{
@@ -4837,13 +4839,8 @@ scale
 	margin: 8px 8px;
 
 }
-/* 로고 이미지 크기 조절 */ 
-.navbar-brand.logo_h>img {
-	height:120px;
-	/* border: 3px solid blue; */
-}
-
-/* #navbarSupportedContent{
+/* 
+#navbarSupportedContent{
 	display:flex;
 	justify-content: center;
 	border: 3px solid red;
@@ -4901,17 +4898,9 @@ scale
 	
 }
 
-/* 상품 리스트 : 페이지 박스 */
-.btn-group.pagination{
-	display:flex;
-	justify-content: center;
-}
-/* 상품 리스트 :  페이지 번호 */
-.btn-group.pagination li{
-	display:flex;
-	margin:5px;
-	padding:8px;
-}
+/* .fas {
+	margin-left:12px;
+} */
 	
 
 #search_input_box{
@@ -4924,65 +4913,12 @@ scale
 	 
 }
 
-/* 롤링배너  */
-#banner_wrap{
-	position:relative;
-	width:1110px;
-	margin:0 auto;	
-	
-}
-
-.bx-wrapper {
-	-moz-box-shadow: none;
-  	-webkit-box-shadow: none;
-  	box-shadow: none;
-  	border: 0;
-}
-
-#prevBtn{position:absolute;left:0;top:10px;} 
-#nextBtn{position:absolute;right:15px;top:10px;} 
-
-
-/* 상품 상세페이지 : 수량 증가/감소 버튼  */
-/* product_count 관련 수정  */
-
-.product_total_area{
-	display: flex;
-	flex-direction: column;
-	margin-bottom:24px;
-	
-}
-.product_total_area > div{
-	display: flex;
-	flex-direction: row;
-	justify-content:flex-end;
-}
-/*재고알림, 장바구니 버튼 정렬*/
-.stock_cart_area{
-	display: flex;
-	justify-content:flex-end;
-}
-/* 재고 알림 버튼 */
-.button.stock-alarm-btn{
-	background-color:#cccccc;
-	border: 1px solid #cccccc;
-	margin-right:24px;
-}
 .rolling-banner {
 	display : flex;
 	width : 100%;
 	justify-content: center; 
 }
 
-.blog-banner-area{
-	height:80px;
-}
-
-.text-category{
-	padding-top:12px;
-}
-
-/* footer 폰트 색상 */
 .list.instafeed.d-flex.flex-wrap a{
 	color: #7B838A;
 }
@@ -4990,10 +4926,69 @@ scale
 
 
 
+.table2 {
+  position:absolute;
+  width:400px;
+  height:400px;
+  padding: 30px, 20px;
+  background-color:#FFFFFF;
+  text-align:center;
+  top:40%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  border-radius: 15px;
+  margin: 30px;
+  
+ 
+}
+
+/*.table2.h2 {
+  text-align: center;
+  margin: 30px;
+}*/
+
+.normalbold.tb_ttl {
+  
+  border-bottom: 2px solid #adadad;
+  margin: 30px;
+  padding: 10px 10px;
+  
+}
 
 
 
+.normal {
+	
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
 
+}
 
+.confirm {
+  position:relative;
+  left:40%;
+  transform: translateX(-50%);
+  margin-bottom: 40px;
+  width:80%;
+  height:40px;
+  background: linear-gradient(125deg,#81ecec,#6c5ce7,#81ecec);
+  background-position: left;
+  background-size: 200%;
+  color:white;
+  font-weight: bold;
+  border:none;
+  cursor:pointer;
+  transition: 0.4s;
+  display:inline;;
+}
+
+.confirm:hover {
+  background-position: right;
+}
 
 

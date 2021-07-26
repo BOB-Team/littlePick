@@ -74,7 +74,7 @@ $(function() {
   
   //------- fixed navbar --------//  
   $(window).scroll(function(){
-    var sticky = $('#navbarSupportedContent'),
+    var sticky = $('.header_area'),
     scroll = $(window).scrollTop();
 
     if (scroll >= 100) sticky.addClass('fixed');
@@ -114,21 +114,6 @@ $(function() {
   
   }
   
-  
-  
-  //추가 코드 ==============================
-  //[메인 페이지] : 롤링 배너 
-  $('#slide_banner').bxSlider({
-	  minSlides:1,
-	  maxSlides:1,
-	  slideMargin : 10, 
-	  slideWidth : 1110,
-	  auto : true,
-	  speed:500,
-	  moveSlides : 1,
-	  pager:false
-  });
-
 });
 
 

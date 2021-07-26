@@ -18,7 +18,7 @@
 </head>
 <body>
 
-<%@ include file="header.jsp" %>
+<%@ include file="../../header.jsp" %>
 
 
   <!-- ================ start banner area ================= -->	
@@ -79,7 +79,7 @@
 	</section>
 	<!--================End Login Box Area =================-->
 
-<%@ include file="footer.jsp" %>
+<%@ include file="../../footer.jsp" %>
   <script src="resources/vendors/jquery/jquery-3.2.1.min.js"></script>
   <script src="resources/vendors/bootstrap/bootstrap.bundle.min.js"></script>
   <script src="resources/vendors/skrollr.min.js"></script>

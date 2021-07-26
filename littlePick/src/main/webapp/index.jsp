@@ -8,11 +8,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>LittlePick- Home</title>
+<link rel="icon" href="resources/img/Fevicon.png" type="resources/image/png">
 </head>
 <body>
 	
-	<%-- <%@ include file="WEB-INF/views/main.jsp"%>  --%>
-	<jsp:forward page="main.do?smallpack=1"></jsp:forward>
- 
+	<%@ include file="main.jsp"%> 
+
 </body>
 </html>

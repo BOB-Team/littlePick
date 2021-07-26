@@ -15,12 +15,12 @@
 <link rel="stylesheet" href="resources/vendors/nice-select/nice-select.css">
 <link rel="stylesheet" href="resources/vendors/nouislider/nouislider.min.css">
 
-  <link rel="stylesheet" href="resources/css/style.css">
+  <!--<link rel="stylesheet" href="resources/css/style.css">-->
 
 </head>
 <body>
 
-<%@ include file="header.jsp"%> 
+<%@ include file="../../header.jsp"%> 
 
   <!-- ================ start banner area ================= -->	
 	<section class="blog-banner-area" id="category">
@@ -86,7 +86,7 @@
 	<!--================End Login Box Area =================-->
 
 
-<%@ include file="footer.jsp"%>
+<%@ include file="../../footer.jsp"%>
 
   <script src="resources/vendors/jquery/jquery-3.2.1.min.js"></script>
   <script src="resources/vendors/bootstrap/bootstrap.bundle.min.js"></script>
