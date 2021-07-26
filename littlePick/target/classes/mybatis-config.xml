@@ -6,9 +6,10 @@
 
 <!-- 별칭 설정 -->
 
-<!-- <typeAliases>
-	<typeAlias type="com.javassem.domain.MemberVO" alias="member"/>
-</typeAliases> -->
+<typeAliases>
+	<!-- <typeAlias type="com.javassem.domain.MemberVO" alias="member"/> -->
+	<!-- <typeAlias type="com.javassem.domain.ProductVO" alias="product"/> -->
+</typeAliases>
 
 </configuration>
 

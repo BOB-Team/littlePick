@@ -17,21 +17,23 @@
 
 <bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource">
 	<property value="com.mysql.cj.jdbc.Driver" name="driverClassName"/>
-	<property value="jdbc:mysql://databasestore.c0vb0dx4togj.us-east-2.rds.amazonaws.com/" name="url"/>
+	<property value="jdbc:mysql://databasestore.c0vb0dx4togj.us-east-2.rds.amazonaws.com/little" name="url"/>
 	<property value="admin" name="username"/>
 	<property value="rlawnsgh*" name="password"/>
 </bean>
 	
-<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+<!-- 
+ <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
  	<property name="dataSource" ref="dataSource" />
   <property name="configLocation" value="classpath:/mybatis-config.xml"></property>
   <property name="mapperLocations" value="classpath:mappers/**/*Mapper.xml"></property>
  </bean>
+
  
  <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
    <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
  </bean>
- 
+ -->
     		
 </beans>
 
