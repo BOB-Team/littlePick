@@ -22,7 +22,8 @@
 		<div class="top_menu_container">
 			<ul class="top_menu_list">
 				<li class="top_menu_item"><a class="top_menu_anchor" href="register.do">회원가입</a></li>
-				<li class="top_menu_item"><a class="top_menu_anchor" href="login.do">로그인</a></li>
+<!--  				<li class="top_menu_item"><a class="top_menu_anchor" href="login.do">로그인</a></li>			-->
+				<li class="top_menu_item"><a class="top_menu_anchor" href="index_AdminPage.jsp">로그인</a></li>
 				<li class="top_menu_item"><a class="top_menu_anchor" href="#">고객센터</a></li>		
 			</ul>
 		</div>
