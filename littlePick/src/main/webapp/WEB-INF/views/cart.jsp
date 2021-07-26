@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<%@ include file="../../header.jsp" %>
+<%@ include file="header.jsp" %>
 
  <!--================Cart Area =================-->
   <section class="cart_area">
@@ -203,7 +203,7 @@
 
 
 
-<%@ include file="../../footer.jsp" %>
+<%@ include file="footer.jsp" %>
 
 
 

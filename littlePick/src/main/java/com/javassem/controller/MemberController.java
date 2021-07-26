@@ -21,28 +21,30 @@ public class MemberController {
 	/*
 	 * 
 	 * // /user/아래, 여러개 있을 경우 변수로 받아서 처리하면 // 여러개를 같이 처리할 수 있다. // 아니면 userLogin,
-	 * userJoin을 각각 처리해줘야 함 //@RequestMapping("{url}.do") //userJoin을 변수처리 ,, public
-	 * String sample(@PathVariable String url) { //경로변수 스티커 부착 return "/user/"+url;
+	 * userJoin을 각각 처리해줘야 함 //@RequestMapping("{url}.do") //userJoin을 변수처리 ,, 
+	 * public String sample(@PathVariable String url) { //경로변수 스티커 부착 return "/user/"+url;
 	 * }
 	 * 
 	 * 
-	 * //서비스 변수 //@Autowired MemberService memberService;
+	 * //서비스 변수 
+	 * //@Autowired 
+	 * MemberService memberService;
 	 * 
-	 * //@RequestMapping("userInsert.do") //상위 /user/경로 안써도 됨 ,, public ModelAndView
-	 * insert(MemberVO memberVO) {
+	 * //@RequestMapping("userInsert.do") //상위 /user/경로 안써도 됨 ,, 
+	 * public ModelAndView insert(MemberVO memberVO) {
 	 * System.out.println("userInsert.do 요청환인");
 	 * System.out.println(memberVO.getUserId());
 	 * System.out.println(memberVO.getUserName());
-	 * 
 	 * 
 	 * int result = memberService.userInsert(memberVO); String message =
 	 * "가입되지 않았습니다."; if(result>0) message = memberVO.getUserName() +"님, 가입을 축하";
 	 * 
 	 * ModelAndView mv = new ModelAndView(); mv.setViewName("user/userJoin_ok");
-	 * mv.addObject("result",result); mv.addObject("message", message); return mv; }
+	 * mv.addObject("result",result); mv.addObject("message", message); return mv; 
+	 * }
 	 * 
-	 * //@RequestMapping("login.do") public String login(MemberVO vo, HttpSession
-	 * session) {
+	 * //@RequestMapping("login.do") 
+	 * public String login(MemberVO vo, HttpSession session) {
 	 * 
 	 * 1. 사용자 입력값 받아오기 MemberVO vo 2. DB에 해당 정보가 있는지 확인 3. 해당정보가 있다면 (로그인 성공이라면)
 	 * /user/Main.jsp 뷰페이지 지정 4. 그렇지 않다면 (로그인 실패시) /user/userLogin.jsp 뷰페이지 지어

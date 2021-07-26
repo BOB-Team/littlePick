@@ -94,7 +94,7 @@ a {
 		margin: 120px 0
 	}
 	.section-margin.calc-60px {
-		margin: 120px 0 70px 0
+		margin: 60px 0 70px 0
 	}
 }
 
@@ -306,7 +306,7 @@ a {
 	border: 0;
 	color: #ffffff;
 	font-weight: 600;
-	font-size: 18px;
+	font-size: 18px
 }
 
 #search_input_box .form-control:focus {
@@ -555,14 +555,14 @@ a {
 		max-width: 360px;
 		margin: 0 auto
 	}
- 	.blog_categorie_area .col-lg-4 {
+	.blog_categorie_area .col-lg-4 {
 		margin-top: 30px
-	} 
+	}
 	.blog_area {
 		padding-bottom: 80px
 	}
 	.single-post-area .blog_right_sidebar {
-		margin-top: 30px;
+		margin-top: 30px
 	}
 	.contact_info {
 		margin-bottom: 50px
@@ -1171,7 +1171,7 @@ a {
 @media ( min-width : 800px) {
 	.button-subscribe {
 		padding: 12px 35px;
-		font-size: 15px;
+		font-size: 15px
 	}
 }
 
@@ -1180,8 +1180,8 @@ a {
 	font-size: 14px;
 	background: #f9f9ff;
 	border-color: #EEEEEE;
-	border-radius: 5px; /* 수정함 */
-	color: #222;
+	border-radius: 0;
+	color: #222
 }
 
 .button-blog:hover {
@@ -1558,12 +1558,12 @@ a {
 	margin-left: 2px
 }
 
-  .blog_categorie_area {
+.blog_categorie_area {
 	padding-top: 30px;
 	padding-bottom: 30px
-}  
+}
 
-/*  @media ( min-width : 900px) {
+@media ( min-width : 900px) {
 	.blog_categorie_area {
 		padding-top: 80px;
 		padding-bottom: 80px
@@ -1575,13 +1575,12 @@ a {
 		padding-top: 120px;
 		padding-bottom: 120px
 	}
-}  */
+}
 
 .categories_post {
 	position: relative;
 	text-align: center;
-	cursor: pointer;
-	margin-bottom:30px;/* 추가해줌 */
+	cursor: pointer
 }
 
 .categories_post img {
@@ -1662,7 +1661,7 @@ a {
 	color: #222;
 	font-size: 16px;
 	font-weight: 600;
-	/* padding-left: 15px; */
+	padding-left: 15px;
 	line-height: 20px;
 	vertical-align: middle
 }
@@ -1706,9 +1705,9 @@ a {
 }
 
 .blog_right_sidebar {
-	/* border: 1px solid #eeeeee; */
-	background: white; /* #fafaff; 수정함 */
-	padding-top: 30px /* 수정함 */
+	border: 1px solid #eeeeee;
+	background: #fafaff;
+	padding: 30px
 }
 
 .blog_right_sidebar .widget_title {
@@ -1725,13 +1724,13 @@ a {
 	font-size: 14px;
 	line-height: 29px;
 	border: 0px;
-	width: 70%; /*수정*/
+	width: 100%;
 	font-weight: 300;
 	color: #fff;
 	padding-left: 20px;
 	border-radius: 45px;
 	z-index: 0;
-	background: #384aeb;
+	background: #384aeb
 }
 
 .blog_right_sidebar .search_widget .input-group .form-control.placeholder
@@ -1937,7 +1936,7 @@ a {
 }
 
 .blog_right_sidebar .tag_cloud_widget ul li {
-	display: inline-block;
+	display: inline-block
 }
 
 .blog_right_sidebar .tag_cloud_widget ul li a {
@@ -1948,7 +1947,7 @@ a {
 	margin-bottom: 8px;
 	transition: all 0.3s ease 0s;
 	color: #222;
-	font-size: 14px; /* 12-> 14로 변경 */
+	font-size: 12px
 }
 
 .blog_right_sidebar .tag_cloud_widget ul li a:hover {
@@ -4303,8 +4302,8 @@ scale
 
 .s_product_text p {
 	padding-top: 20px;
-	border-top: 1px dotted #eeeeee;
-	border-bottom: 1px dotted #eeeeee;
+/* 	border-top: 1px dotted #eeeeee;
+	border-bottom: 1px dotted #eeeeee; */
 	margin-top: 20px;
 	padding-bottom: 26px;
 	margin-bottom: 0
@@ -4368,7 +4367,7 @@ scale
 }
 
 .product_count {
-	display: inline-block;
+	display: flex;
 	position: relative;
 	margin-bottom: 24px
 }
@@ -4382,38 +4381,40 @@ scale
 
 .product_count input {
 	width: 76px;
+	height: 32px;
 	border: 1px solid #eeeeee;
 	border-radius: 3px;
-	padding-left: 10px
+	padding-left: 10px;
+	text-align: center;
 }
 
 .product_count button {
-	display: block;
+	display: flex;
 	border: none;
 	background: transparent;
 	box-shadow: none;
 	cursor: pointer;
-	position: absolute;
+/* 	position: absolute; */
 	right: 0px;
-	font-size: 14px;
+	font-size: 24px;
 	color: #cccccc;
-	-webkit-transition: all 0.3s ease 0s;
+/* 	-webkit-transition: all 0.3s ease 0s;
 	-moz-transition: all 0.3s ease 0s;
 	-o-transition: all 0.3s ease 0s;
-	transition: all 0.3s ease 0s
+	transition: all 0.3s ease 0s */
 }
 
 .product_count button:hover {
 	color: #222
 }
 
-.product_count .increase {
+/* .product_count .increase {
 	top: -4px
 }
 
 .product_count .reduced {
 	bottom: -8px
-}
+} */
 
 .product_description_area {
 	padding-bottom: 100px;
@@ -4809,8 +4810,17 @@ scale
 
 /* === 추가 코드  === */
 
+.header_area {
+	display: flex;
+	flex-direction: column;	
+	justify-content: center;
+	width:100%;
+	margin :auto;
+
+}
+
+
 .main_menu{
-	/* border-bottom : 3px solid #384AEB; */
 	margin-bottom : 0px;
 }
 .top_container{
@@ -4827,8 +4837,13 @@ scale
 	margin: 8px 8px;
 
 }
-/* 
-#navbarSupportedContent{
+/* 로고 이미지 크기 조절 */ 
+.navbar-brand.logo_h>img {
+	height:120px;
+	/* border: 3px solid blue; */
+}
+
+/* #navbarSupportedContent{
 	display:flex;
 	justify-content: center;
 	border: 3px solid red;
@@ -4886,9 +4901,17 @@ scale
 	
 }
 
-/* .fas {
-	margin-left:12px;
-} */
+/* 상품 리스트 : 페이지 박스 */
+.btn-group.pagination{
+	display:flex;
+	justify-content: center;
+}
+/* 상품 리스트 :  페이지 번호 */
+.btn-group.pagination li{
+	display:flex;
+	margin:5px;
+	padding:8px;
+}
 	
 
 #search_input_box{
@@ -4901,287 +4924,76 @@ scale
 	 
 }
 
+/* 롤링배너  */
+#banner_wrap{
+	position:relative;
+	width:1110px;
+	margin:0 auto;	
+	
+}
+
+.bx-wrapper {
+	-moz-box-shadow: none;
+  	-webkit-box-shadow: none;
+  	box-shadow: none;
+  	border: 0;
+}
+
+#prevBtn{position:absolute;left:0;top:10px;} 
+#nextBtn{position:absolute;right:15px;top:10px;} 
+
+
+/* 상품 상세페이지 : 수량 증가/감소 버튼  */
+/* product_count 관련 수정  */
+
+.product_total_area{
+	display: flex;
+	flex-direction: column;
+	margin-bottom:24px;
+	
+}
+.product_total_area > div{
+	display: flex;
+	flex-direction: row;
+	justify-content:flex-end;
+}
+/*재고알림, 장바구니 버튼 정렬*/
+.stock_cart_area{
+	display: flex;
+	justify-content:flex-end;
+}
+/* 재고 알림 버튼 */
+.button.stock-alarm-btn{
+	background-color:#cccccc;
+	border: 1px solid #cccccc;
+	margin-right:24px;
+}
 .rolling-banner {
 	display : flex;
 	width : 100%;
 	justify-content: center; 
 }
 
+.blog-banner-area{
+	height:80px;
+}
+
+.text-category{
+	padding-top:12px;
+}
+
+/* footer 폰트 색상 */
 .list.instafeed.d-flex.flex-wrap a{
 	color: #7B838A;
 }
 
-/* 영주 수정 - 커뮤니티 관련 */
-.board-title{
-	height: 100px;
-	padding: 30px 0 1px 100px;
-}
-
-.board-banner{
-	margin-top:20px;
-}
-.board-write{
-	margin-left:1080px;
-}
-
-.board-search{
-	padding: 10px 0 30px 400px;
-	width: 850px;
-	
-}
-
-/*
-위에 이 부분 수정함
-
-.blog_right_sidebar {
-	border: 1px solid #eeeeee;
-	background: white; #fafaff; 수정함
-	padding: 30px; 얘는 top만
-} */
-
-/*
-위에 이 두 부분 comment out
-
-  @media ( min-width : 900px) {
-	.blog_categorie_area {
-		padding-top: 80px;
-		padding-bottom: 80px
-	}
-}
-
-@media ( min-width : 1100px) {
-	.blog_categorie_area {
-		padding-top: 120px;
-		padding-bottom: 120px
-	}
-}  */
-
-/*
-위에 이 부분 폰트사이즈 14로 변경해줌
-
- .blog_right_sidebar .tag_cloud_widget ul li a {
-	display: inline-block;
-	border: 1px solid #eee;
-	background: #fff;
-	padding: 0px 13px;
-	margin-bottom: 8px;
-	transition: all 0.3s ease 0s;
-	color: #222;
-	font-size: 14px; 12-> 14로 변경
-} */
-
-/*
-위에 이 부분 중 padding-left 주석처리!
-.blog_info .blog_meta li a i {
-	color: #222;
-	font-size: 16px;
-	font-weight: 600;
-	padding-left: 15px;
-	line-height: 20px;
-	vertical-align: middle
-} */
-
-.board-name p{
-	font-size: 30px;
-}
-.board-name a{
-	
-	font-size: 15px;
-	padding-left: 1030px;
-	margin-bottom:10px;
-}
-.board-select a{
-	padding-left: 1030px;
-	margin-bottom:10px;
-}
-
-/* 위에서 margin-bottom 추가함
-
- .categories_post {
-	position: relative;
-	text-align: center;
-	cursor: pointer;
-	margin-bottom:30px;추가해줌
-	} */
-	
-.blog_right_sidebar .search_widget .input-group .form-select {
-	font-size: 14px;
-	line-height: 29px;
-	border: 0px;
-	width: 25%;
-	font-weight: 300;
-	color: #fff;
-/*  	padding-left: 20px; */
-	border-radius: 45px;
-	z-index: 0;
-	background: #384aeb;
-	margin-right: 10px;
-	height:38px;
-	padding-top:5px;
-
-}
 
 
-.form-select li.option.selected{
-	color: black;
-} 
 
 
-.form-select ul.list{
-	font-size: 14px;
-	line-height: 29px;
-	border: 0px;
-	color: black;
-	z-index: 0;
-	background: white;
-	border-radius: 20px;
-	padding: 0 10px 0 10px;
-
-} 
-/*위에서수정함
-
- .blog_right_sidebar .search_widget .input-group .form-control {
-	font-size: 14px;
-	line-height: 29px;
-	border: 0px;
-	width: 70%; 수정
-	font-weight: 300;
-	color: #fff;
-	padding-left: 20px;
-	border-radius: 45px;
-	z-index: 0;
-	background: #384aeb
-} */
-
-/* 위에서 수정함
-
- .button-blog {
-	padding: 5px 31px;
-	font-size: 14px;
-	background: #f9f9ff;
-	border-color: #EEEEEE;
-	border-radius: 5px; 수정함
-	color: #222;
-} */
-
-.board-submit-btn a{
-	float: right;
-	margin-right: 100px;
-}
-
-/* 커뮤니티 글 보기 관련 */
-.board-view-title{
-	
-	padding: 100px 200px 150px 200px;
-}
-
-.board-view-title h3{
-	padding-left: 30px;
-	padding-right: 30px;
-}
-
-.board-view-title .blog_info{
-	padding-left: 30px;
-	
-}
-
-.board-view-content-img{
-	padding: 10px 0 20px 350px;
-}
-
-.board-view-content{
-	padding: 10px 200px 70px 200px;
-}
-.board-view-content a{
-	font-size: 18px;
-	
-}
-
-.blog_info .board-view-info{
-	float: left;
-	
-}
-
-.blog_info .board-view-button{
-	float: right;
-}
-
-/* 커뮤니티 글 보기 댓글 관련 */
-.board-view-comment{
-	
-	padding: 50px 200px 50px 200px;
-	background: #fafaff;
-	
-}
-.board-view-comment-profile{
-	float:left;
-}
-.board-view-comment-profile a{
-	font-size: 18px;
-	font-weight: bold;
-}
-
-.board-view-comment-text a{
-	margin-left: 10px;
-	margin-top: 10px;
-	font-size: 16px;
-	
-}
-.board-view-comment-sub a{
-	margin-right: 10px;
-}
-
-.board-view-recomment-list{ /*대댓글*/
-	margin-left: 70px;
-}
-
-/* 커뮤니티 글 작성하기*/
-.board-input-area{
-	
-	padding: 100px 200px 150px 200px;
-}
-
-.board-input-area h3{
-	padding: 0 30px 70px 30px;
-	
-}
-
-.board-input-area .board-select{
-	float: left;
-	padding-left: 30px;
-}
-.board-input-button{
-	float: right;
-	padding-bottom: 40px;
-	padding-right: 30px;
-}
-
-.board-input-button input{
-	font-size: 15px;
-}
-
-.board-input-area .form-control {
-	padding: 8px 20px;
-	background: #fff;
-	border-radius: 0px;
-	width: 100%;
-	font-size: 17px;
-	color: #777777;
-	border: 1px solid;
-}
-
-.board-input-title{
-	margin: 40px 30px 40px 30px;
-}
-.board-input-title input{
-	font-weight:bold;
-}
 
 
-.board-input-content{
-	margin: 40px 30px 40px 30px;
-}
 
-.board-input-image{
-	margin: 40px 30px 40px 30px;
-}
+
+
+
