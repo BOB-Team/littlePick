@@ -1,0 +1,82 @@
+
+.table2 {
+position:absolute;
+  width:450px;
+  height:500px;
+  padding: 30px, 20px;
+  background-color:#FFFFFF;
+  text-align:center;
+  top:40%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  border-radius: 15px;
+  margin: 30px;
+ 
+}
+
+/*.table2.h2 {
+  text-align: center;
+  margin: 30px;
+}*/
+
+.normalbold.tb_ttl {
+  
+  border-bottom: 2px solid #adadad;
+  margin: 30px;
+  padding: 10px 10px;
+  
+}
+
+
+
+.normal {
+	
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+
+}
+
+.confirm {
+  position:relative;
+  left:40%;
+  transform: translateX(-50%);
+  margin-bottom: 40px;
+  width:80%;
+  height:40px;
+  background: linear-gradient(125deg,#81ecec,#6c5ce7,#81ecec);
+  background-position: left;
+  background-size: 200%;
+  color:white;
+  font-weight: bold;
+  border:none;
+  cursor:pointer;
+  transition: 0.4s;
+  display:inline;;
+}
+
+.confirm:hover {
+  background-position: right;
+}
+
+
+.table2 .daun-sub a{
+	font-size:12px;
+	color:gray;
+}
+.table2 .login-error a{
+	font-size: 14px;
+	color:red;
+	font-weight:bold;
+}
+.user_email_btn {
+	float:right;
+}
+.user_nickname_btn {
+	float:right;
+}
+

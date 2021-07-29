@@ -1,15 +1,111 @@
 package com.littlePick.controller;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.littlePick.domain.ProductVO;
+import com.littlePick.service.CartserviceImple;
 
 @Controller
 public class CartController {
-	
-	@RequestMapping("cartList.do")
-	public void cartList() {
-		
+
+	@Autowired
+	CartserviceImple cartService;
+
+	// 장바구니 추가
+	@RequestMapping(value = "cartInsert.do")
+	public String cartInsert(ProductVO vo, HttpSession session) {
+		System.out.println("Controller : cartInsert() 호출");
+		String user_email = (String) session.getAttribute("user_email");
+		vo.setUser_email(user_email);
+
+		System.out.println("이메일 : " + vo.getUser_email());
+		System.out.println("카트번호: " + vo.getCart_num());
+		System.out.println("상품번호:" + vo.getProduct_num());
+		System.out.println("상품수량:" + vo.getProduct_count());
+
+		// 장바구니에 기존 상품이 있는지 검사
+		int count = cartService.cartCount(vo.getProduct_num(), user_email);
+		System.out.println(count);
+		// 장바구니 상품이 없으면
+		if (count == 0) {
+			cartService.cartInsert(vo);
+		}
+		// 장바구니 상품이 있으면
+		else {
+			cartService.cartUpdate(vo);
+		}
+		return "redirect:cartList.do";
 	}
-	
+
+	// 장바구니 목록
+	@RequestMapping("cartList.do")
+	public ModelAndView cartList(HttpSession session, ModelAndView mv) {
+		// session에 저장된 user_name
+		String user_email = (String) session.getAttribute("user_email");
+		Map<String, Object> map = new HashMap<String, Object>();
+		// 장바구니 정보
+		List<ProductVO> list = cartService.cartList(user_email);
+
+		// 장바구니 전체 금액 호출
+		int cartTotal = cartService.cartTotal(user_email);
+
+		// 장바구니 전체 금액에 따라 배송비 구분
+		// 배송료 5만원 이상 무료, 미만 2500원
+		int fee = cartTotal > 50000 ? 0 : 2500;
+
+		map.put("list", list); // 장바구니 정보를 map에 저장
+		map.put("count", list.size()); // 장바구니 상품 유무
+		map.put("cartTotal", cartTotal); // 장바구니 전체 금액
+		map.put("fee", fee); // 배송비
+		map.put("allTotal", cartTotal + fee); // 장바구니 금액 + 배송비
+		mv.setViewName("cartList"); // jsp 파일 이름
+		mv.addObject("map", map); // map 변수 저장
+		System.out.println();
+
+		return mv;
+
+	}
+
+	// 장바구니 삭제 버튼으로 하나씩 삭제
+	@RequestMapping(value = "cartDelete.do", method = RequestMethod.GET)
+	public String cartDelete(int cart_num) {
+		cartService.cartDelete(cart_num);
+		return "redirect:cartList.do";
+	}
+
+	// 장바구니 체크 박스로 선택 삭제
+	@RequestMapping("cartDeleteList.do")
+	@ResponseBody
+	public String cartDeleteList(HttpServletRequest request) {
+		String message = "실패하였습니다.";
+		String[] cart_num_list = request.getParameterValues("cart_num");
+		int size = cart_num_list.length;
+		System.out.println("cart_num_list의 사이즈 : " + size);
+		int[] int_cart_num_list = new int[size];
+
+		// String 배열을 int 배열로 형변화
+		for (int i = 0; i < size; i++) {
+			int_cart_num_list[i] = Integer.parseInt(cart_num_list[i]);
+		}
+		
+		// cart_num_list에 저장된 값만큼 delete 반복
+		for (int i=0; i<size; i++) { 
+			 cartService.cartDelete(int_cart_num_list[i]); 
+		}		 
+		message = "성공하였습니다.";
+		return message;
+	}
 
 }

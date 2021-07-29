@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -39,31 +39,33 @@
 <div class="board-search">
 	<div class="blog_right_sidebar">
 		<div class="single_sidebar_widget search_widget">
+			<form action="community_search.do" method="post">
 			<div class="input-group">
-			<select class="form-select">
-				<option class="form-select" value="title">제목</option>
+			<select class="form-select" name="searchCondition">
+				<option class="form-select" value="content_title">제목</option>
 				<option value="content">내용</option>
-				<option value="user_name">작성자</option>
-				
+				<option value="user_nickname">작성자</option>
 			</select>
-				<input type="text" class="form-control" placeholder="Search Posts">
+				<input type="text" class="form-control" name="searchKeyword" placeholder="커뮤니티 글 검색하기">
 				<span class="input-group-btn">
-					<button class="btn btn-default" type="button">
+					<button class="btn btn-default" type="submit">
 						<i class="lnr lnr-magnifier"></i>
 					</button>
 				</span>
 			</div>
+		</form>
 		</div>
 
-		<!-- <div class="single-sidebar-widget tag_cloud_widget">
+		<div class="single-sidebar-widget tag_cloud_widget">
 			<div class="br"></div>
 			<ul class="list">
-				<li><a href="#"># 조깅</a></li>
-				<li><a href="#"># 전기요금</a></li>
-				<li><a href="#"># 에어컨</a></li>
-				<li><a href="#"># 양파</a></li>
+				<li><a href="community_search.do?searchCondition=content_title&searchKeyword=등산"># 등산</a></li>
+				<li><a href="community_search.do?searchCondition=content_title&searchKeyword=냉라면"># 냉라면</a></li>
+				<li><a href="community_search.do?searchCondition=content_title&searchKeyword=에어컨"># 에어컨</a></li>
+				<li><a href="community_search.do?searchCondition=content_title&searchKeyword=양파"># 양파</a></li>
+				<li><a href="community_search.do?searchCondition=content_title&searchKeyword=음식물"># 음식물</a></li>
 			</ul>
-		</div> -->
+		</div>
 	</div>
 
 </div>
@@ -72,120 +74,41 @@
  <hr>
 
   	<!--================건강 Area =================-->
-  <section class="blog_categorie_area">
+  <section class="commu_area">
     <div class="container">
-    <div class="board-select">
-        <select>
-				<option value="최신순">최신순</option>
-				<option value="조회순">조회순</option>
+		<div class="board-select">
+		<form action="community_board3.do" method="post">
+        <select name="selectOrder">
+				<option value="b.content_num">최신순</option>
+				<option value="b.content_count">조회순</option>
 		</select>
+		<input class="selectOrder_btn" type="submit" value="조회" >
+		</form>
     	<a></a>
     	</div>
-      <div class="row">
+			<div class="row">
+      <c:forEach items="${boardList}" var="board">
+
 				<div class="col-sm-6 col-lg-4 mb-4 mb-lg-0">
 					<div class="categories_post">
-						<a href="single-blog.html"> <img
-							src="resources/img/default/img_default.png" width="350px"
+						<a href="community_board_view.do?content_num=${board.content_num}"> <img
+							src="resources/upload/board/${board.content_image}" width="350px"
 							height="350px">
 						</a>
 						<div class="blog_info">
-							<a href="single-blog.html">
-							<h5>제목</h5></a><br>
-							<a><img
-							src="resources/img/default/user_default.png" width="20px"></a><a>작성자</a><br>
-							<a><i class="lnr lnr-calendar-full"></i> 날짜</a>
-							<a><i class="lnr lnr-eye"></i> 조회수</a>
-							<a><i class="lnr lnr-bubble"></i> 댓글</a>	
+							<a href="community_board_view.do?content_num=${board.content_num}">
+								<h5>${board.content_title}</h5>
+							</a><br> <a><img
+								src="resources/upload/user/${board.user_image}" width="20px" href="#"></a><a href="#">${board.user_nickname}</a><br>
+							<a><i class="lnr lnr-calendar-full"></i>${board.content_date}</a> <a><i
+								class="lnr lnr-eye"></i>${board.content_count}</a>
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-6 col-lg-4 mb-4 mb-lg-0">
-					<div class="categories_post">
-						<a href="single-blog.html"> <img
-							src="resources/img/default/img_default.png" width="350px"
-							height="350px">
-						</a>
-						<div class="blog_info">
-							<a href="single-blog.html">
-							<h5>제목</h5></a><br>
-							<a><img
-							src="resources/img/default/user_default.png" width="20px"></a><a>작성자</a><br>
-							<a><i class="lnr lnr-calendar-full"></i> 날짜</a>
-							<a><i class="lnr lnr-eye"></i> 조회수</a>
-							<a><i class="lnr lnr-bubble"></i> 댓글</a>	
-						</div>
-
-					</div>
-				</div>
-
-		<div class="col-sm-6 col-lg-4 mb-4 mb-lg-0">
-          <div class="categories_post">
-            <a href="single-blog.html">
-            <img src="resources/img/default/img_default.png" width="350px" height="350px">
-            </a>
-            <div class="blog_info">
-							<a href="single-blog.html">
-							<h5>제목</h5></a><br>
-							<a><img
-							src="resources/img/default/user_default.png" width="20px"></a><a>작성자</a><br>
-							<a><i class="lnr lnr-calendar-full"></i> 날짜</a>
-							<a><i class="lnr lnr-eye"></i> 조회수</a>
-							<a><i class="lnr lnr-bubble"></i> 댓글</a>	
-						</div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-4 mb-4 mb-lg-0">
-					<div class="categories_post">
-						<a href="single-blog.html"> <img
-							src="resources/img/default/img_default.png" width="350px"
-							height="350px">
-						</a>
-						<div class="blog_info">
-							<a href="single-blog.html">
-							<h5>제목</h5></a><br>
-							<a><img
-							src="resources/img/default/user_default.png" width="20px"></a><a>작성자</a><br>
-							<a><i class="lnr lnr-calendar-full"></i> 날짜</a>
-							<a><i class="lnr lnr-eye"></i> 조회수</a>
-							<a><i class="lnr lnr-bubble"></i> 댓글</a>	
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-lg-4 mb-4 mb-lg-0">
-					<div class="categories_post">
-						<a href="single-blog.html"> <img
-							src="resources/img/default/img_default.png" width="350px"
-							height="350px">
-						</a>
-						<div class="blog_info">
-							<a href="single-blog.html">
-							<h5>제목</h5></a><br>
-							<a><img
-							src="resources/img/default/user_default.png" width="20px"></a><a>작성자</a><br>
-							<a><i class="lnr lnr-calendar-full"></i> 날짜</a>
-							<a><i class="lnr lnr-eye"></i> 조회수</a>
-							<a><i class="lnr lnr-bubble"></i> 댓글</a>	
-						</div>
-
-					</div>
-				</div>
-
-		<div class="col-sm-6 col-lg-4 mb-4 mb-lg-0">
-          <div class="categories_post">
-            <a href="single-blog.html">
-            <img src="resources/img/default/img_default.png" width="350px" height="350px">
-            </a>
-            <div class="blog_info">
-							<a href="single-blog.html">
-							<h5>제목</h5></a><br>
-							<a><img
-							src="resources/img/default/user_default.png" width="20px"></a><a>작성자</a><br>
-							<a><i class="lnr lnr-calendar-full"></i> 날짜</a>
-							<a><i class="lnr lnr-eye"></i> 조회수</a>
-							<a><i class="lnr lnr-bubble"></i> 댓글</a>	
-						</div>
-          </div>
-        </div>
+			
+			</c:forEach>
+				
+      </div>
         
       </div>
     </div>
@@ -194,7 +117,7 @@
 	<!--================건강 Area 끝 =================-->
 	<!--================페이징 =================-->
 	 
-	<nav class="blog-pagination justify-content-center d-flex">
+	<!-- <nav class="blog-pagination justify-content-center d-flex">
 		<ul class="pagination">
 			<li class="page-item"><a href="#" class="page-link" aria-label="Previous">
 				<span aria-hidden="true">
@@ -210,7 +133,7 @@
 					<span class="lnr lnr-chevron-right"></span>
 				</span></a></li>
 		</ul>
-	</nav>
+	</nav> -->
  	<!--================페이징 끝 =================-->
 
 	<!--================ Start footer Area  =================-->	

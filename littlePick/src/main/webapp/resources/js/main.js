@@ -128,6 +128,9 @@ $(function() {
 	  moveSlides : 1,
 	  pager:false
   });
+  
+  
+
 
 });
 

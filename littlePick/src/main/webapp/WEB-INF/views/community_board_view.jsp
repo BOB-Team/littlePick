@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -31,7 +31,7 @@
 		<!-- 작성자 날짜 조회수 댓글 -->
 		<div class="blog_info">
 			<div class="board-view-info">
-			<a><img src="resources/img/default/user_default.png"width="50px"></a><a>${board.user_nickname}</a><br><br>
+			<a><img src="resources/upload/user/${board.user_image}" width="50px"></a><a>${board.user_nickname}</a><br><br>
 			<a><i class="lnr lnr-calendar-full"></i>${board.content_date}</a>
 			<a><i class="lnr lnr-eye"></i>${board.content_count}</a>
 			<a><i class="lnr lnr-bubble"></i>${count}</a>
@@ -43,7 +43,7 @@
   	<!--================ 글 내용 Area =================-->
   	<div class="board-view-content-img">
 
-  	<a><img src="resources/upload/${board.content_image}" width="600px"></a>
+  	<a><img src="resources/upload/board/${board.content_image}" width="600px"></a>
   	</div>
   	<div class="board-view-content">
   	<a>${board.content}</a><!-- 글 내용 -->
@@ -53,13 +53,13 @@
 	  <!--================댓글 Area =================-->
 	  
 	  <div class="board-view-comment">
-	  <form action="community_comment_save.do" method="post">
+	  <form action="community_comment_save.do?content_num=${board.content_num}" method="post">
 	  		<h4>댓글 ${count}</h4><br> <!-- 댓글 개수 추가하기 -->
 	  		<!-- 댓글쓰기 -->
 	  		<div class="comment-input">
 	  			
 	  			<div class="comment-input-title"> 
-				<input type="text" class="form-control" id="content_title" name="content_title"
+				<input type="text" class="form-control" id="comment_content" name="comment_content"
 					placeholder="댓글을 입력하세요"></div>
 				<div class="comment-input-button">
 				<input type="submit" class="button button-postComment button--active" value="입력"></input>
@@ -67,10 +67,11 @@
 			</div>
 			<!-- 댓글쓰기 끝 -->
 	</form>
+	<c:forEach items="${commentList}" var="comment">
 			<div class="board-view-comment-list">
 	
 	  			<div class="board-view-comment-profile">
-	  	 		<a><img src="resources/img/default/user_default.png"width="50px"></a>
+	  	 		<a><img src="resources/upload/user/${comment.user_image}"width="50px"></a>
 	  			<a>${comment.user_nickname}</a> <!-- 댓글러 -->
 	  			</div>
 	  	
@@ -83,7 +84,7 @@
 	  			</div> 
 	  	
 	  		</div>
-
+	</c:forEach>
 			<!-- 대댓글 추후에 구현 -->
 			<!-- <div class="board-view-recomment-list">
 	

@@ -55,33 +55,39 @@
 				</div>
 				<div class="col-lg-5 offset-lg-1">
 					<div class="s_product_text">
+					<form id="cart-int"action="cartInsert.do" method="get">
 						<h3>${product.product_name }</h3>	
 						<br/>
 						<h2><span id="price">${product.sale_price }</span>원</h2>
 						<br/>
 						<p>${product.product_info }</p>
 						<div class="product_count">
+							
 		              		<label for="qty"><h5>수량:</h5></label>    
 							<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
 		               				class="reduced items-count" type="button"><i class="far fa-minus-square"></i></button>
-		               		<input type="text" name="qty" id="sst" size="2" maxlength="12" value="1" title="Quantity:" class="input-text qty">
+		               		<input type="hidden" name="product_num" value=${product.product_num }>
+		               		<input type="text" name="product_count" id="sst" size="2" maxlength="12" value="1" title="Quantity:" class="input-text qty">
 		               		<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
 									class="increase items-count" type="button"><i class="far fa-plus-square"></i></button>
-		               				<br/><br/>          
+							
+		               		<br/><br/>          
 						</div>
 						<div class="product_total_area">
 						<div><label><h5>총 상품 금액:&nbsp;&nbsp;</h5></label><label><h2><span id="product_total">${product.sale_price }</span>원</h2></label><br/></div>
 						<div><h5>로그인 후, 회원할인가와 적립혜택 제공</h5></div>
 						</div>
 						<div class="stock_cart_area">
-						<a class="button stock-alarm-btn" href="#">재고알림</a><a class="button primary-btn" id="cart-in"href="#">장바구니 담기</a>     
+						<a class="button stock-alarm-btn" href="#">재고알림</a><a class="button primary-btn" onclick="document.getElementById('cart-int').submit();">장바구니 담기</a>     
 						</div>
 <!-- 					<div class="card_area d-flex align-items-center">
 							<a class="icon_btn" href="#"><i class="lnr lnr lnr-diamond"></i></a>
 							<a class="icon_btn" href="#"><i class="lnr lnr lnr-heart"></i></a>
 						</div> 
--->
+-->					
+					</form>
 					</div>
+					
 				</div>
 			</div>
 		</div>

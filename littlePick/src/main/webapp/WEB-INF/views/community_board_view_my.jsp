@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
     
 <!DOCTYPE html>
 <html lang="ko">
@@ -26,96 +27,74 @@
 
 <!-- 게시판 명 -->
 	<div class="board-view-title">
-		<h4>카테고리명</h4><br>
-		<h3>게시글 제목</h3>
+		<h4>${board.board_name}</h4><br> <!-- 카테고리명 -->
+		<h3>${board.content_title}</h3>  <!-- 게시글명 -->
+		<!-- 작성자 날짜 조회수 댓글 -->
 		<div class="blog_info">
 			<div class="board-view-info">
-			<a><img src="resources/img/default/user_default.png"width="50px"></a><a>작성자</a><br><br>
-			<a><i class="lnr lnr-calendar-full"></i> 날짜</a>
-			<a><i class="lnr lnr-eye"></i>조회수</a>
-			<a><i class="lnr lnr-bubble"></i> 댓글</a>
+			<a><img src="resources/upload/user/${board.user_image}" width="50px"></a><a>${board.user_nickname}</a><br><br>
+			<a><i class="lnr lnr-calendar-full"></i>${board.content_date}</a>
+			<a><i class="lnr lnr-eye"></i>${board.content_count}</a>
+			<a><i class="lnr lnr-bubble"></i>${count}</a>
 			</div>
+		</div>
 			<div class="board-view-button">
 				<a href="#" class="button button-postComment button--active">수정</a>
 				<a href="#" class="button button-postComment button--active">삭제</a>
 			</div>
-		</div>
-		
 	</div>
+		
 	<!-- ================ 게시판 상단 끝 ================= -->
-  	<!--================ 글 내용 Area =================-->
+  	
+	<!--================ 글 내용 Area =================-->
   	<div class="board-view-content-img">
-  	<a><img src="resources/img/blog/latest-post/l-post-1.jpg"width="600px"></a>
+
+  	<a><img src="resources/upload/board/${board.content_image}" width="600px"></a>
   	</div>
   	<div class="board-view-content">
-  	<a>내용을 입력하는 중입니다. 여러분 행복하세요</a>
+  	<a>${board.content}</a><!-- 글 내용 -->
   	</div>
   	
 	<!--================ 글 내용 Area 끝 =================-->
 	  <!--================댓글 Area =================-->
+	  
 	  <div class="board-view-comment">
-	  		<h4>댓글 2</h4><br>
-	
+	  <form action="community_comment_save.do?content_num=${board.content_num}" method="post">
+	  		<h4>댓글 ${count}</h4><br> <!-- 댓글 개수 추가하기 -->
+	  		<!-- 댓글쓰기 -->
+	  		<div class="comment-input">
+	  			
+	  			<div class="comment-input-title"> 
+				<input type="text" class="form-control" id="comment_content" name="comment_content"
+					placeholder="댓글을 입력하세요"></div>
+				<div class="comment-input-button">
+				<input type="submit" class="button button-postComment button--active" value="입력"></input>
+				</div>
+			</div>
+			<!-- 댓글쓰기 끝 -->
+	</form>
+	<c:forEach items="${commentList}" var="comment">
 			<div class="board-view-comment-list">
 	
 	  			<div class="board-view-comment-profile">
-	  	 		<a><img src="resources/img/default/user_default.png"width="50px"></a>
-	  			<a>댓글러</a>
+	  	 		<a><img src="resources/upload/user/${comment.user_image}"width="50px"></a>
+	  			<a>${comment.user_nickname}</a> <!-- 댓글러 -->
 	  			</div>
 	  	
 	  			<div class="board-view-comment-text">
-	  			<a>헐 너무 예뻐요!! 최고최고ㅜㅜ</a>
+	  			<a>${comment.comment_content}</a> <!-- 댓글내용 -->
 	  			</div>
 	  	
-	  			<div class="board-view-comment-sub">
-	  				<a>날짜</a><a>답글달기<img src="resources/img/default/point.png" width="20px"/></a>
-	  			</div>
+	  			<div class="board-view-comment-sub"><!-- 날짜 -->
+	  				<a>${comment.comment_date}</a><a>답글달기<img src="resources/img/default/point.png" width="20px"/></a>
+	  			</div> 
 	  	
 	  		</div>
-
-			<div class="board-view-recomment-list">
-	
-	  			<div class="board-view-comment-profile">
-	  	 		<a><img src="resources/img/default/user_default.png"width="50px"></a>
-	  			<a>대댓글러</a>
-	  			</div>
-	  	
-	  			<div class="board-view-comment-text">
-	  			<a>감사합니다.</a>
-	  			</div>
-	  	
-	  			<div class="board-view-comment-sub">
-	  				<a>날짜</a><a>답글달기<img src="resources/img/default/point.png" width="20px"/></a><a>삭제</a>
-	  			</div>
-	  	
-	  	</div>
-	  	
-		</div>
+	</c:forEach>
+	</div>
 	  
 	  
 	  <!--================댓글 Area 끝 =================-->
-	  
-	<!--================페이징 =================-->
-	 
-	<nav class="blog-pagination justify-content-center d-flex">
-		<ul class="pagination">
-			<li class="page-item"><a href="#" class="page-link" aria-label="Previous">
-				<span aria-hidden="true">
-					<span class="lnr lnr-chevron-left"></span>
-				</span></a></li>
-			<li class="page-item active"><a href="#" class="page-link">01</a></li>
-			<li class="page-item"><a href="#" class="page-link">02</a></li>
-			<li class="page-item"><a href="#" class="page-link">03</a></li>
-			<li class="page-item"><a href="#" class="page-link">04</a></li>
-			<li class="page-item"><a href="#" class="page-link">05</a></li>
-			<li class="page-item"><a href="#" class="page-link"aria-label="Next">
-				<span aria-hidden="true">
-					<span class="lnr lnr-chevron-right"></span>
-				</span></a></li>
-		</ul>
-	</nav>
- 	<!--================페이징 끝 =================-->
-
 	<!--================ Start footer Area  =================-->	
 	<%@ include file="footer.jsp"%> 
 

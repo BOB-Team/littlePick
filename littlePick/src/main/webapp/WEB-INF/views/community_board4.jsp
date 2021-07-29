@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -39,31 +39,33 @@
 <div class="board-search">
 	<div class="blog_right_sidebar">
 		<div class="single_sidebar_widget search_widget">
+			<form action="community_search.do" method="post">
 			<div class="input-group">
-			<select class="form-select">
-				<option class="form-select" value="title">제목</option>
+			<select class="form-select" name="searchCondition">
+				<option class="form-select" value="content_title">제목</option>
 				<option value="content">내용</option>
-				<option value="user_name">작성자</option>
-				
+				<option value="user_nickname">작성자</option>
 			</select>
-				<input type="text" class="form-control" placeholder="Search Posts">
+				<input type="text" class="form-control" name="searchKeyword" placeholder="커뮤니티 글 검색하기">
 				<span class="input-group-btn">
-					<button class="btn btn-default" type="button">
+					<button class="btn btn-default" type="submit">
 						<i class="lnr lnr-magnifier"></i>
 					</button>
 				</span>
 			</div>
+		</form>
 		</div>
 
-		<!-- <div class="single-sidebar-widget tag_cloud_widget">
+		<div class="single-sidebar-widget tag_cloud_widget">
 			<div class="br"></div>
 			<ul class="list">
-				<li><a href="#"># 조깅</a></li>
-				<li><a href="#"># 전기요금</a></li>
-				<li><a href="#"># 에어컨</a></li>
-				<li><a href="#"># 양파</a></li>
+				<li><a href="community_search.do?searchCondition=content_title&searchKeyword=등산"># 등산</a></li>
+				<li><a href="community_search.do?searchCondition=content_title&searchKeyword=냉라면"># 냉라면</a></li>
+				<li><a href="community_search.do?searchCondition=content_title&searchKeyword=에어컨"># 에어컨</a></li>
+				<li><a href="community_search.do?searchCondition=content_title&searchKeyword=양파"># 양파</a></li>
+				<li><a href="community_search.do?searchCondition=content_title&searchKeyword=음식물"># 음식물</a></li>
 			</ul>
-		</div> -->
+		</div>
 	</div>
 
 </div>
@@ -73,19 +75,23 @@
 
   <!--================번개팅 Area =================-->
   
-	<section class="blog_area">
+	<section class="commu_area">
 		<div class="container">
 		<div class="board-select">
-        <select>
-				<option value="최신순">최신순</option>
-				<option value="조회순">조회순</option>
+		<form action="community_board4.do" method="post">
+        <select name="selectOrder">
+				<option value="b.content_num">최신순</option>
+				<option value="b.content_count">조회순</option>
 		</select>
+		<input class="selectOrder_btn" type="submit" value="조회" >
+		</form>
     	<a></a>
     	</div>
-				
 			<div class="row">
 				<div class="col-lg-12">
-
+				
+				
+				<c:forEach items="${boardList}" var="board">
 
 					<!-- 번개팅 1번 -->
 					<article class="row blog_item">
@@ -93,170 +99,32 @@
 						<div class="col-md-10">
 							<div class="blog_post">
 								<div class="blog_details">
-									<a href="single-blog.html">
-										<h2>송도 센트럴파크에서 오늘 저녁 같이 조깅하실분?</h2>
+									<a href="community_board_view.do?content_num=${board.content_num}">
+										<h2>${board.content_title}</h2>
 									</a>
-									<p>안녕하세요~ 혹시 송도 센트럴파크에서 같이 조깅하실 분 계실까요? 오늘 저녁 8시쯤 생각하고있어요~
-										한 3~4명 정도 모이면 좋을 것 같네요!</p>
+									<p>${board.content}</p>
 								</div>
 							</div>
 						</div>
 						<div class="col-md-2">
-							<div class="blog_info">
+							<div class="my_blog_info">
 
 								<ul class="blog_meta list">
-									<li><a href="#"><img
-											src="resources/img/default/user_default.png" width="20px">작성자</a></li>
-									<li><a><i class="lnr lnr-calendar-full"></i> 날짜</a></li>
-									<li><a><i class="lnr lnr-eye"></i> 조회수</a></li>
-									<li><a><i class="lnr lnr-bubble"></i> 댓글</a></li>
+									<li><a href="#">
+							<img src="resources/upload/user/${board.user_image}" width="20px" >${board.user_nickname}</a></li>
+									<li><a><i class="lnr lnr-calendar-full"></i>${board.content_date}</a></li>
+									<li><a><i class="lnr lnr-eye"></i>${board.content_count}</a></li>
+							
 								</ul>
 							</div>
 						</div>
 					</article>
 
-					<!-- 번개팅 1번 끝 -->
-					<!-- 번개팅 2번 -->
-					<article class="row blog_item">
-
-						<div class="col-md-10">
-							<div class="blog_post">
-								<div class="blog_details">
-									<a href="single-blog.html">
-										<h2>글 제목</h2>
-									</a>
-									<p>글 내용 일부</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="blog_info">
-
-								<ul class="blog_meta list">
-									<li><a href="#"><img
-											src="resources/img/default/user_default.png" width="20px">작성자</a></li>
-									<li><a><i class="lnr lnr-calendar-full"></i> 날짜</a></li>
-									<li><a><i class="lnr lnr-eye"></i> 조회수</a></li>
-									<li><a><i class="lnr lnr-bubble"></i> 댓글</a></li>
-								</ul>
-							</div>
-						</div>
-					</article>
-
-					<!-- 번개팅 2번 끝 -->
-					<!-- 번개팅 3번 -->
-					<article class="row blog_item">
-
-						<div class="col-md-10">
-							<div class="blog_post">
-								<div class="blog_details">
-									<a href="single-blog.html">
-										<h2>글 제목</h2>
-									</a>
-									<p>글 내용 일부</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="blog_info">
-
-								<ul class="blog_meta list">
-									<li><a href="#"><img
-											src="resources/img/default/user_default.png" width="20px">작성자</a></li>
-									<li><a><i class="lnr lnr-calendar-full"></i> 날짜</a></li>
-									<li><a><i class="lnr lnr-eye"></i> 조회수</a></li>
-									<li><a><i class="lnr lnr-bubble"></i> 댓글</a></li>
-								</ul>
-							</div>
-						</div>
-					</article>
-
-					<!-- 번개팅 3번 끝 -->
-					<!-- 번개팅 4번 -->
-					<article class="row blog_item">
-
-						<div class="col-md-10">
-							<div class="blog_post">
-								<div class="blog_details">
-									<a href="single-blog.html">
-										<h2>글 제목</h2>
-									</a>
-									<p>글 내용 일부</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="blog_info">
-
-								<ul class="blog_meta list">
-									<li><a href="#"><img
-											src="resources/img/default/user_default.png" width="20px">작성자</a></li>
-									<li><a><i class="lnr lnr-calendar-full"></i> 날짜</a></li>
-									<li><a><i class="lnr lnr-eye"></i> 조회수</a></li>
-									<li><a><i class="lnr lnr-bubble"></i> 댓글</a></li>
-								</ul>
-							</div>
-						</div>
-					</article>
-
-					<!-- 번개팅 4번 끝 -->
-					<!-- 번개팅 5번 -->
-					<article class="row blog_item">
-
-						<div class="col-md-10">
-							<div class="blog_post">
-								<div class="blog_details">
-									<a href="single-blog.html">
-										<h2>글 제목</h2>
-									</a>
-									<p>글 내용 일부</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="blog_info">
-
-								<ul class="blog_meta list">
-									<li><a href="#"><img
-											src="resources/img/default/user_default.png" width="20px">작성자</a></li>
-									<li><a><i class="lnr lnr-calendar-full"></i> 날짜</a></li>
-									<li><a><i class="lnr lnr-eye"></i> 조회수</a></li>
-									<li><a><i class="lnr lnr-bubble"></i> 댓글</a></li>
-								</ul>
-							</div>
-						</div>
-					</article>
-
-					<!-- 번개팅 5번 끝 -->
-					<!-- 번개팅 6번 -->
-					<article class="row blog_item">
-
-						<div class="col-md-10">
-							<div class="blog_post">
-								<div class="blog_details">
-									<a href="single-blog.html">
-										<h2>글 제목</h2>
-									</a>
-									<p>글 내용 일부</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="blog_info">
-
-								<ul class="blog_meta list">
-									<li><a href="#"><img
-											src="resources/img/default/user_default.png" width="20px">작성자</a></li>
-									<li><a><i class="lnr lnr-calendar-full"></i> 날짜</a></li>
-									<li><a><i class="lnr lnr-eye"></i> 조회수</a></li>
-									<li><a><i class="lnr lnr-bubble"></i> 댓글</a></li>
-								</ul>
-							</div>
-						</div>
-					</article>
-
-					<!-- 번개팅 6번 끝 -->
-
+					
+				</c:forEach>
+				
+				
+				
 				</div>
 			</div>
 		</div>
@@ -264,7 +132,7 @@
 	  <!--================번개팅 Area 끝 =================-->
 	<!--================페이징 =================-->
 	 
-	<nav class="blog-pagination justify-content-center d-flex">
+	<!-- <nav class="blog-pagination justify-content-center d-flex">
 		<ul class="pagination">
 			<li class="page-item"><a href="#" class="page-link" aria-label="Previous">
 				<span aria-hidden="true">
@@ -280,7 +148,7 @@
 					<span class="lnr lnr-chevron-right"></span>
 				</span></a></li>
 		</ul>
-	</nav>
+	</nav> -->
  	<!--================페이징 끝 =================-->
 
 	<!--================ Start footer Area  =================-->	

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="adminMember">
+
+<!-- 회원 목록 -->
+	<select id="memberList" resultType="adminVO">
+			SELECT	*
+			FROM Member_tb
+			ORDER BY user_num						
+	</select>
+
+
+<!-- 회원 등록 -->
+	<insert id="insertAdminMember">
+			INSERT INTO Member_tb
+				(user_num, user_name, user_email, user_password, user_nickname, user_phone, user_address, user_gender, user_birth, user_regdate, user_point, user_image)
+			VALUES
+				(#{userNum}, #{userName}, #{userEmail}, #{userPassword}, #{userNickname}, #{userPhone}, #{userAddress}, #{userGender}, #{userBirth}, #{userRegdate}, #{userPoint}, #{userImage})
+	</insert>
+
+
+<!-- 회원 정보 상세 조회 -->
+	<select id="viewAdminMember"  resultType="adminVO">
+			SELECT *
+			FROM Member_tb
+			WHERE user_email = #{userEmail}
+			</select>
+			
+
+<!-- 회원 정보 수정 처리 -->
+	<update id="updateAdminMember">
+			UPDATE Member_tb
+			SET
+				user_num = #{userNum},
+				user_name = #{userName},
+				user_password = #{userPassword},
+				user_nickname = #{userNickname},
+				user_phone = #{userPhone},
+				user_address = #{userAddress},
+				user_gender = #{userGender},
+				user_birth = #{userBirth},
+				user_regdate = #{userRegdate},
+				user_point = #{userPoint},
+				user_image = #{userImage},
+				user_updatedate = SYSDATE()
+			WHERE
+				user_email = #{userEmail},
+	</update>
+
+
+
+<!-- 회원 정보 삭제 처리 -->
+	<delete id="deleteAdminMember">
+			DELETE FROM Member_tb
+			WHERE user_email = #{userEmail},
+	</delete>
+
+
+<!--  비밀번호 체크 -->
+	<select id="checkPw" resultType="int">
+			SELECT
+				COUNT(*)
+			FROM Member_tb
+			WHERE user_email = #{userEmail} AND user_password = #{userPassword}
+	</select>
+
+	</mapper>
+
+
+<!-- 	//Member_tb
+user_num; //회원번호
+user_name; //회원이름
+user_email; //이메일
+user_password; //비밀번호
+user_nickname; //닉네임 >> 쇼핑몰에서 닉네임으로 활동
+user_phone; // 휴대폰
+user_address; //주소
+user_gender; //성별
+user_birth; //'1990-11-22' 형식으로
+user_regdate; // 가입일 sysdate()
+user_point; // 적립금
+user_image; // 프로필사진 -->
+
+

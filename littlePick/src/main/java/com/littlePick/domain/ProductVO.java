@@ -4,6 +4,8 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
 public class ProductVO {
+	
+	//Product_tb 변수
 	int product_num;
 	int category_num;
 	String product_name;
@@ -17,6 +19,20 @@ public class ProductVO {
 	int product_count;
 	int delivery_num;
 	boolean smallpack;
+		
+	//Cart_tb 변수
+	private int cart_num;
+	
+	//Member_tb 변수 
+	private String user_email;
+	private String user_name;
+
+	//추가 생성 변수 ===============
+	//장바구니 상품별 합계 : sale_price*product_count
+	private int single_price;
+	
+	
+	
 	public int getProduct_num() {
 		return product_num;
 	}
@@ -95,6 +111,39 @@ public class ProductVO {
 	public void setSmallpack(boolean smallpack) {
 		this.smallpack = smallpack;
 	}
+	
+	
+	//=======================================
+	public int getCart_num() {
+		return cart_num;
+	}
+	public void setCart_num(int cart_num) {
+		this.cart_num = cart_num;
+	}
+	public String getUser_email() {
+		return user_email;
+	}
+	public void setUser_email(String user_email) {
+		this.user_email = user_email;
+	}
+	public String getUser_name() {
+		return user_name;
+	}
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
+	}
+	
+	
+	// ==================================
+	public int getSingle_price() {
+		return single_price;
+	}
+	public void setSingle_price(int single_price) {
+		this.single_price = single_price;
+	}
+	
+	
+	
 	
 	
 

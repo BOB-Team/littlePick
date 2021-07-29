@@ -7,9 +7,9 @@
 <!-- 별칭 설정 -->
 
 <typeAliases>
-	<!-- <typeAlias type="com.javassem.domain.MemberVO" alias="member"/> -->
 	<typeAlias type="com.littlePick.domain.ProductVO" alias="product"/>
 	<typeAlias type="com.littlePick.domain.CommunityVO" alias="comVO"/>
+	<typeAlias type="com.littlePick.domain.AdminVO" alias="adminVO"/>
 </typeAliases>
 
 </configuration>

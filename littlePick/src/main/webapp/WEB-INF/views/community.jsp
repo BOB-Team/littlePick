@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -44,30 +44,33 @@
 <div class="board-search">
 	<div class="blog_right_sidebar">
 		<div class="single_sidebar_widget search_widget">
+		
+		<form action="community_search.do" method="post">
 			<div class="input-group">
-			<select class="form-select">
-				<option class="form-select" value="title">제목</option>
+			<select class="form-select" name="searchCondition">
+				<option class="form-select" value="content_title">제목</option>
 				<option value="content">내용</option>
-				<option value="user_name">작성자</option>
-				
+				<option value="user_nickname">작성자</option>
 			</select>
-				<input type="text" class="form-control" placeholder="Search Posts">
+				<input type="text" class="form-control" name="searchKeyword" placeholder="커뮤니티 글 검색하기">
 				<span class="input-group-btn">
-					<button class="btn btn-default" type="button">
+					<button class="btn btn-default" type="submit">
 						<i class="lnr lnr-magnifier"></i>
 					</button>
 				</span>
 			</div>
+		</form>
+			
 		</div>
 
 		<div class="single-sidebar-widget tag_cloud_widget">
 			<div class="br"></div>
 			<ul class="list">
-				<li><a href="#"># 조깅</a></li>
-				<li><a href="#"># 전기요금</a></li>
-				<li><a href="#"># 에어컨</a></li>
-				<li><a href="#"># 양파</a></li>
-				<li><a href="#"># 장마</a></li>
+				<li><a href="community_search.do?searchCondition=content_title&searchKeyword=등산"># 등산</a></li>
+				<li><a href="community_search.do?searchCondition=content_title&searchKeyword=냉라면"># 냉라면</a></li>
+				<li><a href="community_search.do?searchCondition=content_title&searchKeyword=에어컨"># 에어컨</a></li>
+				<li><a href="community_search.do?searchCondition=content_title&searchKeyword=양파"># 양파</a></li>
+				<li><a href="community_search.do?searchCondition=content_title&searchKeyword=음식물"># 음식물</a></li>
 			</ul>
 		</div>
 	</div>
@@ -77,199 +80,110 @@
 	
  <hr>
 	<!--================1. 요리 Area =================-->
-  <section class="blog_categorie_area">
+  <section class="commu_area">
     <div class="container">
-    <div class="board-name">
+    <div class="category-name">
     <p>요리</p>
-    <a href="#">더보기 →</a>
+    <a href="community_board1.do">더보기 →</a>
     </div>
+    
+
       <div class="row">
+      
+      <c:forEach items="${boardList1}" var="board1">
+
 				<div class="col-sm-6 col-lg-4 mb-4 mb-lg-0">
 					<div class="categories_post">
-						<a href="single-blog.html"> <img
-							src="resources/img/default/img_default.png" width="350px"
+						<a href="community_board_view.do?content_num=${board1.content_num}"> <img
+							src="resources/upload/board/${board1.content_image}" width="350px"
 							height="350px">
 						</a>
 						<div class="blog_info">
-							<a href="single-blog.html">
-							<h5>제목</h5></a><br>
-							<a><img
-							src="resources/img/default/user_default.png" width="20px"></a><a>작성자</a><br>
-							<a><i class="lnr lnr-calendar-full"></i> 날짜</a>
-							<a><i class="lnr lnr-eye"></i> 조회수</a>
-							<a><i class="lnr lnr-bubble"></i> 댓글</a>	
+							<a href="community_board_view.do?content_num=${board1.content_num}">
+								<h5>${board1.content_title}</h5>
+							</a><br> <a><img
+								src="resources/upload/user/${board1.user_image}" width="20px" href="#"></a><a href="#">${board1.user_nickname}</a><br>
+							<a><i class="lnr lnr-calendar-full"></i>${board1.content_date}</a> <a><i
+								class="lnr lnr-eye"></i>${board1.content_count}</a>
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-6 col-lg-4 mb-4 mb-lg-0">
-					<div class="categories_post">
-						<a href="single-blog.html"> <img
-							src="resources/img/default/img_default.png" width="350px"
-							height="350px">
-						</a>
-						<div class="blog_info">
-							<a href="single-blog.html">
-							<h5>제목</h5></a><br>
-							<a><img
-							src="resources/img/default/user_default.png" width="20px"></a><a>작성자</a><br>
-							<a><i class="lnr lnr-calendar-full"></i> 날짜</a>
-							<a><i class="lnr lnr-eye"></i> 조회수</a>
-							<a><i class="lnr lnr-bubble"></i> 댓글</a>	
-						</div>
-
-					</div>
-				</div>
-
-		<div class="col-sm-6 col-lg-4 mb-4 mb-lg-0">
-          <div class="categories_post">
-            <a href="single-blog.html">
-            <img src="resources/img/default/img_default.png" width="350px" height="350px">
-            </a>
-            <div class="blog_info">
-							<a href="single-blog.html">
-							<h5>제목</h5></a><br>
-							<a><img
-							src="resources/img/default/user_default.png" width="20px"></a><a>작성자</a><br>
-							<a><i class="lnr lnr-calendar-full"></i> 날짜</a>
-							<a><i class="lnr lnr-eye"></i> 조회수</a>
-							<a><i class="lnr lnr-bubble"></i> 댓글</a>	
-						</div>
-          </div>
-        </div>
-        
+			
+			</c:forEach>
+				
       </div>
     </div>
+      
   </section>
   <!--================요리 Area 끝 =================-->
    <hr>
     <!--================2.생활 Area =================-->
-   <section class="blog_categorie_area">
+   <section class="commu_area">
     <div class="container">
     <div class="category-name">
     <p>생활</p>
-    <a href="#">더보기 →</a>
+    <a href="community_board2.do">더보기 →</a>
     </div>
       <div class="row">
+      
+      
+<c:forEach items="${boardList2}" var="board2">
 
 				<div class="col-sm-6 col-lg-4 mb-4 mb-lg-0">
 					<div class="categories_post">
-						<a href="single-blog.html"> <img
-							src="resources/img/default/img_default.png" width="350px"
+						<a href="community_board_view.do?content_num=${board2.content_num}"> <img
+							src="resources/upload/board/${board2.content_image}" width="350px"
 							height="350px">
 						</a>
 						<div class="blog_info">
-							<a href="single-blog.html">
-							<h5>제목</h5></a><br>
-							<a><img
-							src="resources/img/default/user_default.png" width="20px"></a><a>작성자</a><br>
-							<a><i class="lnr lnr-calendar-full"></i> 날짜</a>
-							<a><i class="lnr lnr-eye"></i> 조회수</a>
-							<a><i class="lnr lnr-bubble"></i> 댓글</a>	
+							<a href="community_board_view.do?content_num=${board2.content_num}">
+								<h5>${board2.content_title}</h5>
+							</a><br> <a><img
+								src="resources/upload/user/${board2.user_image}" width="20px" href="#"></a><a href="#">${board2.user_nickname}</a><br>
+							<a><i class="lnr lnr-calendar-full"></i>${board2.content_date}</a> <a><i
+								class="lnr lnr-eye"></i>${board2.content_count}</a>
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-6 col-lg-4 mb-4 mb-lg-0">
-					<div class="categories_post">
-						<a href="single-blog.html"> <img
-							src="resources/img/default/img_default.png" width="350px"
-							height="350px">
-						</a>
-						<div class="blog_info">
-							<a href="single-blog.html">
-							<h5>제목</h5></a><br>
-							<a><img
-							src="resources/img/default/user_default.png" width="20px"></a><a>작성자</a><br>
-							<a><i class="lnr lnr-calendar-full"></i> 날짜</a>
-							<a><i class="lnr lnr-eye"></i> 조회수</a>
-							<a><i class="lnr lnr-bubble"></i> 댓글</a>	
-						</div>
-
-					</div>
-				</div>
-
-		<div class="col-sm-6 col-lg-4 mb-4 mb-lg-0">
-          <div class="categories_post">
-            <a href="single-blog.html">
-            <img src="resources/img/default/img_default.png" width="350px" height="350px">
-            </a>
-            <div class="blog_info">
-							<a href="single-blog.html">
-							<h5>제목</h5></a><br>
-							<a><img
-							src="resources/img/default/user_default.png" width="20px"></a><a>작성자</a><br>
-							<a><i class="lnr lnr-calendar-full"></i> 날짜</a>
-							<a><i class="lnr lnr-eye"></i> 조회수</a>
-							<a><i class="lnr lnr-bubble"></i> 댓글</a>	
-						</div>
+			
+			</c:forEach>
+				
           </div>
         </div>
         
-      </div>
-    </div>
+     
   </section>
   <!--================생활 Area 끝 =================-->
    <hr>
     <!--================3. 건강 Area =================-->
-    <section class="blog_categorie_area">
+    <section class=commu_area>
     <div class="container">
     <div class="category-name">
     <p>건강</p>
-    <a href="#">더보기 →</a>
+    <a href="community_board3.do">더보기 →</a>
     </div>
       <div class="row">
 
+				<c:forEach items="${boardList3}" var="board3">
+
 				<div class="col-sm-6 col-lg-4 mb-4 mb-lg-0">
 					<div class="categories_post">
-						<a href="single-blog.html"> <img
-							src="resources/img/default/img_default.png" width="350px"
+						<a href="community_board_view.do?content_num=${board3.content_num}"> <img
+							src="resources/upload/board/${board3.content_image}" width="350px"
 							height="350px">
 						</a>
 						<div class="blog_info">
-							<a href="single-blog.html">
-							<h5>제목</h5></a><br>
-							<a><img
-							src="resources/img/default/user_default.png" width="20px"></a><a>작성자</a><br>
-							<a><i class="lnr lnr-calendar-full"></i> 날짜</a>
-							<a><i class="lnr lnr-eye"></i> 조회수</a>
-							<a><i class="lnr lnr-bubble"></i> 댓글</a>	
+							<a href="community_board_view.do?content_num=${board3.content_num}">
+								<h5>${board3.content_title}</h5>
+							</a><br> <a><img
+								src="resources/upload/user/${board3.user_image}" width="20px" href="#"></a><a href="#">${board3.user_nickname}</a><br>
+							<a><i class="lnr lnr-calendar-full"></i>${board3.content_date}</a> <a><i
+								class="lnr lnr-eye"></i>${board3.content_count}</a>
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-6 col-lg-4 mb-4 mb-lg-0">
-					<div class="categories_post">
-						<a href="single-blog.html"> <img
-							src="resources/img/default/img_default.png" width="350px"
-							height="350px">
-						</a>
-						<div class="blog_info">
-							<a href="single-blog.html">
-							<h5>제목</h5></a><br>
-							<a><img
-							src="resources/img/default/user_default.png" width="20px"></a><a>작성자</a><br>
-							<a><i class="lnr lnr-calendar-full"></i> 날짜</a>
-							<a><i class="lnr lnr-eye"></i> 조회수</a>
-							<a><i class="lnr lnr-bubble"></i> 댓글</a>	
-						</div>
-
-					</div>
-				</div>
-
-		<div class="col-sm-6 col-lg-4 mb-4 mb-lg-0">
-          <div class="categories_post">
-            <a href="single-blog.html">
-            <img src="resources/img/default/img_default.png" width="350px" height="350px">
-            </a>
-            <div class="blog_info">
-							<a href="single-blog.html">
-							<h5>제목</h5></a><br>
-							<a><img
-							src="resources/img/default/user_default.png" width="20px"></a><a>작성자</a><br>
-							<a><i class="lnr lnr-calendar-full"></i> 날짜</a>
-							<a><i class="lnr lnr-eye"></i> 조회수</a>
-							<a><i class="lnr lnr-bubble"></i> 댓글</a>	
-						</div>
-          </div>
-        </div>
+			
+			</c:forEach>
         
       </div>
     </div>
@@ -277,101 +191,49 @@
   <!--================건강 Area 끝 =================-->
   <!--================번개팅 Area =================-->
   <hr>
-	<section class="blog_area">
+	<section class="commu_area">
 		<div class="container">
 			<div class="category-name">
 				<p>번개팅</p>
-				<a href="#">더보기 →</a>
+				<a href="community_board4.do">더보기 →</a>
 			</div>
 			<div class="row">
 				<div class="col-lg-12">
 
+<c:forEach items="${boardList4}" var="board4">
 
-					<!-- 번개팅 1번 -->
+					<!-- 번개팅 -->
 					<article class="row blog_item">
 
 						<div class="col-md-10">
 							<div class="blog_post">
 								<div class="blog_details">
-									<a href="single-blog.html">
-										<h2>송도 센트럴파크에서 오늘 저녁 같이 조깅하실분?</h2>
+									<a href="community_board_view.do?content_num=${board4.content_num}">
+										<h2>${board4.content_title}</h2>
 									</a>
-									<p>안녕하세요~ 혹시 송도 센트럴파크에서 같이 조깅하실 분 계실까요? 오늘 저녁 8시쯤 생각하고있어요~
-										한 3~4명 정도 모이면 좋을 것 같네요!</p>
+									<p>${board4.content}</p>
 								</div>
 							</div>
+							
 						</div>
 						<div class="col-md-2">
-							<div class="blog_info">
+							<div class="my_blog_info">
 
 								<ul class="blog_meta list">
-									<li><a href="#"><img
-											src="resources/img/default/user_default.png" width="20px">작성자</a></li>
-									<li><a><i class="lnr lnr-calendar-full"></i> 날짜</a></li>
-									<li><a><i class="lnr lnr-eye"></i> 조회수</a></li>
-									<li><a><i class="lnr lnr-bubble"></i> 댓글</a></li>
+									<li><a href="#">
+									<img src="resources/upload/user/${board4.user_image}" width="20px">${board4.user_nickname}</a></li>
+									<li><a><i class="lnr lnr-calendar-full"></i>${board4.content_date}</a></li>
+									<li><a><i class="lnr lnr-eye"></i>${board4.content_count}</a></li>
+						
+							
 								</ul>
 							</div>
 						</div>
 					</article>
 
-					<!-- 번개팅 1번 끝 -->
-					<!-- 번개팅 2번 -->
-					<article class="row blog_item">
-
-						<div class="col-md-10">
-							<div class="blog_post">
-								<div class="blog_details">
-									<a href="single-blog.html">
-										<h2>글 제목</h2>
-									</a>
-									<p>글 내용 일부</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="blog_info">
-
-								<ul class="blog_meta list">
-									<li><a href="#"><img
-											src="resources/img/default/user_default.png" width="20px">작성자</a></li>
-									<li><a><i class="lnr lnr-calendar-full"></i> 날짜</a></li>
-									<li><a><i class="lnr lnr-eye"></i> 조회수</a></li>
-									<li><a><i class="lnr lnr-bubble"></i> 댓글</a></li>
-								</ul>
-							</div>
-						</div>
-					</article>
-
-					<!-- 번개팅 2번 끝 -->
-					<!-- 번개팅 3번 -->
-					<article class="row blog_item">
-
-						<div class="col-md-10">
-							<div class="blog_post">
-								<div class="blog_details">
-									<a href="single-blog.html">
-										<h2>글 제목</h2>
-									</a>
-									<p>글 내용 일부</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="blog_info">
-
-								<ul class="blog_meta list">
-									<li><a href="#"><img
-											src="resources/img/default/user_default.png" width="20px">작성자</a></li>
-									<li><a><i class="lnr lnr-calendar-full"></i> 날짜</a></li>
-									<li><a><i class="lnr lnr-eye"></i> 조회수</a></li>
-									<li><a><i class="lnr lnr-bubble"></i> 댓글</a></li>
-								</ul>
-							</div>
-						</div>
-					</article>
-
-					<!-- 번개팅 3번 끝 -->
+					
+				</c:forEach>
+					
 
 				</div>
 			</div>

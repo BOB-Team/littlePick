@@ -1,7 +1,10 @@
 package com.littlePick.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.littlePick.dao.CommunityDAOImple;
 import com.littlePick.domain.CommunityVO;
 
@@ -37,8 +40,45 @@ public class CommunityServiceImpl {
 
 
 
-	public CommunityVO selectComment(int content_num) {
+	public List<CommunityVO> selectComment(int content_num) {
 		
 		return comDAO.selectComment(content_num);
 	}
+
+
+
+	public List<CommunityVO> selectCommunity(String board_name,String selectOrder) {
+		return comDAO.selectCommunity(board_name,selectOrder);
+	}
+
+	public List<CommunityVO> select3Community(String board_name) {
+		return comDAO.select3Community(board_name);
+	}
+
+
+	public void insertComment(CommunityVO vo) {
+		comDAO.insertComment(vo);
+		
+	}
+
+
+
+	public List<CommunityVO> communitySearch(String searchCondition, String searchKeyword) {
+		
+		return comDAO.communitySearch(searchCondition,searchKeyword);
+	}
+
+
+
+	public void boardCountUp(int content_num) { //조회수 1 증가
+		comDAO.boardCountUp(content_num);
+		
+	}
+
+
+
+
+
+
+
 }

@@ -37,6 +37,25 @@ public class CommunityVO {
 	private String comment_content; // 댓글 내용
 	private String comment_date; // 댓글 작성일 sysdate()
 	
+	//Qboard_tb
+	private int q_num;
+	private String q_title;
+	private String q_content;
+	private String q_date;
+	private String q_count;
+	
+	//Answer_tb
+	private String a_title;
+	private String a_content;
+	private String a_date;
+	private int a_count;
+
+	
+	//Admin_tb
+	private String admin_id;
+	private String admin_password;
+	
+
 	
 	//파일 업로드 관련
 	MultipartFile file;	// write.jsp에 파일첨부시 name="file"과 동일한 변수명
@@ -53,7 +72,7 @@ public class CommunityVO {
 			
 			//***********************************************
 			// 해당 경로로 변경
-			File f = new File("C:\\gitgit\\littlePick_TEAM\\littlePick\\src\\main\\webapp\\resources\\upload\\"+content_image);
+			File f = new File("C:\\zzz\\workspace_team_git_0726\\littlePick\\src\\main\\webapp\\resources\\upload\\board\\"+content_image);
 			//경로도 맞춰줘야 할 것 같은디...
 			try {
 				file.transferTo(f);
@@ -66,6 +85,41 @@ public class CommunityVO {
 			}
 		}
 	}
+	
+	//유저 프사 수정
+		MultipartFile userImgFile;	// write.jsp에 파일첨부시 name="file"과 동일한 변수명
+		
+		
+		public MultipartFile getUserImgFile() {
+			return userImgFile;
+		}
+		
+		public void setUserImgFile(MultipartFile userImgFile) {
+				this.userImgFile = userImgFile;
+				
+				
+			// 업로드 파일 접근
+			if(!userImgFile.isEmpty())
+				
+			{
+				this.user_image = userImgFile.getOriginalFilename();
+				
+				
+				//***********************************************
+				// 해당 경로로 변경
+				File f = new File("C:\\zzz\\workspace_team_git_0726\\littlePick\\src\\main\\webapp\\resources\\upload\\user\\"+user_image);
+				//경로도 맞춰줘야 할 것 같은디...
+				try {
+					userImgFile.transferTo(f);
+					
+				} catch (IllegalStateException e) {				
+					e.printStackTrace();
+				} catch (IOException e) {
+					
+					e.printStackTrace();
+				}
+			}
+		}
 	
 	//getter setter
 	//Member_tb
@@ -209,6 +263,79 @@ public class CommunityVO {
 		this.comment_date = comment_date;
 	}
 	
+	//Qboard_tb
+	public int getQ_num() {
+		return q_num;
+	}
+	public void setQ_num(int q_num) {
+		this.q_num = q_num;
+	}
+	public String getQ_title() {
+		return q_title;
+	}
+	public void setQ_title(String q_title) {
+		this.q_title = q_title;
+	}
+	public String getQ_content() {
+		return q_content;
+	}
+	public void setQ_content(String q_content) {
+		this.q_content = q_content;
+	}
+	public String getQ_date() {
+		return q_date;
+	}
+	public void setQ_date(String q_date) {
+		this.q_date = q_date;
+	}
+	public String getQ_count() {
+		return q_count;
+	}
+	public void setQ_count(String q_count) {
+		this.q_count = q_count;
+	}
 	
+	//Answer_tb
+	
+	public String getA_title() {
+		return a_title;
+	}
+	public void setA_title(String a_title) {
+		this.a_title = a_title;
+	}
+	public String getA_content() {
+		return a_content;
+	}
+	public void setA_content(String a_content) {
+		this.a_content = a_content;
+	}
+	public String getA_date() {
+		return a_date;
+	}
+	public void setA_date(String a_date) {
+		this.a_date = a_date;
+	}
+	public int getA_count() {
+		return a_count;
+	}
+	public void setA_count(int a_count) {
+		this.a_count = a_count;
+	}
+	
+	
+	//Admin_tb
+	public String getAdmin_id() {
+		return admin_id;
+	}
+	public void setAdmin_id(String admin_id) {
+		this.admin_id = admin_id;
+	}
+	public String getAdmin_password() {
+		return admin_password;
+	}
+	public void setAdmin_password(String admin_password) {
+		this.admin_password = admin_password;
+	}
+
 
 }

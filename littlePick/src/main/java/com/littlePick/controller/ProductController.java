@@ -23,16 +23,16 @@ public class ProductController {
 	ProductServiceImpl productService;
 	
 	//메인 페이지 
+	// a 태그의 파라미터 값 받기 : method=RequestMethod.GET 
 	@RequestMapping(value="main.do", method=RequestMethod.GET)
 	public void productList(ProductVO vo, Model m) {
-		System.out.println(vo.isSmallpack());
+		System.out.println("소포장 제품 "+vo.isSmallpack());
 		m.addAttribute("mainList", productService.mainList(vo));
 	}
 	
 		
 	//상품 목록 
-	// a 태그의 파라미터 값 받기 : method=RequestMethod.GET 
-	@RequestMapping(value="productList.do")
+	@RequestMapping("productList.do")
 	public ModelAndView productList(PagingCriteria cri) {
 		System.out.println("Controller productList.do 요청확인");
 

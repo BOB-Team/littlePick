@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cartMapper">
+	<!-- 장바구니 추가 -->
+	<insert id="cartInsert">
+		INSERT INTO Cart_tb
+		VALUES (#{cart_num}, #{user_email}, #{product_num}, #{product_count})
+		
+	</insert>
+
+
+	<!-- 장바구니 목록  -->
+	<select id="cartList" resultType="product" >
+		SELECT
+			c.cart_num AS cart_num,
+			c.user_email AS user_email,
+			c.product_count AS product_count,
+			m.user_name AS user_name,
+			p.product_num AS product_num,
+			p.product_image AS product_image,
+			p.product_name AS product_name,
+			p.sale_price AS sale_price,
+			p.delivery_num AS delivery_num,
+			sale_price*c.product_count AS single_price
+		FROM
+			Member_tb m, Product_tb p, Cart_tb c
+		WHERE m.user_email=c.user_email
+			AND p.product_num = c.product_num
+			AND c.user_email = #{user_email}
+		ORDER BY
+			c.cart_num			
+	</select>
+	
+	<!-- 장바구니 전체 금액 -->
+	<!-- 장바구니에 담긴 상품과 수량 전체를 합산한 결과를 select, 장바구니가 비어 있으면 0 -->
+	<select id="cartTotal" resultType="int">
+		SELECT IFNULL(SUM(sale_price*c.product_count), 0) money
+		FROM Cart_tb c, Product_tb p
+		WHERE c.product_num = p.product_num AND c.user_email = #{user_email}	
+	</select>
+	
+	
+	<!-- 장바구니 삭제 -->
+	<delete id="cartDelete">
+		DELETE FROM Cart_tb
+		WHERE cart_num = #{cart_num}
+	</delete>
+	
+	
+	<!-- 장바구니 수정 -->
+	<update id="cartModify">
+		UPDATE Cart_tb
+		SET product_count = #{product_count}
+		WHERE user_name = #{user_name}
+			AND product_num = #{product_num}
+	</update>
+	
+	
+	<!-- 장바구니 동일한 상품 레코드 확인 -->
+	<select id="cartCount" resultType="int">
+		SELECT COUNT(*)
+		FROM Cart_tb
+		WHERE user_email=#{user_email}
+			AND product_num=#{product_num}
+	</select>
+	
+	
+	<!-- 장바구니 상품 수량 변경 -->
+	<!-- 장바구니에 동일한 상품 레코드가 있으면 기존의 수량과 입력받은 사량을 합산하여 update -->
+	<update id="cartUpdate">
+		UPDATE Cart_tb
+		SET product_count = product_count + #{product_count}
+		WHERE user_email=#{user_email}
+			AND product_num=#{product_num}	
+	</update>
+	
+	
+	
+</mapper>

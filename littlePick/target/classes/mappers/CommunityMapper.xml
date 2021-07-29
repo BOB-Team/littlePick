@@ -10,7 +10,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="selectBoard" resultType="comVO">
 		SELECT * FROM Board_tb b inner join Member_tb m on b.user_num = m.user_num
-		WHERE content_num=1
+		WHERE content_num = #{content_num}
 	</select>
 	
 	<insert id="insertBoard" parameterType="comVO">
@@ -43,5 +43,56 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		INSERT INTO Comment_tb (comment_num, content_num, user_num, comment_content, comment_date)
 		VALUES (null, #{content_num},2 ,#{comment_content}, sysdate())
 	</insert>
+	
+<!-- 	<select id="selectCommunity" parameterType="String" resultType="comVO">
+		SELECT * FROM Board_tb b inner join Member_tb m on b.user_num = m.user_num
+		WHERE b.board_name=#{board_name}
+		ORDER BY b.content_num DESC
+		<choose>
+			<when test="selectOrder == view">
+				b.content_count DESC
+			</when>		
+			<otherwise>
+				b.content_num DESC
+			</otherwise>
+		</choose>
+	</select> -->
+	
+	<select id="selectCommunity" parameterType="hashmap" resultType="comVO">
+		SELECT * FROM Board_tb b inner join Member_tb m on b.user_num = m.user_num
+		WHERE b.board_name=#{board_name}
+		ORDER BY
+		<choose>
+			<when test="selectOrder != null">
+				${selectOrder} DESC	
+			</when>
+			<otherwise>
+				b.content_num DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="select3Community" parameterType="String" resultType="comVO">
+		SELECT * FROM Board_tb b inner join Member_tb m on b.user_num = m.user_num
+		WHERE b.board_name=#{board_name}
+		ORDER BY b.content_num DESC limit 3;
+	</select>
+	
+	<select id="communitySearch" parameterType="hashmap" resultType="comVO" >
+
+		SELECT *
+		FROM Board_tb b inner join Member_tb m on b.user_num = m.user_num
+		<where>
+			<if test="searchCondition != null">
+				${searchCondition} LIKE '%${searchKeyword}%'
+			</if>
+		</where>
+		ORDER BY b.content_num DESC
+	</select>
+
+	<update id="boardCountUp" parameterType="int">
+		UPDATE Board_tb SET content_count=content_count+1 WHERE content_num=#{content_num}
+	</update>
+	
 	
 </mapper>

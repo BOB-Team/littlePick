@@ -19,7 +19,7 @@ public class ProductDAOImple implements ProductDAO {
 	
 	//상품 목록 조회
 	public List<ProductVO> mainList(ProductVO vo) {
-		return mybatis.selectList("productDAO.mainList",vo);
+		return mybatis.selectList("productMapper.mainList",vo);
 	}
 	
 	
@@ -28,14 +28,14 @@ public class ProductDAOImple implements ProductDAO {
 	@SuppressWarnings("unchecked") 
 	public List<Map<String, Object>> productList(PagingCriteria cri) {
 		System.out.println("===> Mybatis productList() 호출");
-		System.out.println(cri.getCategory_num());
-		return mybatis.selectList("productDAO.productList", cri);
+		System.out.println("카테고리 번호 : "+cri.getCategory_num());
+		return mybatis.selectList("productMapper.productList", cri);
 	}
 	
 	//상품 상세 정보
 	public ProductVO product(ProductVO vo) {
 		System.out.println("===> Mybatis product() 호출");
-		return mybatis.selectOne("productDAO.product",vo);
+		return mybatis.selectOne("productMapper.product",vo);
 	}
 	
 	//상품 필터 검색 리스트 
@@ -48,7 +48,7 @@ public class ProductDAOImple implements ProductDAO {
 	//글 갯수
 	public int countProductList() {
 		System.out.println("===> Mybatis countProductList() 호출");
-		return mybatis.selectOne("productDAO.countProductList");
+		return mybatis.selectOne("productMapper.countProductList");
 	}
 	
 	

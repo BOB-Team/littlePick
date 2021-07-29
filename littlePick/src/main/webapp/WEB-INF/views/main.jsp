@@ -8,15 +8,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>LittlePick - Main</title>
-<link rel="icon" href="resources/img/Fevicon.png" type="resources/image/png">
-<link rel="stylesheet" href="resources/vendors/bootstrap/bootstrap.min.css">
-<link rel="stylesheet" href="resources/vendors/fontawesome/css/all.min.css">
-<link rel="stylesheet" href="resources/vendors/themify-icons/themify-icons.css">
-<link rel="stylesheet" href="resources/vendors/nice-select/nice-select.css">
-<link rel="stylesheet" href="resources/vendors/owl-carousel/owl.theme.default.min.css">
-<link rel="stylesheet" href="resources/vendors/owl-carousel/owl.carousel.min.css">
+<link rel="icon" href="/littlePick/resources/img/Fevicon.png" type="/littlePick/resources/image/png">
+<link rel="stylesheet" href="/littlePick/resources/vendors/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="/littlePick/resources/vendors/fontawesome/css/all.min.css">
+<link rel="stylesheet" href="/littlePick/resources/vendors/themify-icons/themify-icons.css">
+<link rel="stylesheet" href="/littlePick/resources/vendors/nice-select/nice-select.css">
+<link rel="stylesheet" href="/littlePick/resources/vendors/owl-carousel/owl.theme.default.min.css">
+<link rel="stylesheet" href="/littlePick/resources/vendors/owl-carousel/owl.carousel.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-<link rel="stylesheet" href="resources/css/style.css">
+<link rel="stylesheet" href="/littlePick/resources/css/style.css">
 </head>
 
 
@@ -35,34 +35,6 @@
 			</div>
 		</section>
 		<!--================ Hero banner start =================-->
-
-		<!--================ Hero Carousel start =================-->
-<!-- 		<section class="section-margin mt-0">
-			<div class="owl-carousel owl-theme hero-carousel">
-				<div class="hero-carousel__slide">
-					<img src="img/home/hero-slide1.png" alt="" class="img-fluid">
-					<a href="#" class="hero-carousel__slideOverlay">
-						<h3>Wireless Headphone</h3>
-						<p>Accessories Item</p>
-					</a>
-				</div>
-				<div class="hero-carousel__slide">
-					<img src="img/home/hero-slide2.png" alt="" class="img-fluid">
-					<a href="#" class="hero-carousel__slideOverlay">
-						<h3>Wireless Headphone</h3>
-						<p>Accessories Item</p>
-					</a>
-				</div>
-				<div class="hero-carousel__slide">
-					<img src="img/home/hero-slide3.png" alt="" class="img-fluid">
-					<a href="#" class="hero-carousel__slideOverlay">
-						<h3>Wireless Headphone</h3>
-						<p>Accessories Item</p>
-					</a>
-				</div>
-			</div>
-		</section> -->
-		<!--================ Hero Carousel end =================-->
 
 		<!-- ================ trending product section start ================= -->
 		<section class="section-margin calc-60px">
@@ -102,26 +74,13 @@
 						</div>
 					</div>
 					</c:forEach>
-					
-					
-					
 				</div>
 			</div>
 		</section> 
 		<!-- ================ trending product section end ================= -->
 
-
-		<!-- ================ offer section start ================= -->
-<!-- 		<section class="" id="">
-			<div class="container">
-				<img src="https://img-cf.kurly.com/category/banner/pc/9d98d554-c807-4fdb-ac17-d7c47b2e9f67">
-			</div>
-		</section> 
--->
-		<!-- ================ offer section end ================= -->
-
 		<!-- ================ Best Selling item  carousel ================= -->
-		<section class="section-margin calc-60px">
+<!-- 		<section class="section-margin calc-60px">
 			<div class="container">
 				<div class="section-intro pb-60px">
 					<p>Popular Item in the market</p>
@@ -323,11 +282,11 @@
 					</div>
 				</div>
 			</div>
-		</section>
+		</section> -->
 		<!-- ================ Best Selling item  carousel end ================= -->
 
 		<!-- ================ Blog section start ================= -->
-		<section class="blog">
+		<!-- <section class="blog">
 			<div class="container">
 				<div class="section-intro pb-60px">
 					<p>Popular Item in the market</p>
@@ -407,54 +366,23 @@
 					</div>
 				</div>
 			</div>
-		</section>
+		</section> -->
 		<!-- ================ Blog section end ================= -->
 
-		<!-- ================ Subscribe section start ================= -->
-		<section class="subscribe-position">
-			<div class="container">
-				<div class="subscribe text-center">
-					<h3 class="subscribe__title">Get Update From Anywhere</h3>
-					<p>Bearing Void gathering light light his eavening unto dont
-						afraid</p>
-					<div id="mc_embed_signup">
-						<form target="_blank"
-							action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-							method="get" class="subscribe-form form-inline mt-5 pt-1">
-							<div class="form-group ml-sm-auto">
-								<input class="form-control mb-1" type="email" name="EMAIL"
-									placeholder="Enter your email" onfocus="this.placeholder = ''"
-									onblur="this.placeholder = 'Your Email Address '">
-								<div class="info"></div>
-							</div>
-							<button class="button button-subscribe mr-auto mb-1"
-								type="submit">Subscribe Now</button>
-							<div style="position: absolute; left: -5000px;">
-								<input name="b_36c4fd991d266f23781ded980_aefe40901a"
-									tabindex="-1" value="" type="text">
-							</div>
-
-						</form>
-					</div>
-
-				</div>
-			</div>
-		</section>
-		<!-- ================ Subscribe section end ================= -->
-
+		
 
 	</main>
 	<%@ include file="footer.jsp"%> 
 
-	<script src="resources/vendors/jquery/jquery-3.2.1.min.js"></script>
-	<script src="resources/vendors/bootstrap/bootstrap.bundle.min.js"></script>
-	<script src="resources/vendors/skrollr.min.js"></script>
-	<script src="resources/vendors/owl-carousel/owl.carousel.min.js"></script>
-	<script src="resources/vendors/nice-select/jquery.nice-select.min.js"></script>
-	<script src="resources/vendors/jquery.ajaxchimp.min.js"></script>
-	<script src="resources/vendors/mail-script.js"></script>
+	<script src="/littlePick/resources/vendors/jquery/jquery-3.2.1.min.js"></script>
+	<script src="/littlePick/resources/vendors/bootstrap/bootstrap.bundle.min.js"></script>
+	<script src="/littlePick/resources/vendors/skrollr.min.js"></script>
+	<script src="/littlePick/resources/vendors/owl-carousel/owl.carousel.min.js"></script>
+	<script src="/littlePick/resources/vendors/nice-select/jquery.nice-select.min.js"></script>
+	<script src="/littlePick/resources/vendors/jquery.ajaxchimp.min.js"></script>
+	<script src="/littlePick/resources/vendors/mail-script.js"></script>
 	<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 	
-	<script src="resources/js/main.js"></script>
+	<script src="/littlePick/resources/js/main.js"></script>
 </body>
 </html>
