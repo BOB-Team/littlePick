@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>LittlePick-장바구니</title>
+<title>장바구니</title>
 <link rel="icon" href="resources/img/Fevicon.png" type="resources/image/png">
 <link rel="stylesheet" href="resources/vendors/bootstrap/bootstrap.min.css">
 <link rel="stylesheet" href="resources/vendors/fontawesome/css/all.min.css">
@@ -26,36 +26,47 @@
   <section class="cart_area">
       <div class="container">
           <div class="cart_inner">
+          	  <div class="cart_title">
+				<h2><span class="section-intro__style">장바구니</span>	</h2>
+			  </div>
               <div class="table-responsive">
                   <table class="table" id="cart-table" >
                       <thead>
-
+							<tr><th></th></tr>
                       </thead>
                       <tbody>
+							<c:if test="${map.countNormal == 0 and map.countStar ==0 }">
+							<tr>
+                      			<th colspan="6">장바구니에 담긴 상품이 없습니다.</th>
+                      		</tr>
+                      		</c:if>
+                      		
+                      		<c:if test="${map.countNormal != 0}">
 							<tr>
                       			<th colspan="6">일반 배송</th>
                       		</tr>
+                      		</c:if>
+                      		
 
-		                   <c:forEach items="${map.list }" var="c" >
-		                   	<c:if test="${c.delivery_num==1 }">
+		                   <c:forEach items="${map.listNormal }" var="n" >
 		                   <tr>
-                          	<td><input type="checkbox" id="item_check" name="item_check" value="${c.cart_num}"></td>
+                          	<td><input type="checkbox" id="item_check" name="item_check" value="${n.cart_num}"></td>
                               <td>
                                   <div class="media">
                                       <div class="d-flex">
-                                          <img src="resources/img/product/${c.product_image }" alt="" width="100">
+                                          <img src="resources/img/product/${n.product_image }" alt="" width="100">
                                       </div>
                                       <div class="media-body">
-                                          <p>${c.product_name} </p>
+                                          <p>${n.product_name} </p>
                                       </div>
                                   </div>
                               </td>
                               <td class="price_align">
-                                  <h5>${c.sale_price}원</h5>
+                                  <h5>${n.sale_price}원</h5>
                               </td>
                               <td>
                                   <div class="product_count">
-                                      <input type="text" name="product_count" id="sst" maxlength="12" value="${c.product_count}" title="Quantity:"
+                                      <input type="text" name="product_count" id="sst" maxlength="12" value="${n.product_count}" title="Quantity:"
                                           class="input-text qty" style="width:10">
                                        <div class="cart_qty_btn">
                                       <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
@@ -66,36 +77,38 @@
                                   </div>
                               </td>
                               <td class="price_align">
-                                  <h5>${c.single_price}원</h5>
+                                  <h5>${n.single_price}원</h5>
                               </td>
-                              <td><a href="cartDelete.do?cart_num=${c.cart_num}"><i class="fas fa-times"></i></a></td>
+                              <td><a href="cartDelete.do?cart_num=${n.cart_num}"><i class="fas fa-times"></i></a></td>
                           </tr>
-                          </c:if>
                           </c:forEach>
-                          <tr>
-                      			<th colspan="6">샛별 배송</th>
-                      		</tr>
+                          
+                         
+                      		<c:if test="${map.countStar != null}">
+								<tr>
+	                      			<th colspan="6">샛별 배송</th>
+	                      		</tr>
+                      		</c:if>
 
-		                   <c:forEach items="${map.list }" var="c" >
-		                   	<c:if test="${c.delivery_num==3 or c.delivery_num==2}">
+		                   <c:forEach items="${map.listStar }" var="s" >
 		                   <tr>
-                              <td><input type="checkbox" id="item_check" name="item_check" value="${c.cart_num}"></td>
+                              <td><input type="checkbox" id="item_check" name="item_check" value="${s.cart_num}"></td>
                               <td>
                                   <div class="media">
                                       <div class="d-flex">
-                                          <img src="resources/img/product/${c.product_image }" alt="" width="100">
+                                          <img src="resources/img/product/${s.product_image }" alt="" width="100">
                                       </div>
                                       <div class="media-body">
-                                          <p>${c.product_name} </p>
+                                          <p>${s.product_name} </p>
                                       </div>
                                   </div>
                               </td>
                               <td class="price_align">
-                                  <h5>${c.sale_price}원</h5>
+                                  <h5>${s.sale_price}원</h5>
                               </td>
                               <td>
                                   <div class="product_count">
-                                      <input type="text" name="product_count" id="sst" maxlength="12" value="${c.product_count}" title="Quantity:"
+                                      <input type="text" name="product_count" id="sst" maxlength="12" value="${s.product_count}" title="Quantity:"
                                           class="input-text qty" style="width:10">
                                        <div class="cart_qty_btn">
                                       <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
@@ -106,11 +119,10 @@
                                   </div>
                               </td>
                               <td class="price_align">
-                                  <h5>${c.single_price}원</h5>
+                                  <h5>${s.single_price}원</h5>
                               </td>
-                              <td><a href="cartDelete.do?cart_num=${c.cart_num}"><i class="fas fa-times"></i></a></td>
+                              <td><a href="cartDelete.do?cart_num=${s.cart_num}"><i class="fas fa-times"></i></a></td>
                           </tr>
-                          </c:if>
                           </c:forEach>
                      
                           <tr class="bottom_button">
@@ -149,28 +161,28 @@
                               <td></td>  
                           </tr>
                           <tr>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td ><h5>적립금</h5></td>
+                              <td class="price_align"><h5>${map.point}원</h5></td>
+                              <td></td>
+                          </tr>
+                          <tr>
                           	  <td></td>
                               <td></td>
                               <td></td>
                               <td ><h5>배송비</h5></td>
                               <td class="price_align"><h5>${map.fee }원</h5></td>
                               <td></td>
-                              
                           </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td ><h5>적립금</h5></td>
-                              <td class="price_align"><h5>0원</h5></td>
-                              <td></td>
-                          </tr>
+
                           <tr>
                           	  <td></td>
                           	  <td></td>
                           	  <td></td>
                               <td ><h4>결제예정금액</h4></td>
-                              <td class="price_align"><h4>${map.allTotal}원</h4></td>
+                              <td class="price_align"><h4>${map.total_account}원</h4></td>
                               <td></td>
                           </tr>
                           <tr class="out_button_area">
@@ -178,8 +190,8 @@
                           	  <td></td>
                               <td colspan="3">
                                   <div class="checkout_btn_inner d-flex align-items-center">
-                                      <a class="gray_btn" href="#">쇼핑계속하기</a>
-                                      <a class="primary-btn ml-2" href="#">주문하기</a>
+                                      <a class="gray_btn" href="main.do">쇼핑계속하기</a>
+                                      <a class="primary-btn ml-2" href="order.do">주문하기</a>
                                   </div>
                               </td>
                               

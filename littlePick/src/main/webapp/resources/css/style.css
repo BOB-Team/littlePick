@@ -4,6 +4,9 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,500");
 
 body {
+	diplay: flex;
+	justify-content: center;
+	align-content: center;
 	color: #777;
 	font-family: "Roboto", sans-serif;
 	font-size: 15px;
@@ -4989,6 +4992,60 @@ scale
 	flex-direction:column;
 }
 
+/* 주문 페이지  */
+.order_body {
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  margin: 100px;
+/*   align-content:center; 
+  justify-content:center; */
+}
+.order_table{
+	width:1100px;
+
+}
+
+.order_title{
+	margin-bottom:24px;
+	
+}
+/*주문 테이블 행 높이 */
+.order_table tr, td{
+	height: 50px;
+	padding: 4px;
+}
+.order_table th{
+	border-bottom:1px solid;
+}
+.delivery_type{
+	border-top:1px solid;
+	border-bottom:1px solid;
+}
+.payment {
+	margin : 4px;
+}
+
+.blue-btn_area>td{
+	text-align:center;
+}
+
+.blue-btn{
+	width: 150px;
+	height: 50px;
+	background-color:#384aeb;
+	border-radius:50px;
+		
+}
+
+.blue-btn a{
+	color: white;
+	line-height: 50px;
+}
+
+.fas.fa-truck, .fas.fa-shipping-fast{
+	color:#384aeb;
+}
 
 /* footer 폰트 색상 */
 .list.instafeed.d-flex.flex-wrap a{

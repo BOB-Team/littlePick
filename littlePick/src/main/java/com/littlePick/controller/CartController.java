@@ -27,17 +27,17 @@ public class CartController {
 	@RequestMapping(value = "cartInsert.do")
 	public String cartInsert(ProductVO vo, HttpSession session) {
 		System.out.println("Controller : cartInsert() 호출");
-		String user_email = (String) session.getAttribute("user_email");
-		vo.setUser_email(user_email);
+		int user_num = (int) session.getAttribute("user_num");
+		vo.setUser_num(user_num);
 
-		System.out.println("이메일 : " + vo.getUser_email());
+		System.out.println("회원번호 : " + vo.getUser_num());
 		System.out.println("카트번호: " + vo.getCart_num());
 		System.out.println("상품번호:" + vo.getProduct_num());
 		System.out.println("상품수량:" + vo.getProduct_count());
 
 		// 장바구니에 기존 상품이 있는지 검사
-		int count = cartService.cartCount(vo.getProduct_num(), user_email);
-		System.out.println(count);
+		int count = cartService.cartCount(vo.getProduct_num(), user_num);
+		
 		// 장바구니 상품이 없으면
 		if (count == 0) {
 			cartService.cartInsert(vo);
@@ -51,32 +51,20 @@ public class CartController {
 
 	// 장바구니 목록
 	@RequestMapping("cartList.do")
-	public ModelAndView cartList(HttpSession session, ModelAndView mv) {
+	public ModelAndView cartList(HttpSession session, ProductVO vo, ModelAndView mv) {
 		// session에 저장된 user_name
-		String user_email = (String) session.getAttribute("user_email");
-		Map<String, Object> map = new HashMap<String, Object>();
-		// 장바구니 정보
-		List<ProductVO> list = cartService.cartList(user_email);
-
-		// 장바구니 전체 금액 호출
-		int cartTotal = cartService.cartTotal(user_email);
-
-		// 장바구니 전체 금액에 따라 배송비 구분
-		// 배송료 5만원 이상 무료, 미만 2500원
-		int fee = cartTotal > 50000 ? 0 : 2500;
-
-		map.put("list", list); // 장바구니 정보를 map에 저장
-		map.put("count", list.size()); // 장바구니 상품 유무
-		map.put("cartTotal", cartTotal); // 장바구니 전체 금액
-		map.put("fee", fee); // 배송비
-		map.put("allTotal", cartTotal + fee); // 장바구니 금액 + 배송비
+		int user_num = (int) session.getAttribute("user_num");
+		vo.setUser_num(user_num);
+		
+		Map<String, Object> map = cartService.cartList(vo);
+	
 		mv.setViewName("cartList"); // jsp 파일 이름
 		mv.addObject("map", map); // map 변수 저장
-		System.out.println();
-
+		
 		return mv;
 
 	}
+
 
 	// 장바구니 삭제 버튼으로 하나씩 삭제
 	@RequestMapping(value = "cartDelete.do", method = RequestMethod.GET)
@@ -107,5 +95,6 @@ public class CartController {
 		message = "성공하였습니다.";
 		return message;
 	}
+	
 
 }
