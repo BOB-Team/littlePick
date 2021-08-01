@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace='mypage'>
+
+	<select id="selectUser" parameterType="int" resultType="comVO">
+		SELECT * FROM Member_tb
+		WHERE user_num = #{user_num}
+	</select>
+	
+	<select id="selectBoard" parameterType="int" resultType="comVO">
+		SELECT * FROM Board_tb
+		WHERE user_num = #{user_num}
+	</select>
+	
+	<select id="selectComment" parameterType="int" resultType="comVO">
+		SELECT * FROM Comment_tb
+		WHERE user_num = #{user_num}
+	</select>
+	
+	<select id="selectqna" parameterType="int" resultType="comVO">
+		SELECT * FROM Qboard_tb
+		WHERE user_num =#{user_num}
+	</select>
+	
+	
+	<select id="selectQboard" parameterType="int" resultType="comVO">
+		SELECT * FROM Qboard_tb q inner join Member_tb m on q.user_num = m.user_num
+		WHERE q_num =#{q_num}
+	</select>
+	
+	<insert id="insertQboard" parameterType="comVO">
+		INSERT INTO Qboard_tb(q_num, user_num, q_title, q_content, q_date, q_count)
+		VALUES(null, #{user_num}, #{q_title}, #{q_content}, sysdate(), 0)
+	</insert>
+	
+	<update id="updateCountQboard" parameterType="int">
+		UPDATE Qboard_tb SET q_count=q_count+1 WHERE q_num=#{q_num};
+	</update>
+	
+	<update id="settingUpdate" parameterType="comVO">
+		UPDATE Member_tb
+		SET
+		user_nickname=#{user_nickname}, user_password =#{user_password}, user_phone=#{user_phone},
+		user_address=#{user_address}, user_birth=#{user_birth}
+		
+ 			<if test="user_image != null">
+				,user_image=#{user_image}
+			</if>
+			
+		WHERE user_email=#{user_email};
+	</update>
+	
+	
+	<select id="answerCount" parameterType="int" resultType="int">
+		SELECT count(*) FROM Answer_tb WHERE q_num=#{q_num}  
+	</select>
+	
+	<select id="selectAnswer" parameterType="int" resultType="comVO">
+		SELECT * FROM Answer_tb WHERE q_num=#{q_num}
+	</select>
+	
+
+	
+</mapper>
