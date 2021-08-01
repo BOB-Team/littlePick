@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="user">
+
+<!-- <select id="idCheck" parameterType="comVO" resultType="comVO">
+	SELECT * FROM Member_tb 
+	WHERE user_email=#{user_email} 
+	<if test="user_password != null">
+		AND user_password=#{user_password}
+	</if>	
+</select> -->
+
+<!-- memberDao의 userInsert  -->
+<insert id="userInsert" parameterType="comVO">
+	INSERT INTO Member_tb 
+	(user_num, user_name, user_email, user_password, user_nickname, user_phone, user_address, user_gender, user_birth, user_regdate, user_point, user_image)
+	VALUES
+	(null, #{user_name}, #{user_email}, #{user_password},
+	#{user_nickname}, #{user_phone}, #{user_address}, 
+	#{user_gender}, #{user_birth}, sysdate(), 0, 'user_daefault.png')
+	
+</insert>
+
+
+<select id="adminidCheck_Login" parameterType="comVO" resultType="comVO">
+		SELECT * FROM Admin_tb
+    	WHERE admin_id = #{admin_id}
+    	<if test = "admin_password != null">
+    		AND admin_password = #{admin_password}
+    	</if>
+</select>
+
+<select id="selectUser" parameterType="int" resultType="comVO">
+	SELECT * FROM Member_tb WHERE user_num = #{usernum}
+</select>
+
+
+<select id="emailCheck_Login" parameterType="comVO" resultType="comVO">
+		SELECT * FROM Member_tb
+    	WHERE user_email = #{user_email}
+    	<if test = "user_password != null">
+    		AND user_password = #{user_password}
+    	</if>
+</select>
+
+<select id="nicknameCheck_Login" parameterType="comVO" resultType="comVO">
+		SELECT * FROM Member_tb
+    	WHERE user_nickname = #{user_nickname}
+</select>
+</mapper>
