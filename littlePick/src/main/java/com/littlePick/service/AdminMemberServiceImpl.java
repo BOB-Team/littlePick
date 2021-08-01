@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.littlePick.dao.AdminMemberDAO;
 import com.littlePick.dao.AdminMemberDAOImpl;
 import com.littlePick.domain.AdminVO;
 
@@ -20,7 +19,7 @@ public class AdminMemberServiceImpl implements AdminMemberService{
 	
 	// 전체 회원 목록 조회
 	@Override
-	public List<AdminVO> memberList(AdminVO vo) {
+	public List<AdminVO> memberList() {
 		return adminDAO.memberList();
 	}
 
@@ -54,17 +53,65 @@ public class AdminMemberServiceImpl implements AdminMemberService{
 		return adminDAO.checkPw(user_email, user_password);
 	}
 
-	@Override
-	public List<AdminVO> memberList() {
-		return adminDAO.memberList();
-	}
 
 
+	
+	//--------------------------------------------------------------------------------
+	// 전체 상품 목록 조회
+		@Override
+		public List<AdminVO> productList() {
+			return adminDAO.productList();
+		}
+
+		// 상품 등록
+		@Override
+		public void insertAdminMember1(AdminVO vo) {
+			adminDAO.insertAdminMember1(vo);
+		}
+
+		// 상품 정보 상세 조회
+		@Override
+		public AdminVO viewAdminMember1(AdminVO vo) {
+			return adminDAO.viewAdminMember1(vo);
+		}
+
+		// 상품 정보 삭제 처리
+		@Override
+		public void deleteAdminMember1(AdminVO vo) {
+			adminDAO.deleteAdminMember1(vo);
+		}
+
+		// 상품 정보 수정 처리
+		@Override
+		public void updateAdminMember1(AdminVO vo) {
+			adminDAO.updateAdminMember1(vo);
+
+		}
+
+		
+		public AdminVO product(AdminVO vo) {
+			return adminDAO.product(vo);
+		}
+		
+
+		@Override
+		public List<AdminVO> memberList(AdminVO vo) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+	
+	
+
+
+	
 
 
 
 	
-	// Admin_MemberDAOImpl 객체를 스프링에서 생성하여 주입시킴
+
+
+	
 		
 
 }

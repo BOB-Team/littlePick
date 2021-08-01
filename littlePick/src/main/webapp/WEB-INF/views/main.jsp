@@ -8,20 +8,55 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>LittlePick - Main</title>
-<link rel="icon" href="/littlePick/resources/img/Fevicon.png" type="/littlePick/resources/image/png">
-<link rel="stylesheet" href="/littlePick/resources/vendors/bootstrap/bootstrap.min.css">
-<link rel="stylesheet" href="/littlePick/resources/vendors/fontawesome/css/all.min.css">
-<link rel="stylesheet" href="/littlePick/resources/vendors/themify-icons/themify-icons.css">
-<link rel="stylesheet" href="/littlePick/resources/vendors/nice-select/nice-select.css">
-<link rel="stylesheet" href="/littlePick/resources/vendors/owl-carousel/owl.theme.default.min.css">
-<link rel="stylesheet" href="/littlePick/resources/vendors/owl-carousel/owl.carousel.min.css">
+<link rel="icon" href="resources/img/Fevicon.png" type="/littlePick/resources/image/png">
+<link rel="stylesheet" href="resources/vendors/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="resources/vendors/fontawesome/css/all.min.css">
+<link rel="stylesheet" href="resources/vendors/themify-icons/themify-icons.css">
+<link rel="stylesheet" href="resources/vendors/nice-select/nice-select.css">
+<link rel="stylesheet" href="resources/vendors/owl-carousel/owl.theme.default.min.css">
+<link rel="stylesheet" href="resources/vendors/owl-carousel/owl.carousel.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-<link rel="stylesheet" href="/littlePick/resources/css/style.css">
+<link rel="stylesheet" href="resources/css/style.css">
+<script src="resources/vendors/jquery/jquery-3.2.1.min.js"></script>
+<script>
+<%-- window.onload = function() {
+	document.getElementById('carticon').onclick = check;
+}
+
+function check() {
+	var sess = <%= session.getAttribute("user_num") %>;
+	if(sess == null){
+	  	alert("로그인 후 이용하실 수 있습니다.");
+	  	return false;
+	  	//window.location.href="1_login.do";
+	  	//window.replace.href="1_login.do";
+
+--%>
+$(function(){
+
+	var sess = <%= session.getAttribute("user_num") %>;
+	
+	$('#carticon').click(function(){
+
+		  if(sess == null){
+		  	alert("로그인 후 이용하실 수 있습니다.");
+		  	return;
+		  	window.location.href="1_login.do";
+		  	//window.replace.href="1_login.do";
+		  	
+		  }
+	})
+
+})
+</script>
 </head>
 
 
 <body>
-	<%@ include file="header.jsp"%> 
+
+<%@ include file="header.jsp"%> 
+
+	
 	<main class="site-main">
 
 		<!--================ Hero banner start =================-->
@@ -36,7 +71,7 @@
 		</section>
 		<!--================ Hero banner start =================-->
 
-		<!-- ================ trending product section start ================= -->
+		<!-- ================ 소포장 ================= -->
 		<section class="section-margin calc-60px">
 			<div class="container">
 				<div class="section-intro pb-60px">
@@ -46,15 +81,18 @@
 					</h2>
 				</div>
 				<div class="row">
-					<c:forEach items="${mainList }" var="p">
+					<c:forEach items="${mainList }" var="p" begin="0" end="7" step="1">
 					<div class="col-md-6 col-lg-4 col-xl-3">
 						<div class="card text-center card-product">
 							<div class="card-product__img">
 								<a href="product.do?product_num=${p.product_num }">
-								<img class="card-img" src="resources/img/product/${p.product_image }" alt=""></a>
+								<img class="card-img" src="resources/img/product/${p.product_image }" alt="" width="255px" height="255px"></a>
 								<ul class="card-product__imgOverlay">
 									<!-- <li><button><i class="ti-search"></i></button></li> -->
-									<li><button><i class="ti-shopping-cart"></i></button></li>
+									
+									<li><a href="cartInsert.do?product_num=${p.product_num}&product_count=1&delivery_num=${p.delivery_num}"><button id="carticon"><i class="ti-shopping-cart"></i></button></a></li>
+									<%-- <li><a id="carticon" href="cartInsert.do?product_num=${p.product_num}&product_count=1&delivery_num=${p.delivery_num}">
+									<button><i class="ti-shopping-cart"></i></button></a></li> --%>
 									<!-- <li><button><i class="ti-heart"></i></button></li> -->
 								</ul>
 							</div>
@@ -62,7 +100,7 @@
 								<p>
 								<c:choose>
 				                   <c:when test="${p.delivery_num==1}">일반 배송</c:when>
-				                   <c:when test="${p.delivery_num==2}">일반/샛별 배송</c:when>
+				                   <c:when test="${p.delivery_num==3}">일반/샛별 배송</c:when>
 				                   <c:otherwise>샛별 배송</c:otherwise>
 				                </c:choose>
 								</p>
@@ -77,312 +115,151 @@
 				</div>
 			</div>
 		</section> 
-		<!-- ================ trending product section end ================= -->
+		<!-- ================ 소포장 끝 ================= -->
 
-		<!-- ================ Best Selling item  carousel ================= -->
-<!-- 		<section class="section-margin calc-60px">
+		<!-- ================ 신상품 ================= -->
+		<section class="section-margin calc-60px">
 			<div class="container">
 				<div class="section-intro pb-60px">
-					<p>Popular Item in the market</p>
+					<p>따끈따끈한 신상</p>
 					<h2>
-						Best <span class="section-intro__style">Sellers</span>
+						<span class="section-intro__style">신상품</span>
 					</h2>
 				</div>
-				<div class="owl-carousel owl-theme" id="bestSellerCarousel">
-					<div class="card text-center card-product">
-						<div class="card-product__img">
-							<img class="img-fluid" src="resources/img/product/product1.png" alt="">
-							<ul class="card-product__imgOverlay">
-								<li><button>
-										<i class="ti-search"></i>
-									</button></li>
-								<li><button>
-										<i class="ti-shopping-cart"></i>
-									</button></li>
-								<li><button>
-										<i class="ti-heart"></i>
-									</button></li>
-							</ul>
-						</div>
-						<div class="card-body">
-							<p>Accessories</p>
-							<h4 class="card-product__title">
-								<a href="single-product.html">Quartz Belt Watch</a>
-							</h4>
-							<p class="card-product__price">$150.00</p>
-						</div>
-					</div>
-
-					<div class="card text-center card-product">
-						<div class="card-product__img">
-							<img class="img-fluid" src="resources/img/product/product2.png" alt="">
-							<ul class="card-product__imgOverlay">
-								<li><button>
-										<i class="ti-search"></i>
-									</button></li>
-								<li><button>
-										<i class="ti-shopping-cart"></i>
-									</button></li>
-								<li><button>
-										<i class="ti-heart"></i>
-									</button></li>
-							</ul>
-						</div>
-						<div class="card-body">
-							<p>Beauty</p>
-							<h4 class="card-product__title">
-								<a href="single-product.html">Women Freshwash</a>
-							</h4>
-							<p class="card-product__price">$150.00</p>
-						</div>
-					</div>
-
-					<div class="card text-center card-product">
-						<div class="card-product__img">
-							<img class="img-fluid" src="resources/img/product/product3.png" alt="">
-							<ul class="card-product__imgOverlay">
-								<li><button>
-										<i class="ti-search"></i>
-									</button></li>
-								<li><button>
-										<i class="ti-shopping-cart"></i>
-									</button></li>
-								<li><button>
-										<i class="ti-heart"></i>
-									</button></li>
-							</ul>
-						</div>
-						<div class="card-body">
-							<p>Decor</p>
-							<h4 class="card-product__title">
-								<a href="single-product.html">Room Flash Light</a>
-							</h4>
-							<p class="card-product__price">$150.00</p>
-						</div>
-					</div>
-
-					<div class="card text-center card-product">
-						<div class="card-product__img">
-							<img class="img-fluid" src="resources/img/product/product4.png" alt="">
-							<ul class="card-product__imgOverlay">
-								<li><button>
-										<i class="ti-search"></i>
-									</button></li>
-								<li><button>
-										<i class="ti-shopping-cart"></i>
-									</button></li>
-								<li><button>
-										<i class="ti-heart"></i>
-									</button></li>
-							</ul>
-						</div>
-						<div class="card-body">
-							<p>Decor</p>
-							<h4 class="card-product__title">
-								<a href="single-product.html">Room Flash Light</a>
-							</h4>
-							<p class="card-product__price">$150.00</p>
-						</div>
-					</div>
-
-					<div class="card text-center card-product">
-						<div class="card-product__img">
-							<img class="img-fluid" src="resources/img/product/product1.png" alt="">
-							<ul class="card-product__imgOverlay">
-								<li><button>
-										<i class="ti-search"></i>
-									</button></li>
-								<li><button>
-										<i class="ti-shopping-cart"></i>
-									</button></li>
-								<li><button>
-										<i class="ti-heart"></i>
-									</button></li>
-							</ul>
-						</div>
-						<div class="card-body">
-							<p>Accessories</p>
-							<h4 class="card-product__title">
-								<a href="single-product.html">Quartz Belt Watch</a>
-							</h4>
-							<p class="card-product__price">$150.00</p>
-						</div>
-					</div>
-
-					<div class="card text-center card-product">
-						<div class="card-product__img">
-							<img class="img-fluid" src="resources/img/product/product2.png" alt="">
-							<ul class="card-product__imgOverlay">
-								<li><button>
-										<i class="ti-search"></i>
-									</button></li>
-								<li><button>
-										<i class="ti-shopping-cart"></i>
-									</button></li>
-								<li><button>
-										<i class="ti-heart"></i>
-									</button></li>
-							</ul>
-						</div>
-						<div class="card-body">
-							<p>Beauty</p>
-							<h4 class="card-product__title">
-								<a href="single-product.html">Women Freshwash</a>
-							</h4>
-							<p class="card-product__price">$150.00</p>
-						</div>
-					</div>
-
-					<div class="card text-center card-product">
-						<div class="card-product__img">
-							<img class="img-fluid" src="resources/img/product/product3.png" alt="">
-							<ul class="card-product__imgOverlay">
-								<li><button>
-										<i class="ti-search"></i>
-									</button></li>
-								<li><button>
-										<i class="ti-shopping-cart"></i>
-									</button></li>
-								<li><button>
-										<i class="ti-heart"></i>
-									</button></li>
-							</ul>
-						</div>
-						<div class="card-body">
-							<p>Decor</p>
-							<h4 class="card-product__title">
-								<a href="single-product.html">Room Flash Light</a>
-							</h4>
-							<p class="card-product__price">$150.00</p>
-						</div>
-					</div>
-
-					<div class="card text-center card-product">
-						<div class="card-product__img">
-							<img class="img-fluid" src="resources/img/product/product4.png" alt="">
-							<ul class="card-product__imgOverlay">
-								<li><button>
-										<i class="ti-search"></i>
-									</button></li>
-								<li><button>
-										<i class="ti-shopping-cart"></i>
-									</button></li>
-								<li><button>
-										<i class="ti-heart"></i>
-									</button></li>
-							</ul>
-						</div>
-						<div class="card-body">
-							<p>Decor</p>
-							<h4 class="card-product__title">
-								<a href="single-product.html">Room Flash Light</a>
-							</h4>
-							<p class="card-product__price">$150.00</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section> -->
-		<!-- ================ Best Selling item  carousel end ================= -->
-
-		<!-- ================ Blog section start ================= -->
-		<!-- <section class="blog">
-			<div class="container">
-				<div class="section-intro pb-60px">
-					<p>Popular Item in the market</p>
-					<h2>
-						Latest <span class="section-intro__style">News</span>
-					</h2>
-				</div>
-
 				<div class="row">
-					<div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-						<div class="card card-blog">
-							<div class="card-blog__img">
-								<img class="card-img rounded-0" src="resources/img/blog/blog1.png" alt="">
+					<c:forEach items="${mainList2 }" var="p2" begin="0" end="7" step="1">
+					<div class="col-md-6 col-lg-4 col-xl-3">
+						<div class="card text-center card-product">
+							<div class="card-product__img">
+								<a href="product.do?product_num=${p2.product_num }">
+								<img class="card-img" src="resources/img/product/${p2.product_image }" alt="" width="255px" height="255px"></a>
+								<ul class="card-product__imgOverlay">
+									<!-- <li><button><i class="ti-search"></i></button></li> -->
+									<li><a href="cartInsert.do?product_num=${p2.product_num}&product_count=1&delivery_num=${p2.delivery_num}">
+									<button><i class="ti-shopping-cart"></i></button></a></li>
+									<!-- <li><button><i class="ti-heart"></i></button></li> -->
+								</ul>
 							</div>
 							<div class="card-body">
-								<ul class="card-blog__info">
-									<li><a href="#">By Admin</a></li>
-									<li><a href="#"><i class="ti-comments-smiley"></i> 2
-											Comments</a></li>
-								</ul>
-								<h4 class="card-blog__title">
-									<a href="single-blog.html">The Richland Center Shooping
-										News and weekly shooper</a>
+								<p>
+								<c:choose>
+				                   <c:when test="${p2.delivery_num==1}">일반 배송</c:when>
+				                   <c:when test="${p2.delivery_num==3}">일반/샛별 배송</c:when>
+				                   <c:otherwise>샛별 배송</c:otherwise>
+				                </c:choose>
+								</p>
+								<h4 class="card-product__title">
+									<a href="product.do?product_num=${p2.product_num }">${p2.product_name }</a>
 								</h4>
-								<p>Let one fifth i bring fly to divided face for bearing
-									divide unto seed. Winged divided light Forth.</p>
-								<a class="card-blog__link" href="#">Read More <i
-									class="ti-arrow-right"></i></a>
+								<p class="card-product__price">${p2.sale_price}원</p>
 							</div>
 						</div>
 					</div>
-
-					<div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-						<div class="card card-blog">
-							<div class="card-blog__img">
-								<img class="card-img rounded-0" src="resources/img/blog/blog2.png" alt="">
-							</div>
-							<div class="card-body">
-								<ul class="card-blog__info">
-									<li><a href="#">By Admin</a></li>
-									<li><a href="#"><i class="ti-comments-smiley"></i> 2
-											Comments</a></li>
-								</ul>
-								<h4 class="card-blog__title">
-									<a href="single-blog.html">The Shopping News also offers
-										top-quality printing services</a>
-								</h4>
-								<p>Let one fifth i bring fly to divided face for bearing
-									divide unto seed. Winged divided light Forth.</p>
-								<a class="card-blog__link" href="#">Read More <i
-									class="ti-arrow-right"></i></a>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-						<div class="card card-blog">
-							<div class="card-blog__img">
-								<img class="card-img rounded-0" src="resources/img/blog/blog3.png" alt="">
-							</div>
-							<div class="card-body">
-								<ul class="card-blog__info">
-									<li><a href="#">By Admin</a></li>
-									<li><a href="#"><i class="ti-comments-smiley"></i> 2
-											Comments</a></li>
-								</ul>
-								<h4 class="card-blog__title">
-									<a href="single-blog.html">Professional design staff and
-										efficient equipment you’ll find we offer</a>
-								</h4>
-								<p>Let one fifth i bring fly to divided face for bearing
-									divide unto seed. Winged divided light Forth.</p>
-								<a class="card-blog__link" href="#">Read More <i
-									class="ti-arrow-right"></i></a>
-							</div>
-						</div>
-					</div>
+					</c:forEach>
 				</div>
 			</div>
-		</section> -->
-		<!-- ================ Blog section end ================= -->
+		</section>
+		<!-- ================ 신상품 끝 ================= -->
+		<!-- ================ 베스트 ================= -->
+ 		<section class="section-margin calc-60px">
+			<div class="container">
+				<div class="section-intro pb-60px">
+					<p>평점 베스트템!</p>
+					<h2>
+						<span class="section-intro__style">베스트</span>
+					</h2>
+				</div>
+				<div class="row">
+					<c:forEach items="${mainList3 }" var="p3" begin="0" end="7" step="1">
+					<div class="col-md-6 col-lg-4 col-xl-3">
+						<div class="card text-center card-product">
+							<div class="card-product__img">
+								<a href="product.do?product_num=${p3.product_num }">
+								<img class="card-img" src="resources/img/product/${p3.product_image }" alt="" width="255px" height="255px"></a>
+								<ul class="card-product__imgOverlay">
+									<!-- <li><button><i class="ti-search"></i></button></li> -->
+									<li><button><a href="cartInsert.do?product_num=${p3.product_num}&product_count=1&delivery_num=${p3.delivery_num}">
+									<i class="ti-shopping-cart"></i></a></button></li>
+									<!-- <li><button><i class="ti-heart"></i></button></li> -->
+								</ul>
+							</div>
+							<div class="card-body">
+								<p>
+								<c:choose>
+				                   <c:when test="${p3.delivery_num==1}">일반 배송</c:when>
+				                   <c:when test="${p3.delivery_num==3}">일반/샛별 배송</c:when>
+				                   <c:otherwise>샛별 배송</c:otherwise>
+				                </c:choose>
+								</p>
+								<h4 class="card-product__title">
+									<a href="product.do?product_num=${p3.product_num }">${p3.product_name }</a>
+								</h4>
+								<p class="card-product__price">${p3.sale_price}원</p>
+							</div>
+						</div>
+					</div>
+					</c:forEach>
+				</div>
+			</div>
+		</section> 
+		<!-- ================ 베스트 끝 ================= -->
+		<!-- ================ 픽 끝 ================= -->
+		<section class="section-margin calc-60px">
+			<div class="container">
+				<div class="section-intro pb-60px">
+					<p>꾸준히 찾는 상품</p>
+					<h2>
+						리틀픽 <span class="section-intro__style">유저픽</span>
+					</h2>
+				</div>
+				<div class="row">
+					<c:forEach items="${mainList4 }" var="p4" begin="0" end="7" step="1">
+					<div class="col-md-6 col-lg-4 col-xl-3">
+						<div class="card text-center card-product">
+							<div class="card-product__img">
+								<a href="product.do?product_num=${p4.product_num }">
+								<img class="card-img" src="resources/img/product/${p4.product_image }" alt="" width="255px" height="255px"></a>
+								<ul class="card-product__imgOverlay">
+									<!-- <li><button><i class="ti-search"></i></button></li> -->
+									<li><a href="cartInsert.do?product_num=${p4.product_num}&product_count=1&delivery_num=${p4.delivery_num}">
+									<button><i class="ti-shopping-cart"></i></button></a></li>
+									<!-- <li><button><i class="ti-heart"></i></button></li> -->
+								</ul>
+							</div>
+							<div class="card-body">
+								<p>
+								<c:choose>
+				                   <c:when test="${p4.delivery_num==1}">일반 배송</c:when>
+				                   <c:when test="${p4.delivery_num==3}">일반/샛별 배송</c:when>
+				                   <c:otherwise>샛별 배송</c:otherwise>
+				                </c:choose>
+								</p>
+								<h4 class="card-product__title">
+									<a href="product.do?product_num=${p4.product_num }">${p4.product_name }</a>
+								</h4>
+								<p class="card-product__price">${p4.sale_price}원</p>
+							</div>
+						</div>
+					</div>
+					</c:forEach>
+				</div>
+			</div>
+		</section>
+		<!-- ================ 픽 끝 ================= -->
 
-		
 
 	</main>
 	<%@ include file="footer.jsp"%> 
 
-	<script src="/littlePick/resources/vendors/jquery/jquery-3.2.1.min.js"></script>
-	<script src="/littlePick/resources/vendors/bootstrap/bootstrap.bundle.min.js"></script>
-	<script src="/littlePick/resources/vendors/skrollr.min.js"></script>
-	<script src="/littlePick/resources/vendors/owl-carousel/owl.carousel.min.js"></script>
-	<script src="/littlePick/resources/vendors/nice-select/jquery.nice-select.min.js"></script>
-	<script src="/littlePick/resources/vendors/jquery.ajaxchimp.min.js"></script>
-	<script src="/littlePick/resources/vendors/mail-script.js"></script>
+	<script src="resources/vendors/jquery/jquery-3.2.1.min.js"></script>
+	<script src="resources/vendors/bootstrap/bootstrap.bundle.min.js"></script>
+	<script src="resources/vendors/skrollr.min.js"></script>
+	<script src="resources/vendors/owl-carousel/owl.carousel.min.js"></script>
+	<script src="resources/vendors/nice-select/jquery.nice-select.min.js"></script>
+	<script src="resources/vendors/jquery.ajaxchimp.min.js"></script>
+	<script src="resources/vendors/mail-script.js"></script>
 	<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 	
-	<script src="/littlePick/resources/js/main.js"></script>
+	<script src="resources/js/main.js"></script>
 </body>
 </html>

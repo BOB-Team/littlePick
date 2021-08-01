@@ -14,4 +14,10 @@ public interface MypageDAO {
 	public void settingUpdate(CommunityVO vo);//회원정보수정
 	public int answerCount(int q_num);//큐앤에이 답글 수 count
 	public List<CommunityVO> selectAnswer(int q_num);//큐앤에이 답글 리스트
+	public List<CommunityVO> selectReview(int user_num);
+	public CommunityVO selectOrder(int order_num);
+	public List<CommunityVO> t_selectOrder(int user_num);
+	public List<CommunityVO> selectOrderList(int order_num);
+	public CommunityVO passcheck(CommunityVO vo);
+	public void insertReview(CommunityVO vo);
 }

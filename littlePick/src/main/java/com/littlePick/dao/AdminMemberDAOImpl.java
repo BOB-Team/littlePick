@@ -4,9 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.inject.Inject;
-
-import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -43,7 +40,7 @@ public class AdminMemberDAOImpl implements AdminMemberDAO {
 	// 회원 삭제
 	@Override
 	public void deleteAdminMember(AdminVO vo) {
-		sqlSession.selectList("adminMember.deleteAdminMember", vo);		
+		sqlSession.delete("adminMember.deleteAdminMember", vo);		
 	}
 
 	// 회원 정보 수정
@@ -66,6 +63,43 @@ public class AdminMemberDAOImpl implements AdminMemberDAO {
 	
 	
 
+	
+	
+	
+	// 상품 목록
+	@Override
+	public List<AdminVO> productList(){
+		return sqlSession.selectList("adminMember.productList");
+	}
+	
+	
+	// 상품 등록
+	@Override
+	public void insertAdminMember1(AdminVO vo) {
+		sqlSession.insert("adminMember.insertAdminMember1", vo);
+	}
+
+	// 상품 정보 상세보기
+	@Override
+	public AdminVO viewAdminMember1(AdminVO vo) {
+		return sqlSession.selectOne("adminMember.viewAdminMember1", vo);
+	}
+
+	// 상품 삭제
+	@Override
+	public void deleteAdminMember1(AdminVO vo) {
+		sqlSession.delete("adminMember.deleteAdminMember1", vo);		
+	}
+
+	// 상품 정보 수정
+	@Override
+	public void updateAdminMember1(AdminVO vo) {
+		sqlSession.update("adminMember.updateAdminMember1", vo);		
+	}
+
+	public AdminVO product(AdminVO vo) {
+		return sqlSession.selectOne("adminMember.product", vo);
+	}
 	
 	
 	

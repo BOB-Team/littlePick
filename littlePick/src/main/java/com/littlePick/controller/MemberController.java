@@ -21,10 +21,12 @@ public class MemberController {
 	@Autowired 
 	MemberServiceImpl memberService;
 	
-	@RequestMapping("{url}.do")
-	public String sample(@PathVariable String url) {
-		return url;
-	}
+	
+	 @RequestMapping("{url}.do")
+	 public String sample(@PathVariable String url) {
+		 return url;
+	 }
+	 
 	
 	@RequestMapping("1_register.do") //회원가입 보기
 	public void register(){
@@ -88,23 +90,22 @@ public class MemberController {
 			session.setAttribute("admin_id", result.getAdmin_id()); //회원번호를 session에 저장
 			session.setAttribute("sessionTime", new Date()); //세션 생김
 		
-			return "redirect:main_admin.do"; //메인페이지로 이동(헤더 새로운 거)
+			return "redirect:main.do"; //메인페이지로 이동(헤더 새로운 거)
 		}
 	}
 	
 	@RequestMapping("1_logout.do") //로그아웃
 	public String logout(HttpSession session){
 		session.invalidate();
-		return "redirect:main_nosession.do?smallpack=1";
+		return "redirect:main.do";
 	}
 	
-	@RequestMapping("ddd.do")
-	public void header(HttpSession session, Model m) {
-		int usernum = (int)session.getAttribute("user_num");
-		System.out.println(usernum);
-		CommunityVO member = memberService.selectUser(usernum);
-		m.addAttribute("member", member);
-	}
+	/*
+	 * @RequestMapping("ddd.do") public void header(HttpSession session, Model m) {
+	 * int usernum = (int)session.getAttribute("user_num");
+	 * System.out.println(usernum); CommunityVO member =
+	 * memberService.selectUser(usernum); m.addAttribute("member", member); }
+	 */
 	
 	
 }

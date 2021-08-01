@@ -21,5 +21,19 @@ public interface ProductService {
 	
 	//글 갯수
 	public int countProductList();
-
+	
+	
+	
+	
+	//0729(영주)
+	public void productCount(ProductVO vo);//조회수 증가
+	public List<ProductVO> category_new(ProductVO vo);
+	public List<ProductVO> category_best();
+	public List<ProductVO> now_best(ProductVO vo);
+	public List<ProductVO> reviewList(ProductVO vo); //리뷰리스트
+	public int reviewCount(ProductVO vo);//리뷰 수
+	public ProductVO avgstar(ProductVO vo);//평점
+	public int starCount(int product_num, int i);
+	public List<ProductVO> filter(ProductVO vo);//필터
+	public List<ProductVO> productSearch(ProductVO vo);//검색. 검색 후 필터하기위해..!
 }

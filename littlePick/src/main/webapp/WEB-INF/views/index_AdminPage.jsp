@@ -57,8 +57,11 @@
 			<div class="search-toggle-icon dw dw-search2" data-toggle="header_search"></div>
 			<div class="header-search">
 				<form>
+				
 					<div class="form-group mb-0">
+					<!-- 
 						<i class="dw dw-search2 search-icon"></i>
+						
 						<input type="text" class="form-control search-input" placeholder="Search Here">
 						<div class="dropdown">
 							<a class="dropdown-toggle no-arrow" href="#" role="button" data-toggle="dropdown">
@@ -88,11 +91,13 @@
 								</div>
 							</div>
 						</div>
+						 -->
 					</div>
 				</form>
 			</div>
 		</div>
 		<div class="header-right">
+			 
 			<div class="dashboard-setting user-notification">
 				<div class="dropdown">
 					<a class="dropdown-toggle no-arrow" href="javascript:;" data-toggle="right-sidebar">
@@ -100,6 +105,7 @@
 					</a>
 				</div>
 			</div>
+			<!-- 
 			<div class="user-notification">
 				<div class="dropdown">
 					<a class="dropdown-toggle no-arrow" href="#" role="button" data-toggle="dropdown">
@@ -154,7 +160,9 @@
 							</ul>
 						</div>
 					</div>
+					
 				</div>
+				-->
 			</div>
 			
 <!-- 	-----------------------------------------------------------------------------------------------------------------	 -->
@@ -174,9 +182,9 @@
 					</div>
 				</div>
 			</div>
-			
+		  	
 		</div>
-	</div>
+	
 
 	<div class="right-sidebar">
 		<div class="sidebar-title">
@@ -290,7 +298,7 @@
 					
 		
 		<li class="dropdown">
-						<a href="product_management.jsp" class="dropdown-toggle no-arrow">
+						<a href="admin_product.do" class="dropdown-toggle no-arrow">
 							<span class="micon dw dw-apartment"></span><span class="mtext"> 상품 관리 </span>
 						</a>
 						
@@ -298,11 +306,10 @@
 		
 		
 					<li class="dropdown">
-						<a href="javascript:;" class="dropdown-toggle">
+						<a href="javascript:;" class="dropdown-toggle no-arrow">
 							<span class="micon dw dw-edit2"></span><span class="mtext">문의사항 관리</span>
 						</a>
 						<ul class="submenu">
-							<li><a href="faq.html">자주 묻는 질문 FAQ 관리</a></li>
 							<li><a href="form-basic.html">문의사항</a></li>
 						</ul>
 					</li>
@@ -408,18 +415,6 @@
 					<li>
 						<div class="dropdown-divider"></div>
 					</li>
-					<li>
-						<div class="sidebar-small-cap">Extra</div>
-					</li>
-					<li>
-						<a href="javascript:;" class="dropdown-toggle">
-							<span class="micon dw dw-edit-2"></span><span class="mtext">관리자/개발자 공간</span>
-						</a>
-						<ul class="submenu">
-							<li><a href="introduction.html">관리자 공지</a></li>
-							<li><a href="getting-started.html">개발자 타임라인</a></li>
-						</ul>
-					</li>
 					
 				</ul>
 			</div>
@@ -516,7 +511,7 @@
 				</div>
 			</div>
 <!-- 	-----------------------------------------------------------------------------------------------------------------	 -->
-			<div class="card-box mb-30">
+<!--  			<div class="card-box mb-30">
 				<h2 class="h4 pd-20">최다 판매 상품 Top5</h2>
 				<table class="data-table table nowrap">
 					<thead>
@@ -544,16 +539,7 @@
 							<td>$1000</td>
 							<td>1</td>
 							<td>
-								<div class="dropdown">
-									<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-										<i class="dw dw-more"></i>
-									</a>
-									<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-										<a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
-										<a class="dropdown-item" href="#"><i class="dw dw-edit2"></i> Edit</a>
-										<a class="dropdown-item" href="#"><i class="dw dw-delete-3"></i> Delete</a>
-									</div>
-								</div>
+								
 							</td>
 						</tr>
 						<tr>
@@ -569,16 +555,7 @@
 							<td>$900</td>
 							<td>1</td>
 							<td>
-								<div class="dropdown">
-									<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-										<i class="dw dw-more"></i>
-									</a>
-									<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-										<a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
-										<a class="dropdown-item" href="#"><i class="dw dw-edit2"></i> Edit</a>
-										<a class="dropdown-item" href="#"><i class="dw dw-delete-3"></i> Delete</a>
-									</div>
-								</div>
+								
 							</td>
 						</tr>
 						<tr>
@@ -594,16 +571,7 @@
 							<td>$100</td>
 							<td>4</td>
 							<td>
-								<div class="dropdown">
-									<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-										<i class="dw dw-more"></i>
-									</a>
-									<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-										<a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
-										<a class="dropdown-item" href="#"><i class="dw dw-edit2"></i> Edit</a>
-										<a class="dropdown-item" href="#"><i class="dw dw-delete-3"></i> Delete</a>
-									</div>
-								</div>
+								
 							</td>
 						</tr>
 						<tr>
@@ -619,16 +587,7 @@
 							<td>$1000</td>
 							<td>1</td>
 							<td>
-								<div class="dropdown">
-									<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-										<i class="dw dw-more"></i>
-									</a>
-									<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-										<a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
-										<a class="dropdown-item" href="#"><i class="dw dw-edit2"></i> Edit</a>
-										<a class="dropdown-item" href="#"><i class="dw dw-delete-3"></i> Delete</a>
-									</div>
-								</div>
+								
 							</td>
 						</tr>
 						<tr>
@@ -644,22 +603,15 @@
 							<td>$1000</td>
 							<td>1</td>
 							<td>
-								<div class="dropdown">
-									<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-										<i class="dw dw-more"></i>
-									</a>
-									<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-										<a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
-										<a class="dropdown-item" href="#"><i class="dw dw-edit2"></i> Edit</a>
-										<a class="dropdown-item" href="#"><i class="dw dw-delete-3"></i> Delete</a>
-									</div>
-								</div>
+								
 							</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
+			-->
 			<div class="footer-wrap pd-20 mb-20 card-box">
+			
 				[  LittlePick  ]  made by  조다운, 이혜미, 조영주, 김준호
 			</div>
 		</div>

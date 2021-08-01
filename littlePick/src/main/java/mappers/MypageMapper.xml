@@ -43,13 +43,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="settingUpdate" parameterType="comVO">
 		UPDATE Member_tb
 		SET
-		user_nickname=#{user_nickname}, user_password =#{user_password}, user_phone=#{user_phone},
-		user_address=#{user_address}, user_birth=#{user_birth}
+		user_nickname=#{user_nickname}, user_password =#{user_password}, user_phone=#{user_phone},user_postcode=#{user_postcode},
+		user_address=#{user_address},user_address2=#{user_address2},user_address3=#{user_address3}, user_birth=#{user_birth}
 		
- 			<if test="user_image != null">
-				,user_image=#{user_image}
+			<if test="user_image != null">
+				, user_image = #{user_image}
 			</if>
-			
+			 
 		WHERE user_email=#{user_email};
 	</update>
 	
@@ -58,10 +58,56 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT count(*) FROM Answer_tb WHERE q_num=#{q_num}  
 	</select>
 	
+	<select id="answerCount2" parameterType="int" resultType="int">
+		SELECT count(*) FROM Answer_tb a inner join Qboard_tb q on a.q_num=q.q_num WHERE user_num = #{user_num}
+	</select>
+	
+	
 	<select id="selectAnswer" parameterType="int" resultType="comVO">
 		SELECT * FROM Answer_tb WHERE q_num=#{q_num}
 	</select>
 	
-
+	<select id="selectReview" parameterType="int" resultType="comVO">
+		SELECT * FROM Review_tb r inner join Product_tb p on r.product_num = p.product_num WHERE r.user_num=#{user_num}
+	</select>
+	
+ 	<select id="selectOrder" parameterType="int" resultType="comVO">
+		SELECT * FROM Order_tb WHERE order_num=#{order_num}
+	</select>
+	
+	<select id="t_selectOrder" parameterType="int" resultType="comVO">
+		SELECT *,count(*)-1 ordercount
+		FROM (Order_tb o inner join OrderList_tb ol on o.order_num = ol.order_num)
+		inner join Product_tb p on ol.product_num = p.product_num
+		WHERE o.user_num=#{user_num} group by o.order_num;
+	</select>
+	
+	<select id="selectOrderList" parameterType="int" resultType="comVO">
+		SELECT *
+		FROM OrderList_tb ol inner join Product_tb p on ol.product_num = p.product_num
+		WHERE ol.order_num=#{order_num}
+	</select>
+	
+	<select id="passcheck" parameterType="comVO" resultType="comVO">
+		SELECT *
+		FROM Member_tb
+		Where user_num=#{user_num} and user_password=#{user_password}
+	</select>
+	
+	<insert id="insertReview" parameterType="comVO">
+		INSERT INTO Review_tb (review_num, product_num, user_num, review_title, review_content
+		,review_image, review_star, review_date)
+		VALUES (null, #{product_num}, #{user_num}, null, #{review_content}
+		
+		<choose>
+			<when test="reviewfile != null">
+					, #{review_image}
+			</when>		
+			<otherwise>
+					, 'img_default.png'
+			</otherwise>	
+		</choose>
+		,#{review_star} ,sysdate())
+	</insert>
 	
 </mapper>

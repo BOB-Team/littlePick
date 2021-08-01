@@ -14,12 +14,6 @@ public class CommunityServiceImpl {
 	@Autowired
 	CommunityDAOImple comDAO;
 	
-	public String sysdate() {
-		return comDAO.sysdate(); // 넘어오는 값 처리 또는 리턴하기 
-	}
-	
-	
-	
 	public CommunityVO selectBoard(CommunityVO vo) {
 		
 		return comDAO.selectBoard(vo);
@@ -27,8 +21,8 @@ public class CommunityServiceImpl {
 
 
 
-	public void insertBoard(CommunityVO vo) {
-		comDAO.insertBoard(vo);
+	public void insertBoard(CommunityVO vo,int user_num) {
+		comDAO.insertBoard(vo,user_num);
 	}
 
 
@@ -56,8 +50,8 @@ public class CommunityServiceImpl {
 	}
 
 
-	public void insertComment(CommunityVO vo) {
-		comDAO.insertComment(vo);
+	public void insertComment(CommunityVO vo,int user_num) {
+		comDAO.insertComment(vo,user_num);
 		
 	}
 
@@ -72,6 +66,20 @@ public class CommunityServiceImpl {
 
 	public void boardCountUp(int content_num) { //조회수 1 증가
 		comDAO.boardCountUp(content_num);
+		
+	}
+
+
+
+	public void boarddelete(int content_num) {
+		comDAO.boarddelete(content_num);
+		
+	}
+
+
+
+	public void boardmodify(CommunityVO vo) {
+		comDAO.boardmodify(vo);
 		
 	}
 

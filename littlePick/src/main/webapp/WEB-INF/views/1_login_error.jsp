@@ -36,10 +36,10 @@
 </script>
 <body bgcolor="#FFFFFF">
 <div class="login">
-    <form action="login_go.do" method="post" name="form" method="post" class="table2">
+    <form action="login_go.do" method="post" name="form" class="table2">
 	<!--<form name="form" action="login.do" method="post">-->
 <div class="register-logo">
-<a href="#"><img src="resources/img/logo.png" width="200px"/></a>
+<a href="main.do"><img src="resources/img/logo.png" width="200px"/></a>
 </div>
 <div class="login-error">
 <a>이메일 또는 비밀번호가 일치하지 않습니다.</a>

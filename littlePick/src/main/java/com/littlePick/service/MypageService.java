@@ -16,4 +16,10 @@ public interface MypageService {
 	public void settingUpdate(CommunityVO vo); //회원정보수정
 	public int answerCount(int q_num);//문의 답글 수
 	public List<CommunityVO> selectAnswer(int q_num);//문의 답글 목록
+	public List answerCount2(int user_num);
+	public List<CommunityVO> selectReview(int user_num); //리뷰리스트
+	public CommunityVO selectOrder(int order_num);
+	public List<CommunityVO> t_selectOrder(int user_num);
+	public List<CommunityVO> selectOrderList(int order_num);
+	public CommunityVO passcheck(CommunityVO vo);
 }

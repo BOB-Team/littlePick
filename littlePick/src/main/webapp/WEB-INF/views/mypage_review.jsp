@@ -74,16 +74,17 @@
 
 				<div class="col-sm-6 col-lg-4 mb-4 mb-lg-0">
 					<div class="categories_post">
-						<a href="#####.do?product_num=${review.product_num}"> <img
+						<a href="product.do?product_num=${review.product_num}"> <img
 							src="resources/upload/review/${review.review_image}" width="200px"
 							height="200px">
 						</a>
-						${review.review_content}
+						
 						<div class="blog_info">
-							<a href="#####.do?product_num=${review.product_num}">
+							<a href="product.do?product_num=${review.product_num}">
 								<h5>${review.product_name}</h5>
 							</a>
 						</div>
+						
 					</div>
 				</div>
 			

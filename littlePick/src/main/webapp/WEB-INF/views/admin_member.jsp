@@ -27,7 +27,7 @@
 	<link rel="stylesheet" type="text/css" href="resources/admin/resources/vendors/styles/style.css">
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script> 
 	<script>
 		window.dataLayer = window.dataLayer || [];
 		function gtag(){dataLayer.push(arguments);}
@@ -37,18 +37,7 @@
 	</script>
 </head>
 <body>
-	<div class="pre-loader">
-		<div class="pre-loader-box">
-			<div class="loader-logo"><img src="resources/admin/resources/vendors/images/deskapp-logo.svg" alt=""></div>
-			<div class='loader-progress' id="progress_div">
-				<div class='bar' id='bar1'></div>
-			</div>
-			<div class='percent' id='percent1'>0%</div>
-			<div class="loading-text">
-				Loading...
-			</div>
-		</div>
-	</div>
+	
 
 	<div class="header">
 		<div class="header-left">
@@ -57,6 +46,7 @@
 			<div class="header-search">
 				<form>
 					<div class="form-group mb-0">
+					<!--  
 						<i class="dw dw-search2 search-icon"></i>
 						<input type="text" class="form-control search-input" placeholder="Search Here">
 						<div class="dropdown">
@@ -87,6 +77,7 @@
 								</div>
 							</div>
 						</div>
+						-->
 					</div>
 				</form>
 			</div>
@@ -99,62 +90,7 @@
 					</a>
 				</div>
 			</div>
-			<div class="user-notification">
-				<div class="dropdown">
-					<a class="dropdown-toggle no-arrow" href="#" role="button" data-toggle="dropdown">
-						<i class="icon-copy dw dw-notification"></i>
-						<span class="badge notification-active"></span>
-					</a>
-					<div class="dropdown-menu dropdown-menu-right">
-						<div class="notification-list mx-h-350 customscroll">
-							<ul>
-								<li>
-									<a href="#">
-										<img src="vendors/images/img.jpg" alt="">
-										<h3>John Doe</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<img src="vendors/images/photo1.jpg" alt="">
-										<h3>Lea R. Frith</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<img src="vendors/images/photo2.jpg" alt="">
-										<h3>Erik L. Richards</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<img src="vendors/images/photo3.jpg" alt="">
-										<h3>John Doe</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<img src="vendors/images/photo4.jpg" alt="">
-										<h3>Renee I. Hansen</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<img src="vendors/images/img.jpg" alt="">
-										<h3>Vicki M. Coleman</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
-									</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
+			
 			<div class="user-info-dropdown">
 				<div class="dropdown">
 					<a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
@@ -270,50 +206,34 @@
 					</li>
 		  			
 					<li class="dropdown">
-						<a href="javascript:;" class="dropdown-toggle">
+						<a href="admin_member.do" class="dropdown-toggle no-arrow">
 							<span class="micon dw dw-library"></span><span class="mtext">회원 관리</span>
 						</a>
+						<!-- 
 						<ul class="submenu">
 							<li><a href="datatable.html">회원 정보</a></li>
 						</ul>
-						<ul class="submenu">
-							<li><a href="datatable.html">개발자 정보</a></li>
-						</ul>
+						 -->
 					</li>
 					
 		
 		<li class="dropdown">
-						<a href="javascript:;" class="dropdown-toggle">
+						<a href="admin_product.do" class="dropdown-toggle no-arrow">
 							<span class="micon dw dw-apartment"></span><span class="mtext"> 상품 관리 </span>
 						</a>
-						<ul class="submenu">
-							<li><a href="ui-buttons.html">Buttons</a></li>
-							<li><a href="ui-cards.html">Cards</a></li>
-							<li><a href="ui-cards-hover.html">Cards Hover</a></li>
-							<li><a href="ui-modals.html">Modals</a></li>
-							<li><a href="ui-tabs.html">Tabs</a></li>
-							<li><a href="ui-tooltip-popover.html">Tooltip &amp; Popover</a></li>
-							<li><a href="ui-sweet-alert.html">Sweet Alert</a></li>
-							<li><a href="ui-notification.html">Notification</a></li>
-							<li><a href="ui-timeline.html">Timeline</a></li>
-							<li><a href="ui-progressbar.html">Progressbar</a></li>
-							<li><a href="ui-typography.html">Typography</a></li>
-							<li><a href="ui-list-group.html">List group</a></li>
-							<li><a href="ui-range-slider.html">Range slider</a></li>
-							<li><a href="ui-carousel.html">Carousel</a></li>
-						</ul>
+						
 					</li>
 		
 		
 					<li class="dropdown">
-						<a href="javascript:;" class="dropdown-toggle">
+						<a href="javascript:;" class="dropdown-toggle no-arrow">
 							<span class="micon dw dw-edit2"></span><span class="mtext">문의사항 관리</span>
 						</a>
 						<ul class="submenu">
-							<li><a href="faq.html">자주 묻는 질문 FAQ 관리</a></li>
 							<li><a href="form-basic.html">문의사항</a></li>
 						</ul>
 					</li>
+
 						
 					
 					<li class="dropdown">
@@ -331,18 +251,7 @@
 					<li>
 						<div class="dropdown-divider"></div>
 					</li>
-					<li>
-						<div class="sidebar-small-cap">Extra</div>
-					</li>
-					<li>
-						<a href="javascript:;" class="dropdown-toggle">
-							<span class="micon dw dw-edit-2"></span><span class="mtext">관리자/개발자 공간</span>
-						</a>
-						<ul class="submenu">
-							<li><a href="introduction.html">관리자 공지</a></li>
-							<li><a href="getting-started.html">개발자 타임라인</a></li>
-						</ul>
-					</li>
+					
 					
 				</ul>
 			</div>
@@ -360,15 +269,18 @@
 					<div class="row">
 						<div class="col-md-6 col-sm-12">
 							<div class="title">
-								<h4>DataTable</h4>
+								<h4>회원 관리</h4>
 							</div>
+							<!--  
 							<nav aria-label="breadcrumb" role="navigation">
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="index.html">Home</a></li>
 									<li class="breadcrumb-item active" aria-current="page">DataTable</li>
 								</ol>
 							</nav>
+							-->
 						</div>
+						<!--  
 						<div class="col-md-6 col-sm-12 text-right">
 							<div class="dropdown">
 								<a class="btn btn-primary dropdown-toggle" href="#" role="button" data-toggle="dropdown">
@@ -383,7 +295,7 @@
 						</div>
 					</div>
 				</div>
-				
+	-->			
 				
 <!-- ----------------------------------------------------------------------------------------------------------------- -->				
 				
@@ -391,13 +303,16 @@
 				<!-- Simple Datatable start -->
 				<div class="card-box mb-30">
 					<div class="pd-20">
-						<h4 class="text-blue h4">Data Table Simple</h4>
-						<p class="mb-0">you can find more options <a class="text-primary" href="https://datatables.net/" target="_blank">Click Here</a></p>
-					</div>
+						<h4 class="text-blue h4">회원 목록</h4>
+					</div>	
+					
+						<a type=button id="memberWrite" href="1_register.do">등록</a>
+					
 					<div class="pb-20">
-						<table class="data-table table stripe hover nowrap">
+						<table class="checkbox-datatable table nowrap">
 							<thead>
 								<tr>
+									
 									<th class="table-plus datatable-nosort">NO</th>
 									<th>이름</th>
 									<th>이메일</th>
@@ -408,7 +323,6 @@
 									<th>생일</th>
 									<th>가입일</th>
 									<th>포인트</th>
-									<th class="datatable-nosort">Action</th>
 								</tr>
 							</thead>
 
@@ -418,7 +332,7 @@
 							<c:forEach items="${memberList}" var="member">
 								<tr>
 									<td class="table-plus">${member.user_num}</td>
-									<td>${member.user_name}</td></a>
+									<td><a href="admin_memberinfo.do?user_email=${member.user_email}">${member.user_name}</a></td>
 									<td>${member.user_email}</td>
 									<td>${member.user_nickname}</td>
 									<td>${member.user_phone}</td>
@@ -427,18 +341,10 @@
 									<td>${member.user_birth}</td>
 									<td>${member.user_regdate}</td>
 									<td>${member.user_point}</td>
+									
 									<td>
 									
-										<div class="dropdown">
-											<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-												<i class="dw dw-more"></i>
-											</a>
-											<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-												<a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
-												<a class="dropdown-item" href="#"><i class="dw dw-edit2"></i> Edit</a>
-												<a class="dropdown-item" href="#"><i class="dw dw-delete-3"></i> Delete</a>
-											</div>
-										</div>
+										
 									</td>
 								</tr>
 								
@@ -456,13 +362,10 @@
 				
 				<!-- Simple Datatable End -->
 				
-				
-				
-			
 				<!-- Export Datatable End -->
 			</div>
 			<div class="footer-wrap pd-20 mb-20 card-box">
-				DeskApp - Bootstrap 4 Admin Template By <a href="https://github.com/dropways" target="_blank">Ankit Hingarajiya</a>
+				[  LittlePick  ]  made by  조다운, 이혜미, 조영주, 김준호
 			</div>
 		</div>
 	</div>

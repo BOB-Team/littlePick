@@ -6,7 +6,7 @@ import com.littlePick.domain.AdminVO;
 
 public interface AdminMemberDAO {
 	
-	//회원 목록
+	//회원 
 	public List<AdminVO> memberList();
 
 	public  void insertAdminMember(AdminVO vo);
@@ -19,9 +19,23 @@ public interface AdminMemberDAO {
 
 	public  boolean checkPw(String user_email, String user_password);
 
+	//상품 
+	public List<AdminVO> productList();
+
+	public void insertAdminMember1(AdminVO vo);
+
+	public AdminVO viewAdminMember1(AdminVO vo);
+
+	public void deleteAdminMember1(AdminVO vo);
+
+	public void updateAdminMember1(AdminVO vo);
+	
+	public AdminVO product(AdminVO vo);
+
 
 		
 	
+	
 
 
 
@@ -29,21 +43,7 @@ public interface AdminMemberDAO {
 		
 
 
-	/*
-	//회원 입력
-	public List<AdminMemberVO> insertAdminMember(AdminMemberVO vo);
-	
-	//회원 정보 상세보기
-	public List<AdminMemberVO> viewAdminMember();
-	
-	//회원 삭제
-	public List<AdminMemberVO> deleteAdminMember(String userEmail);
-	
-	//회원 정보 수정
-	public List<AdminMemberVO> updateAdminMember(AdminMemberVO vo);
 
-	List<AdminMemberVO> adminMemberList();
-
-	*/
+	
 
 }

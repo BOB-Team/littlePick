@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 
 <!DOCTYPE html>
 <html>
@@ -10,9 +10,9 @@
 	<title>상품 관리 페이지</title>
 
 	<!-- Site favicon -->
-	<link rel="apple-touch-icon" sizes="180x180" href="vendors/images/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="vendors/images/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="vendors/images/favicon-16x16.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="resources/admin/resources/vendors/images/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="resources/admin/resources/vendors/images/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="resources/admin/resources/vendors/images/favicon-16x16.png">
 
 	<!-- Mobile Specific Metas -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -20,11 +20,11 @@
 	<!-- Google Font -->
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 	<!-- CSS -->
-	<link rel="stylesheet" type="text/css" href="vendors/styles/core.css">
-	<link rel="stylesheet" type="text/css" href="vendors/styles/icon-font.min.css">
-	<link rel="stylesheet" type="text/css" href="src/plugins/datatables/css/dataTables.bootstrap4.min.css">
-	<link rel="stylesheet" type="text/css" href="src/plugins/datatables/css/responsive.bootstrap4.min.css">
-	<link rel="stylesheet" type="text/css" href="vendors/styles/style.css">
+	<link rel="stylesheet" type="text/css" href="resources/admin/resources/vendors/styles/core.css">
+	<link rel="stylesheet" type="text/css" href="resources/admin/resources/vendors/styles/icon-font.min.css">
+	<link rel="stylesheet" type="text/css" href="resources/admin/resources/plugins/datatables/css/dataTables.bootstrap4.min.css">
+	<link rel="stylesheet" type="text/css" href="resources/admin/resources/plugins/datatables/css/responsive.bootstrap4.min.css">
+	<link rel="stylesheet" type="text/css" href="resources/admin/resources/vendors/styles/style.css">
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
@@ -37,18 +37,7 @@
 	</script>
 </head>
 <body>
-	<div class="pre-loader">
-		<div class="pre-loader-box">
-			<div class="loader-logo"><img src="vendors/images/deskapp-logo.svg" alt=""></div>
-			<div class='loader-progress' id="progress_div">
-				<div class='bar' id='bar1'></div>
-			</div>
-			<div class='percent' id='percent1'>0%</div>
-			<div class="loading-text">
-				Loading...
-			</div>
-		</div>
-	</div>
+
 
 	<div class="header">
 		<div class="header-left">
@@ -57,8 +46,10 @@
 			<div class="header-search">
 				<form>
 					<div class="form-group mb-0">
+					<!--  
 						<i class="dw dw-search2 search-icon"></i>
 						<input type="text" class="form-control search-input" placeholder="Search Here">
+						
 						<div class="dropdown">
 							<a class="dropdown-toggle no-arrow" href="#" role="button" data-toggle="dropdown">
 								<i class="ion-arrow-down-c"></i>
@@ -87,6 +78,7 @@
 								</div>
 							</div>
 						</div>
+						-->
 					</div>
 				</form>
 			</div>
@@ -94,67 +86,12 @@
 		<div class="header-right">
 			<div class="dashboard-setting user-notification">
 				<div class="dropdown">
-					<a class="dropdown-toggle no-arrow" href="javascript:;" data-toggle="right-sidebar">
+					<a class="dropdown-toggle no-arrow" href="resources/admin/resources/javascript:;" data-toggle="right-sidebar">
 						<i class="dw dw-settings2"></i>
 					</a>
 				</div>
 			</div>
-			<div class="user-notification">
-				<div class="dropdown">
-					<a class="dropdown-toggle no-arrow" href="#" role="button" data-toggle="dropdown">
-						<i class="icon-copy dw dw-notification"></i>
-						<span class="badge notification-active"></span>
-					</a>
-					<div class="dropdown-menu dropdown-menu-right">
-						<div class="notification-list mx-h-350 customscroll">
-							<ul>
-								<li>
-									<a href="#">
-										<img src="vendors/images/img.jpg" alt="">
-										<h3>John Doe</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<img src="vendors/images/photo1.jpg" alt="">
-										<h3>Lea R. Frith</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<img src="vendors/images/photo2.jpg" alt="">
-										<h3>Erik L. Richards</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<img src="vendors/images/photo3.jpg" alt="">
-										<h3>John Doe</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<img src="vendors/images/photo4.jpg" alt="">
-										<h3>Renee I. Hansen</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<img src="vendors/images/img.jpg" alt="">
-										<h3>Vicki M. Coleman</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
-									</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
+		
 			<div class="user-info-dropdown">
 				<div class="dropdown">
 					<a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
@@ -270,50 +207,34 @@
 					</li>
 		  			
 					<li class="dropdown">
-						<a href="javascript:;" class="dropdown-toggle">
+						<a href="admin_member.do" class="dropdown-toggle no-arrow">
 							<span class="micon dw dw-library"></span><span class="mtext">회원 관리</span>
 						</a>
+						<!-- 
 						<ul class="submenu">
 							<li><a href="datatable.html">회원 정보</a></li>
 						</ul>
-						<ul class="submenu">
-							<li><a href="datatable.html">개발자 정보</a></li>
-						</ul>
+						 -->
 					</li>
 					
 		
 		<li class="dropdown">
-						<a href="javascript:;" class="dropdown-toggle">
+						<a href="admin_product.do" class="dropdown-toggle no-arrow">
 							<span class="micon dw dw-apartment"></span><span class="mtext"> 상품 관리 </span>
 						</a>
-						<ul class="submenu">
-							<li><a href="ui-buttons.html">Buttons</a></li>
-							<li><a href="ui-cards.html">Cards</a></li>
-							<li><a href="ui-cards-hover.html">Cards Hover</a></li>
-							<li><a href="ui-modals.html">Modals</a></li>
-							<li><a href="ui-tabs.html">Tabs</a></li>
-							<li><a href="ui-tooltip-popover.html">Tooltip &amp; Popover</a></li>
-							<li><a href="ui-sweet-alert.html">Sweet Alert</a></li>
-							<li><a href="ui-notification.html">Notification</a></li>
-							<li><a href="ui-timeline.html">Timeline</a></li>
-							<li><a href="ui-progressbar.html">Progressbar</a></li>
-							<li><a href="ui-typography.html">Typography</a></li>
-							<li><a href="ui-list-group.html">List group</a></li>
-							<li><a href="ui-range-slider.html">Range slider</a></li>
-							<li><a href="ui-carousel.html">Carousel</a></li>
-						</ul>
+						
 					</li>
 		
 		
 					<li class="dropdown">
-						<a href="javascript:;" class="dropdown-toggle">
+						<a href="javascript:;" class="dropdown-toggle no-arrow">
 							<span class="micon dw dw-edit2"></span><span class="mtext">문의사항 관리</span>
 						</a>
 						<ul class="submenu">
-							<li><a href="faq.html">자주 묻는 질문 FAQ 관리</a></li>
 							<li><a href="form-basic.html">문의사항</a></li>
 						</ul>
 					</li>
+
 					
 <!--  					
 					<li class="dropdown">
@@ -416,18 +337,7 @@
 					<li>
 						<div class="dropdown-divider"></div>
 					</li>
-					<li>
-						<div class="sidebar-small-cap">Extra</div>
-					</li>
-					<li>
-						<a href="javascript:;" class="dropdown-toggle">
-							<span class="micon dw dw-edit-2"></span><span class="mtext">관리자/개발자 공간</span>
-						</a>
-						<ul class="submenu">
-							<li><a href="introduction.html">관리자 공지</a></li>
-							<li><a href="getting-started.html">개발자 타임라인</a></li>
-						</ul>
-					</li>
+					
 					
 				</ul>
 			</div>
@@ -436,7 +346,7 @@
 	<div class="mobile-menu-overlay"></div>
 
 <!-- ----------------------------------------------------------------------------------------------------------------- -->
-
+ 
 
 	<div class="main-container">
 		<div class="pd-ltr-20 xs-pd-20-10">
@@ -445,8 +355,9 @@
 					<div class="row">
 						<div class="col-md-6 col-sm-12">
 							<div class="title">
-								<h4>DataTable</h4>
+								<h4>상품 관리</h4>
 							</div>
+							<!-- 
 							<nav aria-label="breadcrumb" role="navigation">
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -454,6 +365,7 @@
 								</ol>
 							</nav>
 						</div>
+						
 						<div class="col-md-6 col-sm-12 text-right">
 							<div class="dropdown">
 								<a class="btn btn-primary dropdown-toggle" href="#" role="button" data-toggle="dropdown">
@@ -469,133 +381,85 @@
 					</div>
 				</div>
 				
-				
+-->				
 <!-- ----------------------------------------------------------------------------------------------------------------- -->				
 				
 			
 				<!-- Checkbox select Datatable End -->
 				<!-- Export Datatable start -->
 				<div class="card-box mb-30">
+				
+					 <form method="post" action="productInsert.do">
+					 
 					<div class="pd-20">
-						<h4 class="text-blue h4">Data Table with Export Buttons</h4>
+						<h4 class="text-blue h4">상품 목록</h4>
 					</div>
+					
+					
+					
+					<input type="button" value="등록" onClick="location.href='admin_productinsert.do'"/>
+						<!--  <a type=button id="memberWrite" href="">등록</a>	-->
+					
 					<div class="pb-20">
-						<table class="table hover multiple-select-row data-table-export nowrap">
+						<table class="checkbox-datatable table nowrap">
 							<thead>
 								<tr>
-									<th class="table-plus datatable-nosort">Name</th>
-									<th>Age</th>
-									<th>Office</th>
-									<th>Address</th>
-									<th>Start Date</th>
-									<th>Salart</th>
+									
+									
+									<th class="table-plus datatable-nosort"></th>
+									<th>상품번호</th>
+									<th>카테고리 번호</th>
+									<th>상품이름</th>
+									<th>상품정보</th>
+									
+									<th>상품이미지</th>
+									<th>판매가격</th>
+									<th>현재가격</th>
+									<th>입고가</th>
+									<th>재고</th>
+									<th>조회수</th>
+									<th>배송번호</th>
+									<th>소포장</th>
+									<th>상품태그</th>
+									
 								</tr>
 							</thead>
 							<tbody>
+							
+							<c:forEach items="${productList}" var="product">
 								<tr>
-									<td class="table-plus">Gloria F. Mead</td>
-									<td>25</td>
-									<td>Sagittarius</td>
-									<td>2829 Trainer Avenue Peoria, IL 61602 </td>
-									<td>29-03-2018</td>
-									<td>$162,700</td>
+									<td class="table-plus"></td>
+									<td>${product.product_num}</td>
+									<td>${product.category_num}</td>
+									<td><a href="admin_productinfo.do?product_num=${product.product_num}">${product.product_name}</a></td>
+									<td>${product.product_info}</td>
+									<td>${product.product_image}</td>
+									<td>${product.sale_price}</td>
+									<td>${product.now_price}</td>
+									<td>${product.in_price}</td>
+									<td>${product.stock}</td>
+									<td>${product.product_view}</td>
+									<td>${product.delivery_num}</td>
+									<td>${product.smallpack}</td>
+									<td>${product.product_tag}
+								
+									<td>
+									
+									</td>
+								
 								</tr>
-								<tr>
-									<td class="table-plus">Andrea J. Cagle</td>
-									<td>30</td>
-									<td>Gemini</td>
-									<td>1280 Prospect Valley Road Long Beach, CA 90802 </td>
-									<td>29-03-2018</td>
-									<td>$162,700</td>
-								</tr>
-								<tr>
-									<td class="table-plus">Andrea J. Cagle</td>
-									<td>20</td>
-									<td>Gemini</td>
-									<td>2829 Trainer Avenue Peoria, IL 61602 </td>
-									<td>29-03-2018</td>
-									<td>$162,700</td>
-								</tr>
-								<tr>
-									<td class="table-plus">Andrea J. Cagle</td>
-									<td>30</td>
-									<td>Sagittarius</td>
-									<td>1280 Prospect Valley Road Long Beach, CA 90802 </td>
-									<td>29-03-2018</td>
-									<td>$162,700</td>
-								</tr>
-								<tr>
-									<td class="table-plus">Andrea J. Cagle</td>
-									<td>25</td>
-									<td>Gemini</td>
-									<td>2829 Trainer Avenue Peoria, IL 61602 </td>
-									<td>29-03-2018</td>
-									<td>$162,700</td>
-								</tr>
-								<tr>
-									<td class="table-plus">Andrea J. Cagle</td>
-									<td>20</td>
-									<td>Sagittarius</td>
-									<td>1280 Prospect Valley Road Long Beach, CA 90802 </td>
-									<td>29-03-2018</td>
-									<td>$162,700</td>
-								</tr>
-								<tr>
-									<td class="table-plus">Andrea J. Cagle</td>
-									<td>18</td>
-									<td>Gemini</td>
-									<td>1280 Prospect Valley Road Long Beach, CA 90802 </td>
-									<td>29-03-2018</td>
-									<td>$162,700</td>
-								</tr>
-								<tr>
-									<td class="table-plus">Andrea J. Cagle</td>
-									<td>30</td>
-									<td>Sagittarius</td>
-									<td>1280 Prospect Valley Road Long Beach, CA 90802 </td>
-									<td>29-03-2018</td>
-									<td>$162,700</td>
-								</tr>
-								<tr>
-									<td class="table-plus">Andrea J. Cagle</td>
-									<td>30</td>
-									<td>Sagittarius</td>
-									<td>1280 Prospect Valley Road Long Beach, CA 90802 </td>
-									<td>29-03-2018</td>
-									<td>$162,700</td>
-								</tr>
-								<tr>
-									<td class="table-plus">Andrea J. Cagle</td>
-									<td>30</td>
-									<td>Gemini</td>
-									<td>1280 Prospect Valley Road Long Beach, CA 90802 </td>
-									<td>29-03-2018</td>
-									<td>$162,700</td>
-								</tr>
-								<tr>
-									<td class="table-plus">Andrea J. Cagle</td>
-									<td>30</td>
-									<td>Gemini</td>
-									<td>1280 Prospect Valley Road Long Beach, CA 90802 </td>
-									<td>29-03-2018</td>
-									<td>$162,700</td>
-								</tr>
-								<tr>
-									<td class="table-plus">Andrea J. Cagle</td>
-									<td>30</td>
-									<td>Gemini</td>
-									<td>1280 Prospect Valley Road Long Beach, CA 90802 </td>
-									<td>29-03-2018</td>
-									<td>$162,700</td>
-								</tr>
+								
+								</c:forEach>
 							</tbody>
 						</table>
 					</div>
+				</form>
 				</div>
 				
 				
 				
-				
+			<!-- href="productUpdate.do?product_num=${product.product_num}" 
+			x<td><input type="text" value="${product.product_num}"/></td>-->	
 				
 				
 			
@@ -605,28 +469,28 @@
 
 				<!-- Export Datatable End -->
 			</div>
-			<div class="footer-wrap pd-20 mb-20 card-box">
-				DeskApp - Bootstrap 4 Admin Template By <a href="https://github.com/dropways" target="_blank">Ankit Hingarajiya</a>
+			  <div class="footer-wrap pd-20 mb-20 card-box">
+				[  LittlePick  ]  made by  조다운, 이혜미, 조영주, 김준호
 			</div>
 		</div>
 	</div>
 	<!-- js -->
-	<script src="vendors/scripts/core.js"></script>
-	<script src="vendors/scripts/script.min.js"></script>
-	<script src="vendors/scripts/process.js"></script>
-	<script src="vendors/scripts/layout-settings.js"></script>
+	<script src="resources/admin/resources/vendors/scripts/core.js"></script>
+	<script src="resources/admin/resources/vendors/scripts/script.min.js"></script>
+	<script src="resources/admin/resources/vendors/scripts/process.js"></script>
+	<script src="resources/admin/resources/vendors/scripts/layout-settings.js"></script>
 	<script src="src/plugins/datatables/js/jquery.dataTables.min.js"></script>
-	<script src="src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
-	<script src="src/plugins/datatables/js/dataTables.responsive.min.js"></script>
-	<script src="src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
+	<script src="resources/admin/resources/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
+	<script src="resources/admin/resources/plugins/datatables/js/dataTables.responsive.min.js"></script>
+	<script src="resources/admin/resources/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
 	<!-- buttons for Export datatable -->
-	<script src="src/plugins/datatables/js/dataTables.buttons.min.js"></script>
-	<script src="src/plugins/datatables/js/buttons.bootstrap4.min.js"></script>
-	<script src="src/plugins/datatables/js/buttons.print.min.js"></script>
-	<script src="src/plugins/datatables/js/buttons.html5.min.js"></script>
-	<script src="src/plugins/datatables/js/buttons.flash.min.js"></script>
-	<script src="src/plugins/datatables/js/pdfmake.min.js"></script>
-	<script src="src/plugins/datatables/js/vfs_fonts.js"></script>
+	<script src="resources/admin/resources/plugins/datatables/js/dataTables.buttons.min.js"></script>
+	<script src="resources/admin/resources/plugins/datatables/js/buttons.bootstrap4.min.js"></script>
+	<script src="resources/admin/resources/plugins/datatables/js/buttons.print.min.js"></script>
+	<script src="resources/admin/resources/plugins/datatables/js/buttons.html5.min.js"></script>
+	<script src="resources/admin/resources/plugins/datatables/js/buttons.flash.min.js"></script>
+	<script src="resources/admin/resources/plugins/datatables/js/pdfmake.min.js"></script>
+	<script src="resources/admin/resources/plugins/datatables/js/vfs_fonts.js"></script>
 	<!-- Datatable Setting js -->
-	<script src="vendors/scripts/datatable-setting.js"></script></body>
-</html></html>
+	<script src="resources/admin/resources/vendors/scripts/datatable-setting.js"></script></body>
+</html>

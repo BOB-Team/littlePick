@@ -15,17 +15,16 @@ public class CommunityDAOImple {
 	@Autowired //자동으로 껴들기 
 	SqlSessionTemplate sqlSession; //root-context에서 지정한 값
 	
-	public String sysdate() {
-		return sqlSession.selectOne("com.getDate"); //Mapper에서 받아오기 		
-		
-	}
 
 	public CommunityVO selectBoard(CommunityVO vo) {
 		return sqlSession.selectOne("com.selectBoard",vo);
 	}
 
-	public void insertBoard(CommunityVO vo) {
-		sqlSession.selectOne("com.insertBoard", vo);
+	public void insertBoard(CommunityVO vo,int user_num) {
+		HashMap map = new HashMap();
+		map.put("vo",vo);
+		map.put("user_num",user_num);
+		sqlSession.insert("com.insertBoard", map);
 	}
 
 	public int commentCount(int content_num) {
@@ -47,9 +46,11 @@ public class CommunityDAOImple {
 		return sqlSession.selectList("com.select3Community",board_name);
 	}
 
-	public void insertComment(CommunityVO vo) {
-		sqlSession.selectOne("com.insertComment", vo);
-		
+	public void insertComment(CommunityVO vo, int user_num) {
+		HashMap map = new HashMap();
+		map.put("user_num", user_num);
+		map.put("vo", vo);
+		sqlSession.insert("com.insertComment", map);
 	}
 
 	public List<CommunityVO> communitySearch(String searchCondition, String searchKeyword) {
@@ -60,7 +61,17 @@ public class CommunityDAOImple {
 	}
 
 	public void boardCountUp(int content_num) { //조회수 1 증가
-		sqlSession.selectOne("com.boardCountUp", content_num);
+		sqlSession.update("com.boardCountUp", content_num);
+		
+	}
+
+	public void boarddelete(int content_num) {
+		sqlSession.delete("com.boarddelete", content_num);
+		
+	}
+
+	public void boardmodify(CommunityVO vo) {
+		sqlSession.update("com.boardmodify", vo);
 		
 	}
 	

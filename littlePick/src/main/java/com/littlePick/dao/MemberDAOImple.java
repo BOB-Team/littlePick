@@ -12,7 +12,7 @@ public class MemberDAOImple implements MemberDAO{
 	SqlSessionTemplate sqlSession;
 
 	public void userInsert(CommunityVO vo) {
-		sqlSession.selectOne("user.userInsert",vo);
+		sqlSession.insert("user.userInsert",vo);
 		
 	}
 	

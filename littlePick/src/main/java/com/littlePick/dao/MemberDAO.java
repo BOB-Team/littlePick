@@ -22,4 +22,5 @@ public interface MemberDAO {
 	public CommunityVO selectUser(int usernum);//사용자 정보 가져오기
 	public CommunityVO emailCheck_Login(CommunityVO vo);//이메일체크
 	public CommunityVO nicknameCheck_Login(CommunityVO vo);//
+	
 }

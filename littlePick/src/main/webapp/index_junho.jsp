@@ -12,8 +12,10 @@
 </head>
 <body>
 
-	
-	<a href="admin_member.do">회원목록</a><br>
+	<a href="admin_member.do">회원목록</a><hr>
+	<a href="admin_product.do">상품목록</a><hr>
+	<a href="admin_productinfo.do?product_num=97">상품목록</a><hr>
+
 	<hr>
 
 </body>

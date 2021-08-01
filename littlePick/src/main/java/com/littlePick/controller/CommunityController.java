@@ -2,6 +2,8 @@ package com.littlePick.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -59,13 +61,27 @@ public class CommunityController {
 
 	
 	@RequestMapping("community_board_save.do")
-	public String communitySave(CommunityVO vo) { //커뮤니티 글 저장
-		comService.insertBoard(vo);
-		return "redirect:community.do";
+	public String communitySave(CommunityVO vo, HttpSession session) { //커뮤니티 글 저장 (회원만)
+		String name = vo.getBoard_name();
+		int user_num = (int)session.getAttribute("user_num");
+		comService.insertBoard(vo,user_num);
+		
+		if(name.equals("요리")) {
+			return "redirect:community_board1.do";
+		}else if(name.equals("생활")) {
+			return "redirect:community_board2.do";
+		}else if(name.equals("건강")) {
+			return "redirect:community_board3.do";
+		}else if(name.equals("번개팅")) {
+			return "redirect:community_board4.do";
+		}else {
+			return "redirect:community.do";
+		}
 	}
 	
 	@RequestMapping("community_board_view.do")
-	public void communityView (Model m, CommunityVO vo) { //커뮤니티 글 보기
+	public String communityView (Model m, CommunityVO vo,HttpSession session) { //커뮤니티 글 보기
+
 		CommunityVO board = comService.selectBoard(vo); //게시글 가져오기
 		m.addAttribute("board", board);
 		
@@ -77,18 +93,27 @@ public class CommunityController {
 		
 		comService.boardCountUp(content_num);//조회수 1 증가
 		
-	}
+		if(session.getAttribute("user_num") !=null) {
+			int user_num = (int)session.getAttribute("user_num");
+			int getUser_num = board.getUser_num();
+			if(user_num == getUser_num) {
+				System.out.println("마이뷰");
+				return "community_board_view_my";
+			}else {
+				System.out.println("뷰");
+				return "community_board_view";
+			}
+		}else {
+			return "community_board_view";
+			}
+		}
 	
-
-	@RequestMapping("community_board_view_my.do")
-	public void communityViewMy() {
-		System.out.println("커뮤니티 내 글 보기 호출 ");
-	}
 	
-	
+		
 	@RequestMapping("community_comment_save.do")
-	public String insertComment(CommunityVO vo) { //댓글저장
-		comService.insertComment(vo);
+	public String insertComment(CommunityVO vo,HttpSession session) { //댓글저장
+		int user_num = (int)session.getAttribute("user_num");
+		comService.insertComment(vo,user_num);
 		return "redirect:community_board_view.do?content_num="+vo.getContent_num();
 	}
 	
@@ -97,5 +122,23 @@ public class CommunityController {
 	m.addAttribute("boardList", comService.communitySearch(searchCondition,searchKeyword));
 	}
 	
-	 
+	@RequestMapping("community_board_modify.do")
+	public void boardmodify(Model m,CommunityVO vo){
+		CommunityVO board = comService.selectBoard(vo);
+		m.addAttribute("board",board);
+	}
+	
+	@RequestMapping("community_modify_save.do")
+	public String modifysave(Model m,CommunityVO vo){
+		comService.boardmodify(vo);
+		return "redirect:community_board_view.do?content_num="+vo.getContent_num();
+	}
+
+	
+	@RequestMapping("community_board_delete.do")
+	public String boarddelete(int content_num){
+		comService.boarddelete(content_num);
+		return "redirect:community.do";
+	}
+	
 }

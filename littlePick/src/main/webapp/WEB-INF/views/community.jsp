@@ -17,28 +17,52 @@
 <link rel="stylesheet" href="resources/vendors/owl-carousel/owl.carousel.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
 <link rel="stylesheet" href="resources/css/style_0joo.css">
+<script src="resources/vendors/jquery/jquery-3.2.1.min.js"></script>
+<script>
+$(function(){
+	// 사용자의 자료 입력여부를 검사하는 함수
+	
+  $('#write-btn').click(function(){
+	  
+	  var sess = <%= session.getAttribute("user_num") %>;
+
+	  if(sess == null){
+	  	alert("로그인 후 이용하실 수 있습니다.");
+	  	window.location.href="1_login.do";
+	  }
+	  else{
+		  window.location.href="community_board_input.do";
+	  }
+	
+		})
+
+})
+</script>
 </head>
+
 <body>
 <!-- ================ 게시판 상단 ================= -->
 <!-- 헤더 인클루드 -->
-<%@ include file="header.jsp"%> 
 
+		<%@ include file="header.jsp"%> 
 <!-- 게시판 명 & 글쓰기버튼 & 상단배너 -->
 	<div class="board-title">
 		<h3>커뮤니티</h3>
 	</div>
-	
-	<div class="board-write">
-	<a class="button button-blog" href="community_board_input.do">글쓰기</a>
-	</div>
-	
-	<div class="board-banner">
-		<section class="rolling-banner">
-			<div class="rolling-image">
-				<img src="https://bucketplace-v2-development.s3-ap-northeast-1.amazonaws.com/uploads/advices/guides/self_interior/pc_banner_image.v3.png">
+	<section>
+			<div id="banner_wrap">
+				<div id="slide_banner">
+					<div><a href="#"><img alt="" src="resources/img/banner/banner2.png" width="1100px"></a></div>
+					<div><a href="#"><img alt="" src="resources/img/banner/banner3.png" width="1110px"></a></div>
+					
+				</div>
 			</div>
 		</section>
+	
+	<div class="board-write">
+	<button class="button button-blog" id="write-btn" >글쓰기</button>
 	</div>
+	
   <!-- 검색창 -->
 
 <div class="board-search">
@@ -250,7 +274,7 @@
 
 
 
-  <script src="resources/vendors/jquery/jquery-3.2.1.min.js"></script>
+
   <script src="resources/vendors/bootstrap/bootstrap.bundle.min.js"></script>
   <script src="resources/vendors/skrollr.min.js"></script>
   <script src="resources/vendors/owl-carousel/owl.carousel.min.js"></script>

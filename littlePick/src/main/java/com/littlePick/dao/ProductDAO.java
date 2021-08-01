@@ -20,5 +20,17 @@ public interface ProductDAO {
 	
 	//글 갯수
 	public int countProductList();
-
+	
+	
+	
+	//0729(영주)
+	public void productCount(ProductVO vo);
+	public List<ProductVO> category_new(ProductVO vo);
+	public List<ProductVO> category_best();
+	public List<ProductVO> now_best(ProductVO vo);
+	public List<ProductVO> reviewList(ProductVO vo);
+	public int reviewCount(ProductVO vo);//리뷰수
+	public ProductVO avgstar(ProductVO vo);
+	public int starCount(int product_num, int i);
+	public List<ProductVO> productSearch(ProductVO vo);
 }

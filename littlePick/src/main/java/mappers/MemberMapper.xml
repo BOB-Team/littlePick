@@ -16,11 +16,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- memberDao의 userInsert  -->
 <insert id="userInsert" parameterType="comVO">
 	INSERT INTO Member_tb 
-	(user_num, user_name, user_email, user_password, user_nickname, user_phone, user_address, user_gender, user_birth, user_regdate, user_point, user_image)
+	(user_num, user_name, user_email, user_password, user_nickname, user_phone, user_postcode,
+	user_address,user_address2,user_address3, user_gender, user_birth, user_regdate, user_point, user_image)
 	VALUES
 	(null, #{user_name}, #{user_email}, #{user_password},
-	#{user_nickname}, #{user_phone}, #{user_address}, 
-	#{user_gender}, #{user_birth}, sysdate(), 0, 'user_daefault.png')
+	#{user_nickname}, #{user_phone}, #{user_postcode}, #{user_address}, #{user_address2},#{user_address3},
+	#{user_gender}, #{user_birth}, sysdate(), 0, 'user_default.png')
 	
 </insert>
 

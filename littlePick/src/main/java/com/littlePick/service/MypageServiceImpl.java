@@ -56,4 +56,28 @@ public class MypageServiceImpl {
 		return mypageDAO.selectAnswer(q_num);
 	}
 
+	public List<CommunityVO> selectReview(int user_num) {
+		return mypageDAO.selectReview(user_num);
+	}
+
+	public CommunityVO selectOrder(int order_num) {
+		return mypageDAO.selectOrder(order_num);
+	}
+	
+	public List<CommunityVO> t_selectOrder(int user_num) {
+		return mypageDAO.t_selectOrder(user_num);
+	}
+
+	public List<CommunityVO> selectOrderList(int order_num) {
+		return mypageDAO.selectOrderList(order_num);
+	}
+
+	public CommunityVO passcheck(CommunityVO vo) {
+		return mypageDAO.passcheck(vo);
+	}
+
+	public void insertReview(CommunityVO vo) {
+		mypageDAO.insertReview(vo);
+		
+	}
 }

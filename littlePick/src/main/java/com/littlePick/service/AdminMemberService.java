@@ -25,6 +25,27 @@ public interface AdminMemberService {
 	public boolean checkPw(String user_email, String user_password);
 
 	List<AdminVO> memberList(AdminVO vo);
+
+	//-----------------------------------------------------------------------
+	// 상품 목록
+	public List<AdminVO> productList();
+
+	
+	public void insertAdminMember1(AdminVO vo);
+
+	public AdminVO viewAdminMember1(AdminVO vo);
+
+	public void deleteAdminMember1(AdminVO vo);
+
+	public void updateAdminMember1(AdminVO vo);
+	public AdminVO product(AdminVO vo);
+
+	
+
+	
+	
+	
+	
 	
 	
 }

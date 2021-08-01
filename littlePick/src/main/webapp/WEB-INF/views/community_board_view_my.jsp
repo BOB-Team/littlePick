@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
-    
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -18,6 +17,27 @@
 <link rel="stylesheet" href="resources/vendors/owl-carousel/owl.carousel.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
 <link rel="stylesheet" href="resources/css/style_0joo.css">
+<script src="resources/vendors/jquery/jquery-3.2.1.min.js"></script>
+<script>
+$(function(){
+	// 사용자의 자료 입력여부를 검사하는 함수
+	
+  $('#ok').click(function(){
+	  
+	  var sess = <%= session.getAttribute("user_num") %>;
+
+	  if(sess == null){
+	  	alert("로그인 후 이용하실 수 있습니다.");
+	  	window.location.href="1_login.do";
+	  }
+	  else{
+		  document.userinput.submit();
+	  }
+	
+		})
+
+})
+</script>
 </head>
 <body>
 
@@ -38,15 +58,14 @@
 			<a><i class="lnr lnr-bubble"></i>${count}</a>
 			</div>
 		</div>
-			<div class="board-view-button">
-				<a href="#" class="button button-postComment button--active">수정</a>
-				<a href="#" class="button button-postComment button--active">삭제</a>
+		<div class="board-view-button">
+				<a href="community_board_modify.do?content_num=${board.content_num}" class="button button-postComment">수정</a>
+				<a href="community_board_delete.do?content_num=${board.content_num}" class="button button-postComment">삭제</a>
 			</div>
-	</div>
 		
+	</div>
 	<!-- ================ 게시판 상단 끝 ================= -->
-  	
-	<!--================ 글 내용 Area =================-->
+  	<!--================ 글 내용 Area =================-->
   	<div class="board-view-content-img">
 
   	<a><img src="resources/upload/board/${board.content_image}" width="600px"></a>
@@ -59,7 +78,7 @@
 	  <!--================댓글 Area =================-->
 	  
 	  <div class="board-view-comment">
-	  <form action="community_comment_save.do?content_num=${board.content_num}" method="post">
+	  <form action="community_comment_save.do?content_num=${board.content_num}" method="post" name="commentin" id="commentin">
 	  		<h4>댓글 ${count}</h4><br> <!-- 댓글 개수 추가하기 -->
 	  		<!-- 댓글쓰기 -->
 	  		<div class="comment-input">
@@ -68,7 +87,7 @@
 				<input type="text" class="form-control" id="comment_content" name="comment_content"
 					placeholder="댓글을 입력하세요"></div>
 				<div class="comment-input-button">
-				<input type="submit" class="button button-postComment button--active" value="입력"></input>
+				<input type="button" class="button button-postComment button--active" id="ok" name="ok" value="입력"></input>
 				</div>
 			</div>
 			<!-- 댓글쓰기 끝 -->
@@ -91,10 +110,50 @@
 	  	
 	  		</div>
 	</c:forEach>
-	</div>
+			<!-- 대댓글 추후에 구현 -->
+			<!-- <div class="board-view-recomment-list">
+	
+	  			<div class="board-view-comment-profile">
+	  	 		<a><img src="resources/img/default/user_default.png"width="50px"></a>
+	  			<a>대댓글러</a> 대댓글러
+	  			</div>
+	  	
+	  			<div class="board-view-comment-text">
+	  			<a>감사합니다.</a> 대댓글내용
+	  			</div>
+	  	
+	  			<div class="board-view-comment-sub">날짜
+	  				<a>날짜</a><a>답글달기<img src="resources/img/default/point.png" width="20px"/></a>
+	  			</div>
+	  	
+	  		</div> -->
+	  	
+		</div>
 	  
 	  
 	  <!--================댓글 Area 끝 =================-->
+	  
+	<!--================페이징 =================-->
+<!-- 	 
+	<nav class="blog-pagination justify-content-center d-flex">
+		<ul class="pagination">
+			<li class="page-item"><a href="#" class="page-link" aria-label="Previous">
+				<span aria-hidden="true">
+					<span class="lnr lnr-chevron-left"></span>
+				</span></a></li>
+			<li class="page-item active"><a href="#" class="page-link">01</a></li>
+			<li class="page-item"><a href="#" class="page-link">02</a></li>
+			<li class="page-item"><a href="#" class="page-link">03</a></li>
+			<li class="page-item"><a href="#" class="page-link">04</a></li>
+			<li class="page-item"><a href="#" class="page-link">05</a></li>
+			<li class="page-item"><a href="#" class="page-link"aria-label="Next">
+				<span aria-hidden="true">
+					<span class="lnr lnr-chevron-right"></span>
+				</span></a></li>
+		</ul>
+	</nav> -->
+ 	<!--================페이징 끝 =================-->
+
 	<!--================ Start footer Area  =================-->	
 	<%@ include file="footer.jsp"%> 
 
@@ -102,7 +161,7 @@
 
 
 
-   <script src="resources/vendors/jquery/jquery-3.2.1.min.js"></script>
+<!--   <script src="resources/vendors/jquery/jquery-3.2.1.min.js"></script> -->
   <script src="resources/vendors/bootstrap/bootstrap.bundle.min.js"></script>
   <script src="resources/vendors/skrollr.min.js"></script>
   <script src="resources/vendors/owl-carousel/owl.carousel.min.js"></script>

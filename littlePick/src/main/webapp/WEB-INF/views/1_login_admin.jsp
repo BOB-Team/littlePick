@@ -36,10 +36,10 @@
 </script>
 <body bgcolor="#FFFFFF">
 <div class="login">
-    <form action="login_admin_go.do" method="post" name="form" method="post" class="table2">
+    <form action="login_admin_go.do" method="post" name="form" class="table2">
 	<!--<form name="form" action="login.do" method="post">-->
 <div class="register-logo">
-<a href="#"><img src="resources/img/logo.png" width="200px"/></a>
+<a href="main.do"><img src="resources/img/logo.png" width="200px"/></a>
 </div>
 	<div class="normalbold tb_ttl"  align="center">
         <input name="admin_id" type="text" class="normal" placeholder="관리자 아이디">

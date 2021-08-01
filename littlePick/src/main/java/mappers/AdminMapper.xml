@@ -15,58 +15,129 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 <!-- 회원 등록 -->
-	<insert id="insertAdminMember">
+	<insert id="insertAdminMember" parameterType="adminVO">
 			INSERT INTO Member_tb
 				(user_num, user_name, user_email, user_password, user_nickname, user_phone, user_address, user_gender, user_birth, user_regdate, user_point, user_image)
 			VALUES
-				(#{userNum}, #{userName}, #{userEmail}, #{userPassword}, #{userNickname}, #{userPhone}, #{userAddress}, #{userGender}, #{userBirth}, #{userRegdate}, #{userPoint}, #{userImage})
+				(#{user_num}, #{user_name}, #{user_email}, #{user_password}, #{user_nickname}, #{user_phone}, #{user_address}, #{user_gender}, #{user_birth}, #{user_regdate}, #{user_point}, #{user_image})
 	</insert>
 
 
 <!-- 회원 정보 상세 조회 -->
-	<select id="viewAdminMember"  resultType="adminVO">
+	<select id="viewAdminMember" parameterType="adminVO"  resultType="adminVO">
 			SELECT *
 			FROM Member_tb
-			WHERE user_email = #{userEmail}
-			</select>
+			WHERE user_email = #{user_email}
+	</select>
 			
 
 <!-- 회원 정보 수정 처리 -->
-	<update id="updateAdminMember">
+	<update id="updateAdminMember" parameterType="adminVO">
 			UPDATE Member_tb
 			SET
-				user_num = #{userNum},
-				user_name = #{userName},
-				user_password = #{userPassword},
-				user_nickname = #{userNickname},
-				user_phone = #{userPhone},
-				user_address = #{userAddress},
-				user_gender = #{userGender},
-				user_birth = #{userBirth},
-				user_regdate = #{userRegdate},
-				user_point = #{userPoint},
-				user_image = #{userImage},
-				user_updatedate = SYSDATE()
+				user_num = #{user_num},
+				user_name = #{user_name},
+				user_password = #{user_password},
+				user_nickname = #{user_nickname},
+				user_phone = #{user_phone},
+				user_address = #{user_address},
+				user_gender = #{user_gender},
+				user_birth = #{user_birth},
+				user_regdate = #{user_regdate},
+				user_point = #{user_point},
+				user_image = #{user_image}
 			WHERE
-				user_email = #{userEmail},
+				user_email = #{user_email}
 	</update>
 
 
 
 <!-- 회원 정보 삭제 처리 -->
-	<delete id="deleteAdminMember">
+	<delete id="deleteAdminMember" parameterType="adminVO">
 			DELETE FROM Member_tb
-			WHERE user_email = #{userEmail},
+			WHERE user_email = #{user_email}
 	</delete>
 
 
-<!--  비밀번호 체크 -->
+
+<!--  비밀번호 체크		-->
 	<select id="checkPw" resultType="int">
 			SELECT
 				COUNT(*)
 			FROM Member_tb
-			WHERE user_email = #{userEmail} AND user_password = #{userPassword}
+			WHERE user_email = #{user_email} AND user_password = #{user_password}
 	</select>
+
+
+
+<!-- 상품 목록 -->
+	<select id="productList" resultType="adminVO">
+			SELECT	*
+			FROM Product_tb
+		    ORDER BY product_num
+							
+	</select>
+
+ 
+<!-- 상품 등록 -->
+	<insert id="insertAdminMember1" parameterType="adminVO">
+			INSERT INTO Product_tb
+				(category_num, product_name, product_info, product_detail, product_image, sale_price,
+				now_price, in_price, stock, product_view, delivery_num, smallpack, product_tag)
+			VALUES
+				(#{category_num}, #{product_name}, #{product_info}, #{product_detail}, #{product_image},
+				#{sale_price}, #{now_price}, #{in_price}, #{stock}, #{product_view}, #{delivery_num}, #{smallpack}, #{product_tag}
+	</insert>
+
+
+
+<!-- 상품 정보 상세 조회 -->
+	<select id="viewAdminMember1" parameterType="adminVO" resultType="adminVO">
+			SELECT *
+			FROM Product_tb
+			WHERE product_name = #{product_name}
+	</select>
+
+
+<!-- 상품 정보 수정 처리 -->
+	<update id="updateAdminMember1" parameterType="adminVO">
+			UPDATE Product_tb
+			SET
+				product_num = #{product_num},
+				category_num = #{category_num},
+				product_name = #{product_name},
+				product_info = #{product_info},
+				product_image = #{product_image},
+				sale_price = #{sale_price},
+				now_price = #{now_price},
+				in_price = #{in_price},
+				stock = #{stock},
+				product_view = #{product_view},
+				delivery_num = #{delivery_num},
+				smallpack = #{smallpack},
+				product_tag = #{product_tag}
+			WHERE
+				product_num = #{product_num}
+	</update>
+
+
+
+<!-- 상품 정보 삭제 처리 -->
+	<delete id="deleteAdminMember1" parameterType="adminVO">
+			DELETE FROM Product_tb
+			WHERE product_num = #{product_num}
+	</delete>
+
+
+
+	<select id="product" parameterType="adminVO" resultType="adminVO">
+			SELECT *
+			FROM Product_tb
+			WHERE product_num = #{product_num}
+	</select>
+
+
+
 
 	</mapper>
 
@@ -84,5 +155,22 @@ user_birth; //'1990-11-22' 형식으로
 user_regdate; // 가입일 sysdate()
 user_point; // 적립금
 user_image; // 프로필사진 -->
+
+
+
+	<!-- //Product_tb
+product_num;
+category_num;
+product_name;
+product_info;
+product_detail;
+product_image;
+sale_price;
+now_price;
+in_price;
+stock;
+product_view;
+delivery_num;
+smallpack; -->
 
 

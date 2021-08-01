@@ -75,6 +75,7 @@
 			
 			</c:forEach>
 	</div> 
+	<hr/>
 	<div class="sub-name">		
 	<h3>댓글</h3>
 	</div>

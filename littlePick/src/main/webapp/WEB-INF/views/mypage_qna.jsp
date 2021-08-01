@@ -86,7 +86,6 @@
 									<a href="mypage_qna_view.do?q_num=${qboard.q_num}">
 										<h4>${qboard.q_title}</h4>
 									</a>
-									<a>답변 0개</a>
 									<p>${qboard.q_date}</p>
 									
 									

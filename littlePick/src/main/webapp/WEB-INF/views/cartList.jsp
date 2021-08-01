@@ -23,8 +23,10 @@
 <%@ include file="header.jsp" %>
 
  <!--================Cart Area =================-->
- 
- <a href="orderList.do">주문목록</a>
+ <ul class="top_menu_list">
+		<li class="top_menu_item"><a class="top_menu_anchor" href="orderList.do">주문목록</a></li>
+			</ul>		
+<!--  <a href="orderList.do">주문목록</a> -->
   <section class="cart_area">
       <div class="container">
           <div class="cart_inner">

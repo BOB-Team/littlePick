@@ -13,13 +13,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE content_num = #{content_num}
 	</select>
 	
-	<insert id="insertBoard" parameterType="comVO">
+	<insert id="insertBoard" parameterType="hashmap">
 		INSERT INTO Board_tb (content_num, user_num, board_name, content_title, content
 		,content_image, content_date, content_count)
-		VALUES (null, 1, #{board_name}, #{content_title}, #{content}
+		VALUES (null, #{user_num}, #{vo.board_name}, #{vo.content_title}, #{vo.content}
 		<choose>
-				<when test="content_image != null">
-					, #{content_image}
+				<when test="vo.content_image != null">
+					, #{vo.content_image}
 				</when>		
 				<otherwise>
 					, 'img_default.png'
@@ -39,9 +39,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE c.content_num=#{content_num}
 	</select>
 	
-	<insert id="insertComment" parameterType="comVO">
+	<insert id="insertComment" parameterType="hashmap">
 		INSERT INTO Comment_tb (comment_num, content_num, user_num, comment_content, comment_date)
-		VALUES (null, #{content_num},2 ,#{comment_content}, sysdate())
+		VALUES (null, #{vo.content_num},#{user_num} ,#{vo.comment_content}, sysdate())
 	</insert>
 	
 <!-- 	<select id="selectCommunity" parameterType="String" resultType="comVO">
@@ -94,5 +94,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		UPDATE Board_tb SET content_count=content_count+1 WHERE content_num=#{content_num}
 	</update>
 	
+	<delete id="boarddelete" parameterType="int">
+		DELETE from Board_tb WHERE content_num=#{content_num};
+	</delete>
 	
+	<update id="boardmodify" parameterType="comVO">
+		UPDATE Board_tb SET board_name=#{board_name},content_title=#{content_title},content=#{content}
+		<if test="content_image != null">
+			,content_image=#{content_image}
+		</if>
+		WHERE content_num=#{content_num}
+	</update>
 </mapper>

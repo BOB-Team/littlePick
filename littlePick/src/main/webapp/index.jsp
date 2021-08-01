@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -12,7 +13,7 @@
 <body>
 	
 	<%-- <%@ include file="WEB-INF/views/main.jsp"%>  --%>
-	<jsp:forward page="main_nosession.do"></jsp:forward>
+	<jsp:forward page="main.do"></jsp:forward>
  
 </body>
 </html>

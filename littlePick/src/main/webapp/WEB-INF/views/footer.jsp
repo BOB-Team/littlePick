@@ -25,33 +25,29 @@
 				<div class="row section_gap">
 					<div class="col-lg-3 col-md-6 col-sm-6">
 						<div class="single-footer-widget tp_widgets">
-							<h4 class="footer_title large_title">Our Mission</h4>
-							<p>So seed seed green that winged cattle in. Gathering thing
-								made fly you're no divided deep moved us lan Gathering thing us
-								land years living.</p>
-							<p>So seed seed green that winged cattle in. Gathering thing
-								made fly you're no divided deep moved</p>
+							<h4 class="footer_title large_title">Little Pick</h4>
 						</div>
 					</div>
 					<div class="offset-lg-1 col-lg-2 col-md-6 col-sm-6">
 						<div class="single-footer-widget tp_widgets">
-							<h4 class="footer_title">Quick Links</h4>
+							<h4 class="footer_title">상품</h4>
 							<ul class="list">
-								<li><a href="#">Home</a></li>
-								<li><a href="#">신상품</a></li>
-								<li><a href="#">베스트</a></li>
-								<li><a href="#">특가/혜택</a></li>
-								<li><a href="#">커뮤니티</a></li>
+								<li><a href="main.do">Home</a></li>
+								<li><a href="productFilter.do?smallpack=0&delivery_num=3&category_num=1">신선식품</a></li>
+								<li><a href="productFilter.do?smallpack=0&delivery_num=3&category_num=2">간편식</a></li>
+								<li><a href="productFilter.do?smallpack=0&delivery_num=3&category_num=3">생필품</a></li>
+							
 							</ul>
 						</div>
 					</div>
 					<div class="col-lg-2 col-md-6 col-sm-6">
-						<div class="single-footer-widget instafeed">
-							<h4 class="footer_title">고객센터</h4>
-							<ul class="list instafeed d-flex flex-wrap">
-								<li><a href="#">공지사항</a></li>
-								<li><a href="#">자주하는 질문</a></li>
-								<li><a href="#">1:1 문의하기</a></li>
+						<div class="single-footer-widget tp_widgets">
+							<h4 class="footer_title">커뮤니티</h4>
+							<ul class="list">
+								<li><a href="community_board1.do">요리</a></li>
+								<li><a href="community_board2.do">생활</a></li>
+								<li><a href="community_board3.do">건강</a></li>
+								<li><a href="community_board4.do">번개팅</a></li>
 							</ul>
 						</div>
 					</div>
@@ -62,20 +58,13 @@
 								<p class="sm-head">
 									<span class="fa fa-location-arrow"></span> Head Office
 								</p>
-								<p>123, Main Street, Your City</p>
-
-								<p class="sm-head">
-									<span class="fa fa-phone"></span> Phone Number
-								</p>
-								<p>
-									+123 456 7890 <br> +123 456 7890
-								</p>
+								<p>Geumcheon-gu, Seoul, Republic of Korea</p>
 
 								<p class="sm-head">
 									<span class="fa fa-envelope"></span> Email
 								</p>
 								<p>
-									free@infoexample.com <br> www.infoexample.com
+									info@littlepick.co.kr
 								</p>
 							</div>
 						</div>
@@ -93,7 +82,7 @@
 						<script>
 							document.write(new Date().getFullYear());
 						</script>
-						All rights reserved 
+						LittlePick All rights reserved 
 						
 					</p>
 				</div>

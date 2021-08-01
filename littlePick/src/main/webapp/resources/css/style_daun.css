@@ -14,11 +14,6 @@ position:absolute;
  
 }
 
-/*.table2.h2 {
-  text-align: center;
-  margin: 30px;
-}*/
-
 .normalbold.tb_ttl {
   
   border-bottom: 2px solid #adadad;
@@ -26,7 +21,6 @@ position:absolute;
   padding: 10px 10px;
   
 }
-
 
 
 .normal {
@@ -38,7 +32,36 @@ position:absolute;
   font-size:16px;
   height:25px;
   background: none;
+}
 
+.normalbtn{
+  width: 69%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+
+.normalbtn1{
+  width: 72%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+
+.normal1{
+  width: 49%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
 }
 
 .confirm {
@@ -79,4 +102,6 @@ position:absolute;
 .user_nickname_btn {
 	float:right;
 }
-
+.address_btn{
+	float:right;
+}

@@ -72,23 +72,34 @@
 				<div class="col-lg-12">
 				
 				<c:forEach items="${orderList}" var="order">
-
+				
+					<div class="mypage-order">
 					<article class="row blog_item">
-
-						<div class="col-md-10">
+						<div class="col-md-12">
 							<div class="blog_post">
 								<div class="blog_details">
-									<a href="#">
-										<h4>아우라~외 3건. 클릭하면 주문 상세페이지로 이동 -> 상세내역이랑 배송지 정보 뜸</h4>
-									</a>
-									<p>주문날짜${order.order_date}</p>
-									<p>주문금액${order.total_account}</p>
-									<p>배송완료여부</p>
+									<a>주문날짜: ${order.order_date}</a>
+									<a>주문금액: ${order.total_account}</a>
+									<a>결제:${order.order_state}</a>
+									<a>배송지:${order.order_address}</a>
+									<a>배송유형:${order.delivery_type}</a>
+									<hr>
+									<div class="mypage-orderdetail-img">
+										<a href="mypage_orderdetail.do?order_num=${order.order_num}">
+										<img src="resources/img/product/${order.product_image}" width="100px" height="100px">
+										</a> 
+									</div>
+									<div class="mypage-orderdetail">
+										<a href="mypage_orderdetail.do?order_num=${order.order_num}">
+										<h4>${order.product_name} 외  ${order.ordercount} 건</h4>
+										</a>
+									</div>
+										
 								</div>
 							</div>
 						</div>
 					</article>
-
+					</div>
 					
 				</c:forEach>
 				

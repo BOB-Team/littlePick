@@ -35,17 +35,17 @@ public class MypageDAOImple {
 	}
 
 	public void insertQboard(CommunityVO vo) {
-		sqlSession.selectOne("mypage.insertQboard",vo);
+		sqlSession.insert("mypage.insertQboard",vo);
 		
 	}
 
 	public void updateCountQboard(int q_num) {
-		sqlSession.selectOne("mypage.updateCountQboard",q_num);
+		sqlSession.update("mypage.updateCountQboard",q_num);
 		
 	}
 
 	public void settingUpdate(CommunityVO vo) {
-		sqlSession.selectOne("mypage.settingUpdate",vo);
+		sqlSession.update("mypage.settingUpdate",vo);
 		
 	}
 
@@ -57,7 +57,31 @@ public class MypageDAOImple {
 	public List<CommunityVO> selectAnswer(int q_num) {
 		return sqlSession.selectList("mypage.selectAnswer",q_num);
 	}
+
+	public List<CommunityVO> selectReview(int user_num) {
+		return sqlSession.selectList("mypage.selectReview",user_num);
+	}
+
+	public CommunityVO selectOrder(int order_num) {
+		return sqlSession.selectOne("mypage.selectOrder",order_num);
+	}
 	
+	public List<CommunityVO> t_selectOrder(int user_num) {
+		return sqlSession.selectList("mypage.t_selectOrder",user_num);
+	}
+
+	public List<CommunityVO> selectOrderList(int order_num) {
+		return sqlSession.selectList("mypage.selectOrderList",order_num);
+	}
+
+	public CommunityVO passcheck(CommunityVO vo) {
+		return sqlSession.selectOne("mypage.passcheck",vo);
+	}
+
+	public void insertReview(CommunityVO vo) {
+		sqlSession.insert("mypage.insertReview",vo);
+	}
+
 	
 	
 }

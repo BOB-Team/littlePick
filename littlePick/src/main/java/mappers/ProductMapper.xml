@@ -4,13 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="productMapper">
-	<!-- 상품 목록  -->
-	<select id="mainList" resultType="productVO" parameterType="productVO" >
-		SELECT * 
-		FROM Product_tb
-		WHERE smallpack=1
-		ORDER BY product_num DESC		
-	</select>
+
 	
 <!-- 	<select id="productList" resultType="hashmap" parameterType="hashmap" >
 		SELECT * 
@@ -24,16 +18,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select> -->
 	
 	
-	<select id="productList" resultType="hashmap" parameterType="hashmap" >
+	<!-- <select id="productList" resultType="hashmap" parameterType="hashmap" >
 		SELECT * 
 		FROM Product_tb
 			<where>
 				<choose>
-					<!-- 카테고리별로 리스트 출력하기 -->
+					카테고리별로 리스트 출력하기
 					<when test="category_num != 0">
 					category_num LIKE CONCAT(#{category_num},'%')
 					</when>
-					<!-- 상품명으로 검색하기  -->
+					상품명으로 검색하기 
 					<when test="product_name != null">
 					product_name LIKE CONCAT('%',#{product_name},'%')
 					</when>
@@ -41,7 +35,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</where>
 		ORDER BY product_num DESC
 		LIMIT #{pageStart},#{perPageNum}
-	</select>
+	</select> -->
 	
 <!-- 카테고리 별 분류, 검색 기능 
 	<select id="productList" parameterType="product" resultType="product" >
@@ -80,4 +74,116 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	
+	
+	<!-- 0729(영주) -->
+	<update id="productCount" parameterType="Integer">
+		UPDATE Product_tb SET product_view=product_view+1 WHERE product_num=#{product_num}
+	</update>
+	
+	<select id="category_new" resultType="productVO" parameterType="productVO" >
+		SELECT * 
+		FROM Product_tb
+		ORDER BY product_num DESC		
+	</select>
+	
+	<select id="category_best" resultType="productVO">
+		SELECT * FROM Review_tb r inner join Product_tb p on r.product_num = p.product_num
+		GROUP BY r.product_num
+		ORDER BY round(avg(r.review_star),1) DESC
+	</select>
+	
+	<select id="now_best" resultType="productVO" parameterType="productVO" >
+		SELECT * 
+		FROM Product_tb
+		ORDER BY product_view DESC
+	</select>
+	
+		<!-- 상품 목록  -->
+	<select id="mainList" resultType="productVO" parameterType="productVO" >
+		SELECT * 
+		FROM Product_tb
+		WHERE smallpack=1
+	</select>
+	
+	<select id="reviewList" resultType="productVO" parameterType="productVO">
+	SELECT * FROM Member_tb m inner join Review_tb r on m.user_num = r.user_num
+	WHERE r.product_num=#{product_num}
+	</select>
+	
+	<select id="reviewCount" resultType="int" parameterType="productVO">
+		SELECT count(*) FROM Review_tb WHERE product_num=#{product_num};
+	</select>
+	
+	<select id="starCount" resultType="int" parameterType="hashmap">
+		SELECT count(*) FROM Review_tb WHERE review_star=#{i} and product_num=#{product_num}
+	</select>
+
+	<select id="avgstar" resultType="productVO" parameterType="productVO">
+		SELECT round(avg(review_star),1) avgstar FROM Review_tb WHERE product_num=#{product_num}
+	</select>
+
+	<select id="filter" resultType="productVO" parameterType="productVO">
+		SELECT * 
+		FROM Product_tb WHERE (delivery_num=3
+		<choose>
+		<when test="delivery_num == 1">
+			or delivery_num = 1)
+		</when>
+		<when test="delivery_num == 2">
+			or delivery_num = 2)
+		</when>
+		<otherwise>
+		 	or delivery_num = 1 or delivery_num = 2)
+		</otherwise>
+		</choose>
+
+		<choose>
+		<when test="smallpack == 1">
+			and smallpack=1
+		</when>
+		<otherwise>
+			and (smallpack=1 or smallpack=0)
+		</otherwise>
+		</choose>
+		
+		<if test = "product_name !=null">
+		 and product_name like '%${product_name}%'
+		</if>
+		<if test = "category_num !=null">
+		and category_num like '${category_num}%'
+		</if>
+		
+		ORDER BY product_num DESC
+	</select>
+	
+	<select id="productSearch" resultType="productVO" parameterType="productVO">
+		SELECT * FROM Product_tb WHERE product_name like '%${product_name}%'
+		<if test="delivery_num != null">
+		<choose>
+		<when test="delivery_num == 1">
+			and (delivery_num = 1 or delivery_num=3)
+		</when>
+		<when test="delivery_num == 2">
+			and (delivery_num = 1 or delivery_num=2)
+		</when>
+		<otherwise>
+		 	and (delivery_num = 1 or delivery_num=2 or delivery_num=3)
+		</otherwise>
+		</choose>
+		</if>
+
+		<if test="smallpack != null">
+		<choose>
+		<when test="smallpack == 1">
+			and smallpack=1
+		</when>
+		<otherwise>
+			and (smallpack=1 or smallpack=0)
+		</otherwise>
+		</choose>
+		</if>
+	</select>
+	
+	
+
 </mapper>

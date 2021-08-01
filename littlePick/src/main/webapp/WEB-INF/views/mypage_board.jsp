@@ -65,7 +65,7 @@
 	
 	<div class="mypage-right">
 	<div class="sub-name">
-	<h3>게시글</h3>
+	<h3>게시물</h3>
 	</div>
 	
 	 <div class="row">
@@ -87,6 +87,7 @@
 			
 			</c:forEach>
 	</div> 
+	<hr/>
 	<div class="sub-name">		
 	<h3>댓글</h3>
 	</div>

@@ -17,6 +17,27 @@
 <link rel="stylesheet" href="resources/vendors/owl-carousel/owl.carousel.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
 <link rel="stylesheet" href="resources/css/style_0joo.css">
+<script src="resources/vendors/jquery/jquery-3.2.1.min.js"></script>
+<script>
+$(function(){
+	// 사용자의 자료 입력여부를 검사하는 함수
+	
+  $('#ok').click(function(){
+	  
+	  var sess = <%= session.getAttribute("user_num") %>;
+
+	  if(sess == null){
+	  	alert("로그인 후 이용하실 수 있습니다.");
+	  	window.location.href="1_login.do";
+	  }
+	  else{
+		  document.commentin.submit();
+	  }
+	
+		})
+
+})
+</script>
 </head>
 <body>
 
@@ -53,7 +74,7 @@
 	  <!--================댓글 Area =================-->
 	  
 	  <div class="board-view-comment">
-	  <form action="community_comment_save.do?content_num=${board.content_num}" method="post">
+	  <form action="community_comment_save.do?content_num=${board.content_num}" method="post" name="commentin" id="commentin">
 	  		<h4>댓글 ${count}</h4><br> <!-- 댓글 개수 추가하기 -->
 	  		<!-- 댓글쓰기 -->
 	  		<div class="comment-input">
@@ -62,7 +83,7 @@
 				<input type="text" class="form-control" id="comment_content" name="comment_content"
 					placeholder="댓글을 입력하세요"></div>
 				<div class="comment-input-button">
-				<input type="submit" class="button button-postComment button--active" value="입력"></input>
+				<input type="button" class="button button-postComment button--active" id="ok" name="ok" value="입력"></input>
 				</div>
 			</div>
 			<!-- 댓글쓰기 끝 -->
@@ -136,7 +157,7 @@
 
 
 
-  <script src="resources/vendors/jquery/jquery-3.2.1.min.js"></script>
+
   <script src="resources/vendors/bootstrap/bootstrap.bundle.min.js"></script>
   <script src="resources/vendors/skrollr.min.js"></script>
   <script src="resources/vendors/owl-carousel/owl.carousel.min.js"></script>

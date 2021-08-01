@@ -4,26 +4,12 @@ import java.util.List;
 
 import com.littlePick.domain.CommunityVO;
 public interface CommunityDAO {
-	/**
-	 * id 중복체트 기능 구현
-	 */	
-	CommunityVO  idCheck( CommunityVO vo );
-	
-	/**
-	 * 회원가입기능 구현
-	 */
-	int memberInsert(CommunityVO vo);
-	
-	/**
-	 * 로그인 확인 기능 구현
-	 */
-	CommunityVO memberLogin(CommunityVO vo);
 	
 	
 	//게시글 받아오기
 	CommunityVO selectBoard(CommunityVO vo);
 	
-	void insertBoard(CommunityVO vo);
+	void insertBoard(CommunityVO vo,int user_num);
 	
 	//댓글 count
 	public int commentCount(String board_name);
@@ -34,10 +20,15 @@ public interface CommunityDAO {
 	
 	public List<CommunityVO> select3Community(String board_name);//카테고리 list
 	
-	public void insertComment(CommunityVO vo);
+	public void insertComment(CommunityVO vo,int user_num);
 	
 	public List<CommunityVO> communitySearch(String searchCondition, String searchKeyword);
 	
 	public void boardCountUp(int content_num); //조회수 1 증가
+	
+	public void boarddelete(int content_num);
+	
+	public void boardmodify(CommunityVO vo);
+	
 	
 }

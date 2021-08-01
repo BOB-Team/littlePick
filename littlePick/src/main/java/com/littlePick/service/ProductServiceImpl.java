@@ -41,4 +41,52 @@ public class ProductServiceImpl implements ProductService{
 	public int countProductList() {
 		return productDAO.countProductList();
 	}
+
+	
+	
+	
+	//0729(영주)
+	public void productCount(ProductVO vo) { //조회수 증가
+		productDAO.productCount(vo);
+		
+	}
+
+	public List<ProductVO> category_new(ProductVO vo) {
+		return productDAO.category_new(vo);
+	}
+	
+	public List<ProductVO> category_best() {
+		return productDAO.category_best();
+	}
+	
+	public List<ProductVO> now_best(ProductVO vo) {
+		return productDAO.now_best(vo);
+	}
+
+	
+	public List<ProductVO> reviewList(ProductVO vo) {
+		return productDAO.reviewList(vo);
+	}
+
+	public int reviewCount(ProductVO vo) {
+		return productDAO.reviewCount(vo);
+	}
+	
+	public ProductVO avgstar(ProductVO vo) {
+		return productDAO.avgstar(vo);
+	}
+
+	public int starCount(int product_num, int i) {
+		return productDAO.starCount(product_num,i);
+	}
+
+	public List<ProductVO> filter(ProductVO vo) {
+		return productDAO.filter(vo);
+	}
+
+	public List<ProductVO> productSearch(ProductVO vo) {
+		return productDAO.productSearch(vo);
+	}
+
+	
 }
