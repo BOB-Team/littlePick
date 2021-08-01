@@ -30,10 +30,11 @@ public class CartController {
 		int user_num = (int) session.getAttribute("user_num");
 		vo.setUser_num(user_num);
 
-		System.out.println("회원번호 : " + vo.getUser_num());
-		System.out.println("카트번호: " + vo.getCart_num());
-		System.out.println("상품번호:" + vo.getProduct_num());
-		System.out.println("상품수량:" + vo.getProduct_count());
+//		System.out.println("회원번호 : " + vo.getUser_num());
+//		System.out.println("카트번호: " + vo.getCart_num());
+//		System.out.println("상품번호:" + vo.getProduct_num());
+//		System.out.println("상품수량:" + vo.getProduct_count());
+//		System.out.println("배송번호:" + vo.getDelivery_num());
 
 		// 장바구니에 기존 상품이 있는지 검사
 		int count = cartService.cartCount(vo.getProduct_num(), user_num);
@@ -57,8 +58,10 @@ public class CartController {
 		vo.setUser_num(user_num);
 		
 		Map<String, Object> map = cartService.cartList(vo);
-	
+		
+		
 		mv.setViewName("cartList"); // jsp 파일 이름
+		mv.addObject("user_num", user_num); 
 		mv.addObject("map", map); // map 변수 저장
 		
 		return mv;

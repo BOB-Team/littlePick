@@ -31,6 +31,8 @@ public class ProductVO {
 	private String user_nickname; // 닉네임 >> 쇼핑몰에서 닉네임으로 활동
 	private String user_phone; // 휴대폰
 	private String user_address; // 주소
+	private String user_address2;
+	private String user_address3;
 	private char user_gender; // 성별
 	private String user_birth; // '1990-11-22' 형식으로
 	private String user_regdate; // 가입일 sysdate()
@@ -52,14 +54,11 @@ public class ProductVO {
 	//OrderList_tb	
 	public int order_count;
 	
-
-	
-	
-	
-
 	//추가 생성 변수 ===============
 	//장바구니 상품별 합계 : sale_price*product_count
 	private int single_price;
+	//주문목록 주문번호별 상품 종류 개수
+	private int orderList_count;
 
 
 
@@ -313,6 +312,30 @@ public class ProductVO {
 		this.user_address = user_address;
 	}
 
+	
+
+	public String getUser_address2() {
+		return user_address2;
+	}
+
+
+
+	public void setUser_address2(String user_address2) {
+		this.user_address2 = user_address2;
+	}
+
+
+
+	public String getUser_address3() {
+		return user_address3;
+	}
+
+
+
+	public void setUser_address3(String user_address3) {
+		this.user_address3 = user_address3;
+	}
+
 
 
 	public char getUser_gender() {
@@ -467,6 +490,30 @@ public class ProductVO {
 
 	public void setSingle_price(int single_price) {
 		this.single_price = single_price;
+	}
+
+
+
+	public int getOrderDetail_num() {
+		return orderDetail_num;
+	}
+
+
+
+	public void setOrderDetail_num(int orderDetail_num) {
+		this.orderDetail_num = orderDetail_num;
+	}
+
+
+
+	public int getOrderList_count() {
+		return orderList_count;
+	}
+
+
+
+	public void setOrderList_count(int orderList_count) {
+		this.orderList_count = orderList_count;
 	}
 
 

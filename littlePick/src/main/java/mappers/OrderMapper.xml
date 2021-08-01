@@ -11,17 +11,67 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 주문 정보 -->
 	<insert id="insertOrderInfo">
-	 INSERT INTO Order_tb( order_num, user_num, order_date, total_account, order_state, order_address, delivery_type)   
-	 				VALUES(#{order_num}, #{user_num}, sysdate(), #{total_account}, #{order_state}, #{order_address},#{delivery_type})
+	 INSERT INTO Order_tb(order_num, user_num, order_date, total_account, order_state, order_address, delivery_type, delivery_num)   
+	 				VALUES(#{order_num}, #{user_num}, sysdate(), #{total_account}, #{order_state}, #{order_address},#{delivery_type},#{delivery_num})
 	</insert>
-	   
-	<!-- 주문 상세 정보 --> 
-
-<!-- 	<insert id="orderInfoDetails">
-	 INSERT INTO OrderDetail_tb(orderDetail_num, order_num, product_num, product_count)
-	     SELECT orderDetailsNum, order_num, product_num, product_count
-	         FROM Cart_tb   
-	</insert>  -->
+	
+	<!-- 주문목록 추가 -->   
+	<insert id="insertOrderList">
+	INSERT INTO OrderList_tb(order_num, user_num, product_num, order_count, now_price)
+		SELECT 	DISTINCT
+				o.order_num AS order_num, 
+				o.user_num AS user_num,
+				c.product_num AS product_num, 
+				c.product_count AS product_count,
+				o.total_account AS toal_account
+		FROM Order_tb o, Cart_tb c
+		WHERE o.user_num = #{user_num}
+			AND o.user_num = c.user_num
+			AND o.delivery_num = c.delivery_num
+	</insert> 
+	
+	<!-- 주문목록조회 -->
+	<select id="orderList" parameterType="productVO" resultType="productVO">
+	SELECT 	ol.order_num AS order_num, 	
+			ol.product_num AS product_num, 
+	        p.product_name AS product_name, 
+	        count(ol.order_num) AS orderList_count,
+	        o.order_date AS order_date,
+	        o.delivery_type AS delivery_type,
+	        ol.now_price AS now_price
+	FROM OrderList_tb ol, Order_tb o, Product_tb p
+	WHERE ol.user_num=#{user_num} 
+		and ol.order_num = o.order_num
+		and ol.user_num = o.user_num
+	    and ol.product_num = p.product_num
+	GROUP BY ol.order_num
+	</select>
+	
+	
+	<!-- 주문 상세 -->
+	<select id="orderDetail" parameterType="productVO" resultType="productVO">
+	SELECT o.order_num AS order_num, 		
+			o.product_num AS product_num, 
+	        p.product_name AS product_name,
+			order_count
+	FROM OrderList_tb o, Product_tb p
+	WHERE user_num = #{user_num}
+		AND order_num = #{order_num}
+		AND o.product_num=p.product_num
+	</select>
+	
+	<!-- 포인트적립 -->
+	<update id="updatePoint">
+	UPDATE Member_tb 
+	SET  user_point=user_point + #{user_point}
+	WHERE user_num=#{user_num}
+	</update>
+	
+	<update id="updateStock">
+	UPDATE Product_tb 
+	SET  stock=stock-#{product_count}
+	WHERE product_num=#{product_num}	
+	</update>
 	
 
 </mapper>

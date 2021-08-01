@@ -23,6 +23,8 @@
 <%@ include file="header.jsp" %>
 
  <!--================Cart Area =================-->
+ 
+ <a href="orderList.do">주문목록</a>
   <section class="cart_area">
       <div class="container">
           <div class="cart_inner">
@@ -35,7 +37,7 @@
 							<tr><th></th></tr>
                       </thead>
                       <tbody>
-							<c:if test="${map.countNormal == 0 and map.countStar ==0 }">
+							<c:if test="${map.countNormal == 0 and map.countStar ==0}">
 							<tr>
                       			<th colspan="6">장바구니에 담긴 상품이 없습니다.</th>
                       		</tr>
@@ -54,37 +56,37 @@
                               <td>
                                   <div class="media">
                                       <div class="d-flex">
-                                          <img src="resources/img/product/${n.product_image }" alt="" width="100">
+                                          <a href="product.do?product_num=${n.product_num }">
+                                          	<img src="resources/img/product/${n.product_image }" alt="" width="100">
+                                          </a>
                                       </div>
                                       <div class="media-body">
-                                          <p>${n.product_name} </p>
+                                          <a href="product.do?product_num=${n.product_num }"><p>${n.product_name} </p></a>
                                       </div>
                                   </div>
                               </td>
                               <td class="price_align">
-                                  <h5>${n.sale_price}원</h5>
+                                  <h5><span id="price">${n.sale_price}</span>원</h5>
                               </td>
                               <td>
                                   <div class="product_count">
                                       <input type="text" name="product_count" id="sst" maxlength="12" value="${n.product_count}" title="Quantity:"
                                           class="input-text qty" style="width:10">
                                        <div class="cart_qty_btn">
-                                      <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
-                                          class="increase cart-count" type="button"><i class="fas fa-angle-up"></i></button>
-                                      <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
-                                          class="reduced cart-count" type="button"><i class="fas fa-angle-down"></i></button>
+                                      <button class="increase cart-count" type="button"><i class="fas fa-angle-up"></i></button>
+                                      <button class="reduced cart-count" type="button"><i class="fas fa-angle-down"></i></button>
                                        </div>
                                   </div>
                               </td>
                               <td class="price_align">
-                                  <h5>${n.single_price}원</h5>
+                                  <h5><span id="product_total">${n.single_price}</span>원</h5>
                               </td>
                               <td><a href="cartDelete.do?cart_num=${n.cart_num}"><i class="fas fa-times"></i></a></td>
                           </tr>
                           </c:forEach>
                           
                          
-                      		<c:if test="${map.countStar != null}">
+                      		<c:if test="${map.countStar != 0}">
 								<tr>
 	                      			<th colspan="6">샛별 배송</th>
 	                      		</tr>
@@ -96,10 +98,12 @@
                               <td>
                                   <div class="media">
                                       <div class="d-flex">
-                                          <img src="resources/img/product/${s.product_image }" alt="" width="100">
+                                          <a href="product.do?product_num=${s.product_num }">
+                                          	<img src="resources/img/product/${s.product_image }" alt="" width="100">
+                                          </a>
                                       </div>
                                       <div class="media-body">
-                                          <p>${s.product_name} </p>
+                                          <a href="product.do?product_num=${s.product_num }"><p>${s.product_name} </p></a>
                                       </div>
                                   </div>
                               </td>
@@ -111,10 +115,8 @@
                                       <input type="text" name="product_count" id="sst" maxlength="12" value="${s.product_count}" title="Quantity:"
                                           class="input-text qty" style="width:10">
                                        <div class="cart_qty_btn">
-                                      <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
-                                          class="increase cart-count" type="button"><i class="fas fa-angle-up"></i></button>
-                                      <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
-                                          class="reduced cart-count" type="button"><i class="fas fa-angle-down"></i></button>
+                                      <button class="increase cart-count" type="button"><i class="fas fa-angle-up"></i></button>
+                                      <button class="reduced cart-count" type="button"><i class="fas fa-angle-down"></i></button>
                                        </div>
                                   </div>
                               </td>
@@ -128,20 +130,12 @@
                           <tr class="bottom_button">
                           	  <td><input type="checkbox" id="all_check" name="all_check"></td>
                               <td colspan="2" style="text-align:left">
-                                  <a class="button" id="select_del">선택삭제</a>
+                                  <div class="gray-btn"><a id="select_del">선택삭제</a></div>
                                   <!-- <a class="button" id="all_del" href="#">전체삭제</a>  -->  
                               </td>
                               <td> </td>
                               <td> </td>
                               <td> </td>
-                              
-<!--                               <td>
-                                  <div class="cupon_text d-flex align-items-center">
-                                      <input type="text" placeholder="Coupon Code">
-                                      <a class="primary-btn" href="#">Apply</a>
-                                      <a class="button" href="#">Have a Coupon?</a>
-                                  </div>
-                              </td> -->
                           </tr>
                           
                           <tr>
@@ -164,7 +158,7 @@
                               <td></td>
                               <td></td>
                               <td></td>
-                              <td ><h5>적립금</h5></td>
+                              <td ><h5>적립금</h5>적립율 5%</td>
                               <td class="price_align"><h5>${map.point}원</h5></td>
                               <td></td>
                           </tr>
@@ -172,7 +166,7 @@
                           	  <td></td>
                               <td></td>
                               <td></td>
-                              <td ><h5>배송비</h5></td>
+                              <td ><h5>배송비</h5>5만원이상 무료배송</td>
                               <td class="price_align"><h5>${map.fee }원</h5></td>
                               <td></td>
                           </tr>
@@ -189,12 +183,13 @@
                           	  <td></td>
                           	  <td></td>
                               <td colspan="3">
-                                  <div class="checkout_btn_inner d-flex align-items-center">
-                                      <a class="gray_btn" href="main.do">쇼핑계속하기</a>
-                                      <a class="primary-btn ml-2" href="order.do">주문하기</a>
+                                  <div class="gray-btn">
+                                      <a href="main.do">쇼핑계속하기</a>
                                   </div>
-                              </td>
-                              
+                                  <div class="blue-btn">
+                                      <a href="order.do">주문하기</a>
+                                  </div>
+                               </td>
                               <td></td>
                           </tr>
                           

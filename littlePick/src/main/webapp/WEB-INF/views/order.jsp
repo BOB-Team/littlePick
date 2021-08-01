@@ -12,13 +12,13 @@
 	<%@ include file="header.jsp"%>
 	
 	
-	
-	<div class="order_body">
-		<div class="order_title"><h2>
-			<span class="section-intro__style">주문서</span> 
-		</h2></div>
-		
-		<div>
+  <section class="cart_area">
+      <div class="container">
+          <div class="cart_inner">
+          	  <div class="cart_title">
+				<h2><span class="section-intro__style">주문서</span>	</h2>
+			  </div>
+              <div class="table-responsive">
 		<table class="order_table" >
 
 			<tbody>
@@ -28,7 +28,7 @@
 				<tr><td class=delivery_type colspan="4"><i class="fas fa-truck"></i>&nbsp;&nbsp;일반배송</td></tr>
 				<c:forEach items="${map.listNormal }" var="n" >		
 						<tr>
-							<td width="150"><img src="resources/img/product/${n.product_image }" alt="" width="150"></td>
+							<td width="200"><img src="resources/img/product/${n.product_image }" alt="" width="150"></td>
 							<td>${n.product_name }</td>
 							<td width="100">${n.product_count }</td>
 							<td class="price_align" width="200">${n.single_price}원</td>
@@ -75,7 +75,7 @@
 				</tr>
 				<tr>
 					<td>배송지</td>
-					<td id="order_address" colspan="3">${map.user_address}</td>
+					<td id="order_address" colspan="3">${map.user_address} ${map.user_address2} ${map.user_address3}</td>
 				</tr>
 				<tr></tr>
 
@@ -133,17 +133,24 @@
 			</tbody>
 
 			<tfoot>
-				<tr class="blue-btn_area" >
+				<tr class="btn_area" >
 					<td colspan="4">
+						<div class="gray-btn">
+							<a href="cartList.do">취소하기</a>
+						</div>
 						<div class="blue-btn">
-						<a href="insertOrder.do">결제하기</a>
+							<!-- js 클릭이벤트 : 결제 방법 선택  -->
+							<a id="payfor" >결제하기</a> 
 						</div>
 					</td>
 				</tr>
 			</tfoot>
 		</table>
-		</div>
-	</div>
+              </div>
+          </div>
+      </div>
+  </section>
 	<%@ include file="footer.jsp"%>
+	<script src="resources/js/order.js"></script>
 </body>
 </html>

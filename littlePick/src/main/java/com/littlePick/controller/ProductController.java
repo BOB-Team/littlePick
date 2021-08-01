@@ -26,7 +26,6 @@ public class ProductController {
 	// a 태그의 파라미터 값 받기 : method=RequestMethod.GET 
 	@RequestMapping(value="main.do", method=RequestMethod.GET)
 	public void productList(ProductVO vo, Model m) {
-		System.out.println("소포장 제품 "+vo.isSmallpack());
 		m.addAttribute("mainList", productService.mainList(vo));
 	}
 	
@@ -56,16 +55,5 @@ public class ProductController {
 		System.out.println("product.do 요청확인");
 		m.addAttribute("product",productService.product(vo));
 	}
-	  
-	  
-	  //상품 필터 검색 리스트
-/*	  @RequestMapping(value="filterList.do", produces="application/text;charset=UTF-8")
-	  @ResponseBody
-	  public Model filterList(ProductVO vo, Model m) {
-		  m.addAttribute("productList", productService.filterList(vo));
-		  System.out.println("controller" + vo.getProduct_name());
-		  return result;  
-	  } 
-*/	 
 
 }

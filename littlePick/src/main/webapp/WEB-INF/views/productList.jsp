@@ -161,7 +161,7 @@
                     </ul>
                   </div>
                   <div class="card-body">
-                    <p>
+                    <p> 
                     <c:choose>
 	                   <c:when test="${p.delivery_num==1}">일반 배송</c:when>
 	                   <c:when test="${p.delivery_num==2}">일반/샛별 배송</c:when>

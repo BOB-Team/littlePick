@@ -1,5 +1,6 @@
 $(function(){
 	
+	//전체 체크박스 누르면 상풍 전체 선택하기 
 	var chkObj = document.getElementsByName("item_check");
 	var rowCnt = chkObj.length;
 	
@@ -19,8 +20,45 @@ $(function(){
 			$("input[name='all_check']")[0].checked=false;
 		}
 	});
+	
+	
+	//	$(".increase.cart-count").click(function(){
+	//	var result = $(this).parents().find("#sst").val();
+	//	alert(result);
+	//})
+	
+	  
+	  //수량 증가버튼
+	  $(".increase.cart-count").click(function(){
+		  var input = document.getElementById('sst'); 
+		  var quantity = input.value*1;
+		  if( !isNaN( quantity )) {
+			  quantity += 1;
+			  var price = $("#price").text() * quantity;
+			  $("#product_total").text(price); 
+			  input.value++;
+			  //return false;
+		  }
+	  })
+	
+	
+	  //수량 감소버튼
+	  $(".reduced.cart-count").click(function(){
+		  var input = document.getElementById('sst'); 
+		  var quantity = input.value*1;	
+		  //input박스 수량 감소
+		  if( !isNaN( quantity ) && quantity > 1 ) {
+			  quantity -= 1;
+			  var price = $("#price").text() * quantity;
+			  $("#product_total").text(price); 
+			  input.value--;
+			  //return false;  
+		  }
+	  })
 });
 
+
+//클릭이벤트-선택삭제 : 버튼 누르면 ajax로 cart_num 번호 배열을 전송 
 $("#select_del").click(function(){
 	var cart_num = [];
 	var list_check = $("input[name='item_check']:checked");
@@ -31,7 +69,7 @@ $("#select_del").click(function(){
 	}
 	//alert("cc"+cart_num);
 	if(cart_num.length==0){
-		alert("선택된 글이 없습니다.");
+		alert("선택된 상품이 없습니다.");
 	}
 	else{
 		//var chk=confirm("정말 삭제하시겠습니까?")
@@ -50,6 +88,7 @@ $("#select_del").click(function(){
 			
 		});
 	}
+
 })
 	
 

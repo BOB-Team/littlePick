@@ -7,7 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 장바구니 추가 -->
 	<insert id="cartInsert">
 		INSERT INTO Cart_tb
-		VALUES (#{cart_num}, #{user_num}, #{product_num}, #{product_count})
+		VALUES (#{cart_num}, #{user_num}, #{product_num}, #{product_count},#{delivery_num})
 		
 	</insert>
 
@@ -22,10 +22,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			m.user_email AS user_email,
 			m.user_phone AS user_phone,
 			m.user_address AS user_address,
+			m.user_address2 AS user_address2,
+			m.user_address3 AS user_address3,
+			m.user_point AS user_point,
 			p.product_num AS product_num,
 			p.product_image AS product_image,
 			p.product_name AS product_name,
 			p.sale_price AS sale_price,
+			p.stock AS stock,
 			p.delivery_num AS delivery_num,
 			sale_price*c.product_count AS single_price
 		FROM
@@ -46,10 +50,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			m.user_email AS user_email,
 			m.user_phone AS user_phone,
 			m.user_address AS user_address,
+			m.user_address2 AS user_address2,
+			m.user_address3 AS user_address3,
+			m.user_point AS user_point,
 			p.product_num AS product_num,
 			p.product_image AS product_image,
 			p.product_name AS product_name,
 			p.sale_price AS sale_price,
+			p.stock AS stock,
 			p.delivery_num AS delivery_num,
 			sale_price*c.product_count AS single_price
 		FROM

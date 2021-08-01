@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,11 +57,25 @@
 				<div class="col-lg-5 offset-lg-1">
 					<div class="s_product_text">
 					<form id="cart-int"action="cartInsert.do" method="get">
+						<%-- <input type="hidden" name="delivery_num" value="${product.delivery_num}"> --%>
 						<h3>${product.product_name }</h3>	
 						<br/>
 						<h2><span id="price">${product.sale_price }</span>원</h2>
 						<br/>
 						<p>${product.product_info }</p>
+						<p>
+						 <c:choose>
+		                  	 <c:when test="${product.delivery_num==1}"><input type="hidden" name="delivery_num" value="1">일반배송</c:when>
+		                  	 <c:when test="${product.delivery_num==2}">
+				                  <div>
+				              		 <div><input type="radio" name="delivery_num" value="1">일반배송</div>
+				              		 <div><input type="radio" name="delivery_num" value="3">샛별배송</div>
+			              		 </div>
+		                  	 </c:when>
+	                     	 <c:otherwise><input type="hidden" name="delivery_num" value="3">샛별배송</c:otherwise>
+	              		 </c:choose>
+
+						</p>
 						<div class="product_count">
 							
 		              		<label for="qty"><h5>수량:</h5></label>    
@@ -75,7 +90,7 @@
 						</div>
 						<div class="product_total_area">
 						<div><label><h5>총 상품 금액:&nbsp;&nbsp;</h5></label><label><h2><span id="product_total">${product.sale_price }</span>원</h2></label><br/></div>
-						<div><h5>로그인 후, 회원할인가와 적립혜택 제공</h5></div>
+						
 						</div>
 						<div class="stock_cart_area">
 						<a class="button stock-alarm-btn" href="#">재고알림</a><a class="button primary-btn" onclick="document.getElementById('cart-int').submit();">장바구니 담기</a>     

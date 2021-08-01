@@ -4371,7 +4371,7 @@ scale
 
 .product_count {
 	display: flex;
-	position: relative;
+	/* position: relative; */
 	margin-bottom: 24px
 }
 
@@ -4980,6 +4980,10 @@ scale
 
 
 /* 장바구니 */
+.media-body a{
+	color:black;
+}
+
 .price_align{
 	text-align:right;
 }
@@ -5006,7 +5010,7 @@ scale
 
 }
 
-.order_title{
+.order_title, .cart_title{
 	margin-bottom:24px;
 	
 }
@@ -5026,18 +5030,35 @@ scale
 	margin : 4px;
 }
 
-.blue-btn_area>td{
+.btn_area>td{
 	text-align:center;
 }
-
+/* 취소버튼 */
+.gray-btn{
+	display:inline-block;
+	width: 150px;
+	height: 50px;
+	background-color:#eeeeee;
+	border-radius:50px;		
+	margin: 12px;
+	text-align : center;
+}
+.gray-btn a{
+	color: black;
+	line-height: 50px;
+}
+/* 결제버튼 */
 .blue-btn{
+	display:inline-block;
 	width: 150px;
 	height: 50px;
 	background-color:#384aeb;
 	border-radius:50px;
+	margin: 12px;
+	color:white;
+	text-align : center;
 		
 }
-
 .blue-btn a{
 	color: white;
 	line-height: 50px;

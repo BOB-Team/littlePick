@@ -19,10 +19,33 @@ public class OrderDAOImple implements OrderDAO{
 		mybatis.insert("orderMapper.insertOrderInfo",vo);
 	}
 	
-//	public void orderInfoDetails(ProductVO vo) {
-//		System.out.println("===> orderMapper orderInfoDetails() 호출");
-//		mybatis.insert("orderMapper.orderInfoDetails",vo);
-//	}
+	public void insertOrderList(ProductVO vo) {
+		System.out.println("===> orderMapper insertOrderList() 호출");
+		mybatis.insert("orderMapper.insertOrderList",vo);
+	}
+	//주문 목록 조회
+	public List<ProductVO> orderList(ProductVO vo){
+		System.out.println("===> orderMapper orderList() 호출");
+		return mybatis.selectList("orderMapper.orderList",vo);
+	}
+	
+	//주문 상세 
+	public List<ProductVO> orderDetail(ProductVO vo){
+		System.out.println("===> orderMapper orderDetail() 호출");
+		return mybatis.selectList("orderMapper.orderDetail",vo);
+	}
+	
+	//포인트 적립
+	public void updatePoint(ProductVO vo) {
+		System.out.println("===> orderMapper updatePoint() 호출");
+		mybatis.update("orderMapper.updatePoint",vo);
+	}
+	
+	//재고 수량 업데이트 
+	public void updateStock(ProductVO vo) {
+		System.out.println("===> orderMapper updateStock() 호출");
+		mybatis.update("orderMapper.updateStock", vo);
+	}
 
 
 }
