@@ -68,7 +68,7 @@ $(function(){
   	<!--================ 글 내용 Area =================-->
   	<div class="board-view-content-img">
 
-  	<a><img src="resources/upload/board/${board.content_image}" width="600px"></a>
+  	<a><img src="resources/upload/board/${board.content_image}" width="450px" height="450px"></a>
   	</div>
   	<div class="board-view-content">
   	<a>${board.content}</a><!-- 글 내용 -->

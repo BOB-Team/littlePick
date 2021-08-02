@@ -19,6 +19,18 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
 <script src="resources/vendors/jquery/jquery-3.2.1.min.js"></script>
 <script>
+$(function(){
+
+	$('#carticon').click(function(){
+		var sess = <%= session.getAttribute("user_num") %>;
+		if(sess == null){
+		  	alert("로그인 후 이용하실 수 있습니다.");
+		  	//window.location.href="1_login.do";
+		  	//window.replace.href="1_login.do";
+		  }
+	})
+
+})
 </script>
 </head>
 <body>
@@ -99,7 +111,7 @@
                     <img class="card-img" src="resources/img/product/${p.product_image }" alt="상품이미지"></a>                   
                     <ul class="card-product__imgOverlay">
                       <!-- <li><button><i class="ti-search"></i></button></li> -->
-                      <li><a href="cartInsert.do?product_num=${p.product_num}&product_count=1&delivery_num=${p.delivery_num}">
+                     <li><a id="carticon" href="cartInsert.do?product_num=${p.product_num}&product_count=1&delivery_num=${p.delivery_num}">
 									<button><i class="ti-shopping-cart"></i></button></a></li>
                       <!-- <li><button><i class="ti-heart"></i></button></li> -->
                     </ul>

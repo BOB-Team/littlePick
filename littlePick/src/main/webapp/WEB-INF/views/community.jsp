@@ -120,7 +120,7 @@ $(function(){
 					<div class="categories_post">
 						<a href="community_board_view.do?content_num=${board1.content_num}"> <img
 							src="resources/upload/board/${board1.content_image}" width="350px"
-							height="350px">
+							height="300px">
 						</a>
 						<div class="blog_info">
 							<a href="community_board_view.do?content_num=${board1.content_num}">
@@ -157,7 +157,7 @@ $(function(){
 					<div class="categories_post">
 						<a href="community_board_view.do?content_num=${board2.content_num}"> <img
 							src="resources/upload/board/${board2.content_image}" width="350px"
-							height="350px">
+							height="300px">
 						</a>
 						<div class="blog_info">
 							<a href="community_board_view.do?content_num=${board2.content_num}">
@@ -194,7 +194,7 @@ $(function(){
 					<div class="categories_post">
 						<a href="community_board_view.do?content_num=${board3.content_num}"> <img
 							src="resources/upload/board/${board3.content_image}" width="350px"
-							height="350px">
+							height="300px">
 						</a>
 						<div class="blog_info">
 							<a href="community_board_view.do?content_num=${board3.content_num}">

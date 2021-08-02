@@ -19,39 +19,20 @@
 <link rel="stylesheet" href="resources/css/style.css">
 <script src="resources/vendors/jquery/jquery-3.2.1.min.js"></script>
 <script>
-<%-- window.onload = function() {
-	document.getElementById('carticon').onclick = check;
-}
-
-function check() {
-	var sess = <%= session.getAttribute("user_num") %>;
-	if(sess == null){
-	  	alert("로그인 후 이용하실 수 있습니다.");
-	  	return false;
-	  	//window.location.href="1_login.do";
-	  	//window.replace.href="1_login.do";
-
---%>
 $(function(){
 
-	var sess = <%= session.getAttribute("user_num") %>;
-	
 	$('#carticon').click(function(){
-
-		  if(sess == null){
+		var sess = <%= session.getAttribute("user_num") %>;
+		if(sess == null){
 		  	alert("로그인 후 이용하실 수 있습니다.");
-		  	return;
-		  	window.location.href="1_login.do";
+		  	//window.location.href="1_login.do";
 		  	//window.replace.href="1_login.do";
-		  	
 		  }
 	})
 
 })
 </script>
 </head>
-
-
 <body>
 
 <%@ include file="header.jsp"%> 
@@ -89,10 +70,9 @@ $(function(){
 								<img class="card-img" src="resources/img/product/${p.product_image }" alt="" width="255px" height="255px"></a>
 								<ul class="card-product__imgOverlay">
 									<!-- <li><button><i class="ti-search"></i></button></li> -->
-									
-									<li><a href="cartInsert.do?product_num=${p.product_num}&product_count=1&delivery_num=${p.delivery_num}"><button id="carticon"><i class="ti-shopping-cart"></i></button></a></li>
-									<%-- <li><a id="carticon" href="cartInsert.do?product_num=${p.product_num}&product_count=1&delivery_num=${p.delivery_num}">
-									<button><i class="ti-shopping-cart"></i></button></a></li> --%>
+
+									<li><a id="carticon" href="cartInsert.do?product_num=${p.product_num}&product_count=1&delivery_num=${p.delivery_num}">
+									<button><i class="ti-shopping-cart"></i></button></a></li>
 									<!-- <li><button><i class="ti-heart"></i></button></li> -->
 								</ul>
 							</div>
@@ -135,7 +115,7 @@ $(function(){
 								<img class="card-img" src="resources/img/product/${p2.product_image }" alt="" width="255px" height="255px"></a>
 								<ul class="card-product__imgOverlay">
 									<!-- <li><button><i class="ti-search"></i></button></li> -->
-									<li><a href="cartInsert.do?product_num=${p2.product_num}&product_count=1&delivery_num=${p2.delivery_num}">
+									<li><a id="carticon" href="cartInsert.do?product_num=${p2.product_num}&product_count=1&delivery_num=${p2.delivery_num}">
 									<button><i class="ti-shopping-cart"></i></button></a></li>
 									<!-- <li><button><i class="ti-heart"></i></button></li> -->
 								</ul>
@@ -178,8 +158,8 @@ $(function(){
 								<img class="card-img" src="resources/img/product/${p3.product_image }" alt="" width="255px" height="255px"></a>
 								<ul class="card-product__imgOverlay">
 									<!-- <li><button><i class="ti-search"></i></button></li> -->
-									<li><button><a href="cartInsert.do?product_num=${p3.product_num}&product_count=1&delivery_num=${p3.delivery_num}">
-									<i class="ti-shopping-cart"></i></a></button></li>
+									<li><a id="carticon" href="cartInsert.do?product_num=${p3.product_num}&product_count=1&delivery_num=${p3.delivery_num}">
+									<button><i class="ti-shopping-cart"></i></button></a></li>
 									<!-- <li><button><i class="ti-heart"></i></button></li> -->
 								</ul>
 							</div>
@@ -221,7 +201,7 @@ $(function(){
 								<img class="card-img" src="resources/img/product/${p4.product_image }" alt="" width="255px" height="255px"></a>
 								<ul class="card-product__imgOverlay">
 									<!-- <li><button><i class="ti-search"></i></button></li> -->
-									<li><a href="cartInsert.do?product_num=${p4.product_num}&product_count=1&delivery_num=${p4.delivery_num}">
+									<li><a id="carticon" href="cartInsert.do?product_num=${p4.product_num}&product_count=1&delivery_num=${p4.delivery_num}">
 									<button><i class="ti-shopping-cart"></i></button></a></li>
 									<!-- <li><button><i class="ti-heart"></i></button></li> -->
 								</ul>

@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>주문</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
 </head>
 <body>
 
@@ -143,7 +144,7 @@
 						</div>
 						<div class="blue-btn">
 							<!-- js 클릭이벤트 : 결제 방법 선택  -->
-							<a id="payfor" >결제하기</a> 
+							<a id="payfor">결제하기</a>
 						</div>
 					</td>
 				</tr>
@@ -155,5 +156,6 @@
   </section>
 	<%@ include file="footer.jsp"%>
 	<script src="resources/js/order.js"></script>
+	<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 </body>
 </html>

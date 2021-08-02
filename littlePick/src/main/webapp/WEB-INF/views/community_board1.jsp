@@ -117,8 +117,7 @@ $(function(){
 				<div class="col-sm-6 col-lg-4 mb-4 mb-lg-0">
 					<div class="categories_post">
 						<a href="community_board_view.do?content_num=${board.content_num}"> <img
-							src="resources/upload/board/${board.content_image}" width="350px"
-							height="350px">
+							src="resources/upload/board/${board.content_image}" width="350px" height="300px">
 						</a>
 						<div class="blog_info">
 							<a href="community_board_view.do?content_num=${board.content_num}">

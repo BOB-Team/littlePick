@@ -27,8 +27,13 @@ public class CartController {
 	@RequestMapping(value = "cartInsert.do")
 	public String cartInsert(ProductVO vo, HttpSession session) {
 		System.out.println("Controller : cartInsert() 호출");
-		int user_num = (int) session.getAttribute("user_num");
-		vo.setUser_num(user_num);
+		if(session.getAttribute("user_num") == null) {
+			return "redirect:1_login.do";
+		}
+		else {
+			int user_num = (int) session.getAttribute("user_num");
+		
+			vo.setUser_num(user_num);
 
 //		System.out.println("회원번호 : " + vo.getUser_num());
 //		System.out.println("카트번호: " + vo.getCart_num());
@@ -48,6 +53,7 @@ public class CartController {
 			cartService.cartUpdate(vo);
 		}
 		return "redirect:cartList.do";
+		}
 	}
 
 	// 장바구니 목록
