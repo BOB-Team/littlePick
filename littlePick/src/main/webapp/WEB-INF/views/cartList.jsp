@@ -19,12 +19,13 @@
 
 </head>
 <body>
-
+  <section>
+      <div class="container">
 <%@ include file="header.jsp" %>
 
  <!--================Cart Area =================-->
  <ul class="top_menu_list">
-		<li class="top_menu_item"><a class="top_menu_anchor" href="orderList.do">주문목록</a></li>
+		<!-- <li class="top_menu_item"><a class="top_menu_anchor" href="orderList.do">주문목록</a></li> -->
 			</ul>		
 <!--  <a href="orderList.do">주문목록</a> -->
   <section class="cart_area">
@@ -112,7 +113,7 @@
                                   </div>
                               </td>
                               <td class="price_align">
-                                  <h5>${s.sale_price}원</h5>
+                                  <h5><span id="price">${s.sale_price}</span>원</h5>
                               </td>
                               <td>
                                   <div class="product_count">
@@ -127,7 +128,7 @@
                                   </div>
                               </td>
                               <td class="price_align">
-                                  <h5>${s.single_price}원</h5>
+                                  <h5><span id="product_total">${s.single_price}</span>원</h5>
                               </td>
                               <td><a href="cartDelete.do?cart_num=${s.cart_num}"><i class="fas fa-times"></i></a></td>
                           </tr>
@@ -223,7 +224,8 @@
 	<script src="resources/js/main.js"></script>
 	<script src="resources/js/cartList.js"></script>
 	
-	
+	</div>
+	</section>
 
 
 

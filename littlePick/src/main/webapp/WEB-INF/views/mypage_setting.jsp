@@ -42,7 +42,8 @@
 <!-- ================ 상단 ================= -->
 <!-- 헤더 인클루드 -->
 <%@ include file="header.jsp"%> 
-
+  <section>
+      <div class="container">
 <div class="mypage-menu">
 <nav class="navbar navbar-expand-lg">
 		<ul class="nav navbar-nav menu_nav ml-auto mr-auto">
@@ -118,5 +119,7 @@
   <script src="resources/vendors/mail-script.js"></script>
   <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
   <script src="resources/js/main.js"></script>
+  </div>
+  </section>
 </body>
 </html>

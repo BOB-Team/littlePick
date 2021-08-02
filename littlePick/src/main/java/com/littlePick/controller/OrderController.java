@@ -79,24 +79,24 @@ public class OrderController {
 		//일반배송 리스트 확인 및 주문 정보 입력 
 		//일반배송리스트 샛별배송리스트가 둘다 비어있지 않으면 
 		if(listNormal.size()>0 && listStar.size()>0) {
-			System.out.println("1");
+			//System.out.println("1");
 			insertNormalList(listNormal, vo);
 			insertStarList(listStar, vo);
 		}  
 		//일반배송 리스트는 있고, 샛별배송은 비어있으면 
 		else if (listNormal.size()>0 && listStar.size()==0) {
-			System.out.println("2");
+			//System.out.println("2");
 			//일반배송만 추가 
 			insertNormalList(listNormal, vo);
 		}
 		//일반배송이 비어있고, 샛별배송리스트만 있으면 
 		else if (listNormal.size()==0 && listStar.size()>0) {
-			System.out.println("3");
+			//System.out.println("3");
 			//샛별배송 추가
 			insertStarList(listStar, vo);
 		}
 		else {
-			System.out.println("4");
+			//System.out.println("4");
 			return "redirect:cartList.do";
 		}
 
@@ -107,7 +107,7 @@ public class OrderController {
 //		mv.setViewName("orderList");
 //		mv.addObject("order", ll);
 		
-		return "redirect:orderList.do";
+		return "redirect:mypage_order.do";
 
 	}
 	

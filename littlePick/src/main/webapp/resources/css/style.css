@@ -668,7 +668,7 @@ a {
 		line-height: 38px
 	}
 	.footer-area {
-		padding: 70px 0px
+		padding: 20px 0px
 	}
 	.single-footer-widget .sub-btn {
 		right: 0px
@@ -4684,14 +4684,14 @@ scale
 
 .footer-area {
 	background: #002347;
-	padding: 50px 0px 50px
+	padding: 20px 0px 20px
 }
 
-@media ( min-width : 1000px) {
+/* @media ( min-width : 1000px) {
 	.footer-area {
 		padding: 195px 0px 120px
 	}
-}
+} */
 
 .single-footer-widget p {
 	margin-bottom: 15px
@@ -4994,6 +4994,10 @@ scale
 .cart_qty_btn{
 	display:flex;
 	flex-direction:column;
+}
+/* 장바구니담기 버튼  */
+.button.primary-btn{
+	color : white;
 }
 
 /* 주문 페이지  */

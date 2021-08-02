@@ -49,7 +49,9 @@ $(function(){
 })
 </script>
 </head>
-<body>
+<!-- <body>
+  <section> 
+      <div class="container">-->
 	<!--================ Start Header Menu Area =================-->
 	<header class="header_area">
 		<div class="top_menu_container">
@@ -89,7 +91,7 @@ $(function(){
 							<li class="nav-item submenu dropdown"><a class="nav-link" href="category_new.do">신상품</a></li>
 							<li class="nav-item submenu dropdown"><a class="nav-link" href="category_best.do">베스트</a></li>
 							<li class="nav-item submenu dropdown"><a class="nav-link" href="category_now.do">유저픽</a></li>
-							<li class="nav-item submenu dropdown"><a class="nav-link" href="#">MD추천</a></li>
+							<!-- <li class="nav-item submenu dropdown"><a class="nav-link" href="#">MD추천</a></li> -->
 							<li class="nav-item submenu dropdown"><a class="nav-link" href="community.do" data-toggle="dropdown"
 							aria-haspopup="true" aria-expanded="false">커뮤니티</a>
 								<ul class="dropdown-menu">
@@ -129,5 +131,7 @@ $(function(){
 	<script src="resources/vendors/jquery.ajaxchimp.min.js"></script>
 	<script src="resources/vendors/mail-script.js"></script>
 	<!-- <script src="/littlePick/resources/js/main.js"></script> -->
+<!-- 	</div>
+	</section> -->
 </body>
 </html>

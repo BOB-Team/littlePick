@@ -34,7 +34,8 @@ $(function(){
 </script>
 </head>
 <body>
-
+  <section>
+      <div class="container">
 <%@ include file="header.jsp"%> 
 
 	
@@ -241,5 +242,6 @@ $(function(){
 	<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 	
 	<script src="resources/js/main.js"></script>
+	</div></section>
 </body>
 </html>

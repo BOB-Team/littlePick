@@ -23,6 +23,8 @@
 <!-- ================ 게시판 상단 ================= -->
 <!-- ================ 게시판 상단 ================= -->
 <!-- 헤더 인클루드 -->
+  <section>
+      <div class="container">
 <%@ include file="header.jsp"%> 
 
   <!--================글 작성 Area =================-->
@@ -73,5 +75,7 @@
   <script src="resources/vendors/mail-script.js"></script>
   <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
   <script src="resources/js/main.js"></script>
+  </div>
+  </section>
 </body>
 </html>

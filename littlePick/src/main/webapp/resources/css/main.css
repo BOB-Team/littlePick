@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import
 	url("https://fonts.googleapis.com/css?family=Oswald:400,500,600");
 
@@ -158,7 +157,7 @@ a {
 
 @media ( min-width : 991px) {
 	.header_area .navbar .nav .nav-item .nav-link {
-		padding: 12x 0px
+		padding: 32px 0px
 	}
 }
 
@@ -231,9 +230,7 @@ a {
 	padding: 0px 30px;
 	transition: all 150ms linear;
 	display: block;
-	margin-right: 0px;
-	
-	
+	margin-right: 0px
 }
 
 .header_area .navbar .nav .nav-item.submenu ul .nav-item:last-child {
@@ -298,7 +295,8 @@ a {
 
 #search_input_box {
 	text-align: center;
-	padding: 5px 20px
+	padding: 5px 20px;
+	
 }
 
 #search_input_box .form-control {
@@ -307,7 +305,8 @@ a {
 	border: 0;
 	color: #ffffff;
 	font-weight: 600;
-	font-size: 18px;
+	font-size: 18px
+	
 }
 
 #search_input_box .form-control:focus {
@@ -467,14 +466,10 @@ a {
 	.navbar-toggler {
 		border: none;
 		border-radius: 0px;
-		position: absolute;
-		bottom:24px;
-		right:12px;
+		padding: 0px;
 		cursor: pointer;
-		
-		
-		
-
+		margin-top: 27px;
+		margin-bottom: 23px
 	}
 	.header_area .navbar {
 		background: #ffffff
@@ -522,9 +517,8 @@ a {
 		line-height: 30px;
 		margin-right: 0px;
 		display: block;
-		/* border-bottom: 1px solid #ededed33; */
-		border-radius: 0px;
-		margin-left:24px;
+		border-bottom: 1px solid #ededed33;
+		border-radius: 0px
 	}
 	.header_area .navbar .nav-shop {
 		padding-bottom: 40px
@@ -556,14 +550,14 @@ a {
 		max-width: 360px;
 		margin: 0 auto
 	}
- 	.blog_categorie_area .col-lg-4 {
+	.blog_categorie_area .col-lg-4 {
 		margin-top: 30px
-	} 
+	}
 	.blog_area {
 		padding-bottom: 80px
 	}
 	.single-post-area .blog_right_sidebar {
-		margin-top: 30px;
+		margin-top: 30px
 	}
 	.contact_info {
 		margin-bottom: 50px
@@ -723,7 +717,7 @@ a {
 	left: 0
 } */
 
-@media ( min-width : 575px) {
+/* @media ( min-width : 575px) {
 	.hero-banner::before {
 		width: 20%
 	}
@@ -733,7 +727,7 @@ a {
 	.hero-banner::before {
 		width: 35%
 	}
-}
+} */
 
 .hero-banner__img {
 	position: relative;
@@ -1172,7 +1166,7 @@ a {
 @media ( min-width : 800px) {
 	.button-subscribe {
 		padding: 12px 35px;
-		font-size: 15px;
+		font-size: 15px
 	}
 }
 
@@ -1181,8 +1175,8 @@ a {
 	font-size: 14px;
 	background: #f9f9ff;
 	border-color: #EEEEEE;
-	border-radius: 5px; /* 수정함 */
-	color: #222;
+	border-radius: 0;
+	color: #222
 }
 
 .button-blog:hover {
@@ -1559,12 +1553,12 @@ a {
 	margin-left: 2px
 }
 
-  .blog_categorie_area {
+.blog_categorie_area {
 	padding-top: 30px;
 	padding-bottom: 30px
-}  
+}
 
-/*  @media ( min-width : 900px) {
+@media ( min-width : 900px) {
 	.blog_categorie_area {
 		padding-top: 80px;
 		padding-bottom: 80px
@@ -1576,13 +1570,12 @@ a {
 		padding-top: 120px;
 		padding-bottom: 120px
 	}
-}  */
+}
 
 .categories_post {
 	position: relative;
 	text-align: center;
-	cursor: pointer;
-	margin-bottom:30px;/* 추가해줌 */
+	cursor: pointer
 }
 
 .categories_post img {
@@ -1663,7 +1656,7 @@ a {
 	color: #222;
 	font-size: 16px;
 	font-weight: 600;
-	/* padding-left: 15px; */
+	padding-left: 15px;
 	line-height: 20px;
 	vertical-align: middle
 }
@@ -1707,9 +1700,9 @@ a {
 }
 
 .blog_right_sidebar {
-	/* border: 1px solid #eeeeee; */
-	background: white; /* #fafaff; 수정함 */
-	padding-top: 30px /* 수정함 */
+	border: 1px solid #eeeeee;
+	background: #fafaff;
+	padding: 30px
 }
 
 .blog_right_sidebar .widget_title {
@@ -1726,13 +1719,13 @@ a {
 	font-size: 14px;
 	line-height: 29px;
 	border: 0px;
-	width: 70%; /*수정*/
+	width: 100%;
 	font-weight: 300;
 	color: #fff;
 	padding-left: 20px;
 	border-radius: 45px;
 	z-index: 0;
-	background: #384aeb;
+	background: #384aeb
 }
 
 .blog_right_sidebar .search_widget .input-group .form-control.placeholder
@@ -1938,7 +1931,7 @@ a {
 }
 
 .blog_right_sidebar .tag_cloud_widget ul li {
-	display: inline-block;
+	display: inline-block
 }
 
 .blog_right_sidebar .tag_cloud_widget ul li a {
@@ -1949,7 +1942,7 @@ a {
 	margin-bottom: 8px;
 	transition: all 0.3s ease 0s;
 	color: #222;
-	font-size: 14px; /* 12-> 14로 변경 */
+	font-size: 12px
 }
 
 .blog_right_sidebar .tag_cloud_widget ul li a:hover {
@@ -3789,10 +3782,6 @@ scale
 	display: block
 }
 
-.register_form_inner {
-	padding-top: 70px
-}
-
 .instagram_area {
 	position: relative
 }
@@ -4808,579 +4797,5 @@ scale
 	}
 }
 
-/* === 추가 코드  === */
+<!-- 추가 코드 -->
 
-.main_menu{
-	/* border-bottom : 3px solid #384AEB; */
-	margin-bottom : 0px;
-}
-.top_container{
-	display:flex;
-	flex-direction: column;
-	width:100%;
-	/* margin-left:24px; */
-	
-}
-
-.logo_container{
-	display:flex;
-	justify-content: center;
-	margin: 8px 8px;
-
-}
-/* 
-#navbarSupportedContent{
-	display:flex;
-	justify-content: center;
-	border: 3px solid red;
-} */
-
-.nav.navbar-nav.menu_nav.ml-auto.mr-auto{
-/* 	border: 10px solid black;
-	display:flex; */
-	margin-left:12px;
-}
-
-
-.navbar-brand {
-	margin:0px;
-}
-
-
-.top_menu_container{
-	position : relative;
-	display : flex;
-
-}
-
-.top_menu_container ul{
-	display: flex;
-	flex-direction: row;
-	width:100%;
-	justify-content: flex-end; 
-}
-
-.top_menu_container li{
-	display: flex;
-	padding: 8px 12px;		
-}
-
-.top_menu_container a{
-	color: black;
-	font-size:12px;
-}
-
-.top_menu_container a:hover{
-	color:#384AEB;
-}
-
-
-.nav-shop{
-	display:flex;
-	justify-content: flex-start;
-	margin-left: 24px;
-	/* border: 3px solid blue; */
-
-}
-.nav-shop li{
-	display: flex;
-	
-}
-
-/* .fas {
-	margin-left:12px;
-} */
-	
-
-#search_input_box{
-	border:0px;
-	border-radius:15px;
-	background-color: #f7f7f7;
-	margin-right:12px;
-	padding-bottom :8px;
-	height:30px;
-	 
-}
-
-.rolling-banner {
-	display : flex;
-	width : 100%;
-	justify-content: center; 
-}
-
-.list.instafeed.d-flex.flex-wrap a{
-	color: #7B838A;
-}
-
-/* 영주 수정 - 커뮤니티 관련 */
-
-
-.board-title{
-	height: 100px;
-	padding: 30px 0 1px 100px;
-}
-
-.board-banner{
-	margin-top:20px;
-}
-.board-write{
-	margin-left:900px;
-}
-
-.board-search{
-	padding: 10px 0 30px 400px;
-	width: 850px;
-	margin-top: 30px;
-	
-}
-
-/*
-위에 이 부분 수정함
-
-.blog_right_sidebar {
-	border: 1px solid #eeeeee;
-	background: white; #fafaff; 수정함
-	padding: 30px; 얘는 top만
-} */
-
-/*
-위에 이 두 부분 comment out
-
-  @media ( min-width : 900px) {
-	.blog_categorie_area {
-		padding-top: 80px;
-		padding-bottom: 80px
-	}
-}
-
-@media ( min-width : 1100px) {
-	.blog_categorie_area {
-		padding-top: 120px;
-		padding-bottom: 120px
-	}
-}  */
-
-/*
-위에 이 부분 폰트사이즈 14로 변경해줌
-
- .blog_right_sidebar .tag_cloud_widget ul li a {
-	display: inline-block;
-	border: 1px solid #eee;
-	background: #fff;
-	padding: 0px 13px;
-	margin-bottom: 8px;
-	transition: all 0.3s ease 0s;
-	color: #222;
-	font-size: 14px; 12-> 14로 변경
-} */
-
-/*
-위에 이 부분 중 padding-left 주석처리!
-.blog_info .blog_meta li a i {
-	color: #222;
-	font-size: 16px;
-	font-weight: 600;
-	padding-left: 15px;
-	line-height: 20px;
-	vertical-align: middle
-} */
-
-.board-name p{
-	font-size: 30px;
-}
-.board-name a{
-	
-	font-size: 15px;
-	padding-left: 1030px;
-	margin-bottom:10px;
-}
-.board-select a{
-	padding-left: 1030px;
-	margin-bottom:10px;
-}
-
-/* 위에서 margin-bottom 추가함
-
- .categories_post {
-	position: relative;
-	text-align: center;
-	cursor: pointer;
-	margin-bottom:30px;추가해줌
-	} */
-	
-.board-search .blog_right_sidebar .search_widget .input-group .form-select {
-	font-size: 14px;
-	line-height: 29px;
-	border: 0px;
-	width: 25%;
-	font-weight: 300;
-	color: #fff;
-/*  	padding-left: 20px; */
-	border-radius: 45px;
-	z-index: 0;
-	background: #384aeb;
-	margin-right: 10px;
-	height:38px;
-	padding-top:5px;
-
-}
-
-
-.form-select li.option.selected{
-	color: black;
-} 
-
-
-.form-select ul.list{
-	font-size: 14px;
-	line-height: 29px;
-	border: 0px;
-	color: black;
-	z-index: 0;
-	background: white;
-	border-radius: 20px;
-	padding: 0 10px 0 10px;
-
-} 
-/*위에서수정함
-
- .blog_right_sidebar .search_widget .input-group .form-control {
-	font-size: 14px;
-	line-height: 29px;
-	border: 0px;
-	width: 70%; 수정
-	font-weight: 300;
-	color: #fff;
-	padding-left: 20px;
-	border-radius: 45px;
-	z-index: 0;
-	background: #384aeb
-} */
-
-/* 위에서 수정함
-
- .button-blog {
-	padding: 5px 31px;
-	font-size: 14px;
-	background: #f9f9ff;
-	border-color: #EEEEEE;
-	border-radius: 5px; 수정함
-	color: #222;
-} */
-
-.board-submit-btn a{
-	float: right;
-	margin-right: 100px;
-}
-
-/* 커뮤니티 글 보기 관련 */
-.board-view-title{
-	
-	padding: 100px 200px 150px 200px;
-}
-
-.board-view-title h3{
-	padding-left: 30px;
-	padding-right: 30px;
-}
-
-.board-view-title .blog_info{
-	padding-left: 30px;
-	
-}
-
-.board-view-content-img{
-	padding: 10px 0 20px 350px;
-}
-
-.board-view-content{
-	padding: 10px 200px 70px 200px;
-}
-.board-view-content a{
-	font-size: 18px;
-	
-}
-
-.blog_info .board-view-info{
-	float: left;
-	
-}
-
-.board-view-title .board-view-button{
-	float: right;
-	
-}
-
-/* 커뮤니티 글 보기 댓글 관련 */
-
-.comment-input{
-	height: 100px;
-}
-.comment-input .comment-input-title{
- 	margin-left: 40px;
-	float:left;
-	width: 650px;
-	margin-top:10px;
-}
-.comment-input .comment-input-title input{
-	font-weight:bold;
-}
-
-.comment-input .comment-input-button{
-	float: right;
-	
-}
-
-.comment-input .comment-input-button input{
-	font-size: 15px;
-	
-}
-
-
-.board-view-comment{
-	
-	padding: 50px 200px 50px 200px;
-	background: #fafaff;
-	
-}
-.board-view-comment-profile{
-	float:left;
-}
-.board-view-comment-profile a{
-	font-size: 18px;
-	font-weight: bold;
-}
-
-.board-view-comment-text a{
-	margin-left: 10px;
-	margin-top: 10px;
-	font-size: 16px;
-	
-}
-.board-view-comment-sub a{
-	margin-right: 10px;
-}
-
-.board-view-recomment-list{ /*대댓글*/
-	margin-left: 70px;
-}
-
-/* 커뮤니티 글 작성하기*/
-.board-input-area{
-	
-	padding: 100px 200px 150px 200px;
-}
-
-.board-input-area h3{
-	padding: 0 30px 70px 30px;
-	
-}
-
-.board-input-area .board-select{
-	float: left;
-	padding-left: 30px;
-}
-.board-input-button{
-	float: right;
-	padding-bottom: 40px;
-	padding-right: 30px;
-}
-
-.board-input-button input{
-	font-size: 15px;
-}
-
-.board-input-area .form-control {
-	padding: 8px 20px;
-	background: #fff;
-	border-radius: 0px;
-	width: 100%;
-	font-size: 14px;
-	color: #777777;
-	border: 1px solid;
-}
-
-.board-input-title{
-	margin: 40px 30px 40px 30px;
-}
-.board-input-title input{
-	font-weight:bold;
-}
-
-
-.board-input-content{
-	margin: 40px 30px 40px 30px;
-}
-
-.board-input-image{
-	margin: 40px 30px 40px 30px;
-}
-/* 07/26 추가 */
-.commu_area{
-	margin: 10px 0 10px 0;
-}
-
-.categroy-name{
-	height: 100px;
-}
-.category-name p{
-	font-size:30px;
-	font-weight:bold;
-}
-
-.category-name a{
-	margin-left: 1030px;
-}
-
-.board-write .button-blog{
-	padding: 5px 31px;
-	font-size: 14px;
-	background: #f9f9ff;
-	border-color: #EEEEEE;
-	border-radius: 5px;
-	color: #222;
-}
-
-.board-search .blog_right_sidebar {
-	border: 1px solid #eeeeee;
-	background: white;
-	padding-top: 30px;
-}
-
-
-.board-search .blog_right_sidebar .search_widget .input-group .form-control {
-	font-size: 14px;
-	line-height: 29px;
-	border: 0px;
-	width: 70%;
-	font-weight: 300;
-	color: #fff;
-	padding-left: 20px;
-	border-radius: 45px;
-	z-index: 0;
-	background: #384aeb
-}
-
-.my_blog_info .blog_info .blog_meta li a i {
-	color: #222;
-	font-size: 16px;
-	font-weight: 600;
-	/* padding-left: 15px; */
-	line-height: 20px;
-	vertical-align: middle
-}
-
-
-.my_blog_info{
-	margin-top:20px;
-}
-
-.selectOrder_btn{
-	background: white;
-	height:40px;
-	margin-left:10px;
-	border-radius:5px;
-	
-	border: 1px solid #384aeb;
-	color: #384aeb/* #999999 */;
-	font-size: 14px;
-	
-}
-<!--마이페이지-->
-.mypage-area{
- margin-left:100px;
-}
-.mypage-area .mypage-left{
-/* 	background:red; */
-	height: 500px;
-	width: 300px;
-	border: 1px solid #D9D9D9;
-	float:left;
-	margin-left:50px;
-	margin-bottom:100px;
-	padding:10px;
-	border-radius: 3px;
-	
-}
-
- .mypage-left .img{
-	margin-left: 70px;
-	margin-bottom: 20px;
-}
-
-
-.mypage-left .nickname{
-	text-align:center;
-	margin-bottom: 50px;
-}
-
-.mypage-left .point{
-	float:left;
-	text-align:center;
-	margin-left:60px;
-}
-
-.mypage-left .coupon{
-	float:right;
-	text-align:center;
-	margin-right:60px;
-}
-.mypage-area .mypage-right{
-	float:right;
-/* 	background:blue; */
-	
-	width: 700px;
-	margin-right: 50px;
-	margin-bottom:100px;
-	padding:10px;
-	border: 1px solid #D9D9D9;
-	border-radius:3px;
-}
-.mypage-right .sub-name{
-	margin-bottom:30px;
-
-}
-.mypage-right .sub-name h3{
-	color:gray;
-	font-size:30px;
-}
-
-
-.mypage-title{
-	margin: 20px 0px 100px 100px;
-}
-
-.mypage-menu .nav-link{
-	margin-right:40px;
-	
-}
-
-.mypage-table{
-	margin-left:200px;
-	margin-top:50px;
-}
-.mypage-order{
-	
-	border: 1px solid #D9D9D9;
-	border-radius:3px;
-	padding:5px;
-}
-.mypage-order a{
-	margin-right:10px;
-	
-}
-.mypage-orderdetail-img{
-	float:left;
-	margin-left:30px;
-}
-
-.mypage-orderdetail{
-	float:left;
-	margin-left:30px;
-	margin-top:20px;
-}
-
-.mypage-orderdetail-detail{
-	width:700px;
-	height:70px;
-}
