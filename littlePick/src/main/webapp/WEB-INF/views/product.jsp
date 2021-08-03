@@ -16,6 +16,20 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
 <link rel="stylesheet" href="resources/css/style.css">
 <link rel="stylesheet" href="resources/css/style_0729.css">
+<script src="resources/vendors/jquery/jquery-3.2.1.min.js"></script>
+<script>
+$(function(){
+
+	$('#cart-int').click(function(){
+		var sess = <%= session.getAttribute("user_num") %>;
+		if(sess == null){
+		  	alert("로그인 후 이용하실 수 있습니다.");
+
+		  }
+	})
+
+})
+</script>
 </head>
 <body>
 <%@ include file="header.jsp" %>
@@ -233,7 +247,6 @@
 
 <%@ include file="footer.jsp" %>
 
-	<script src="resources/vendors/jquery/jquery-3.2.1.min.js"></script>
 	<script src="resources/vendors/bootstrap/bootstrap.bundle.min.js"></script>
 	<script src="resources/vendors/skrollr.min.js"></script>
 	<script src="resources/vendors/owl-carousel/owl.carousel.min.js"></script>

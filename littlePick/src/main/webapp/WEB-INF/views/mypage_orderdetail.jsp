@@ -94,7 +94,7 @@
 									</div>
 									<div class="mypage-orderdetail">
 										<a>상품명: ${order.product_name}</a>
-										<a>구입가격: ${order.now_price} 건</a>
+										<a>구입가격: ${order.now_price} 원</a>
 										<a>수량: ${order.order_count} 건</a>
 										<a href="mypage_review_input.do?product_num=${order.product_num}&product_name=${order.product_name}">
 										<input type="button" value="리뷰쓰기"/></a>

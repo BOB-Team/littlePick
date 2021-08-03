@@ -147,7 +147,7 @@ public class ProductVO {
 				
 				//***********************************************
 				// 해당 경로로 변경
-				File f = new File("C:\\zzz\\workspace_team_git_0726\\littlePick\\src\\main\\webapp\\resources\\upload\\board\\"+content_image);
+				File f = new File("C:\\zzz\\workspace_team_git_0802\\littlePick\\src\\main\\webapp\\resources\\upload\\board\\"+content_image);
 				//경로도 맞춰줘야 할 것 같은디...
 				try {
 					file.transferTo(f);
@@ -182,7 +182,7 @@ public class ProductVO {
 					
 					//***********************************************
 					// 해당 경로로 변경
-					File f = new File("C:\\zzz\\workspace_team_git_0726\\littlePick\\src\\main\\webapp\\resources\\upload\\user\\"+user_image);
+					File f = new File("C:\\zzz\\workspace_team_git_0802\\littlePick\\src\\main\\webapp\\resources\\upload\\user\\"+user_image);
 					//경로도 맞춰줘야 할 것 같은디...
 					try {
 						userImgFile.transferTo(f);

@@ -91,7 +91,6 @@ $(function(){
 
 			<c:set var='num' value='${num}'/>
 			<c:if test="${num == 1 or num == 11 or num == 12 or num == 13 or num == 14}">
-       
               <div class="head">신선식품</div>
           		<ul>
           		  <li class="filter-list"><input class="pixel-radio" type="radio" id="1" name="category_num" value="1" checked><label for="1">전체</label></li>
@@ -99,10 +98,12 @@ $(function(){
                   <li class="filter-list"><input class="pixel-radio" type="radio" id="12" name="category_num" value="12"><label for="12">과일</label></li>
                   <li class="filter-list"><input class="pixel-radio" type="radio" id="13" name="category_num"value="13"><label for="13">수산</label></li>
                   <li class="filter-list"><input class="pixel-radio" type="radio" id="14" name="category_num"value="14"><label for="14">정육</label></li>
-               
              	</ul>
 
           	</c:if>
+          	
+          	
+          	
      <c:if test="${num == 2 or num == 21 or num == 22 or num == 23 or num == 24}">
 	
 

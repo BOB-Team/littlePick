@@ -53,9 +53,9 @@ $(function(){
  		<section class="section-margin calc-60px">
 			<div class="container">
 				<div class="section-intro pb-60px">
-					<p>실시간 인기 상품</p>
+					<p>꾸준히 찾는 상품</p>
 					<h2>
-						리틀픽 <span class="section-intro__style">베스트</span>
+						리틀픽 <span class="section-intro__style">유저픽</span>
 					</h2>
 				</div>
 				<div class="row">

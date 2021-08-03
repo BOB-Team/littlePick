@@ -69,6 +69,8 @@ public class ProductController {
 		}
 	
 	//상품 상세 정보 (언니 기존 코드에 추가)
+		
+		
 		@RequestMapping(value="product.do", method=RequestMethod.GET)
 		public void product(ProductVO vo, Model m) {
 			m.addAttribute("product",productService.product(vo));
@@ -94,16 +96,14 @@ public class ProductController {
 			}
 				
 			m.addAttribute("avgstar", avg);
-			
+
 			//리뷰 별 개수 count starCount
 			m.addAttribute("star5", productService.starCount(vo.getProduct_num(),5));
 			m.addAttribute("star4", productService.starCount(vo.getProduct_num(),4));
 			m.addAttribute("star3", productService.starCount(vo.getProduct_num(),3));
 			m.addAttribute("star2", productService.starCount(vo.getProduct_num(),2));
 			m.addAttribute("star1", productService.starCount(vo.getProduct_num(),1));
-			
-			
-			
+
 		}
 		
 		@RequestMapping("category_best.do")

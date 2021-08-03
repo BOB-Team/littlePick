@@ -91,7 +91,7 @@ public class AdminVO {
 		this.product_image = "";
 		
 		//String path = "/Users/kimjunho/Desktop/littlePick/littlePick/src/main/webapp/resources/upload/board/";
-		String path = "C:\\zzz\\workspace\\littlePick\\littlePick\\src\\main\\webapp\\resources\\img\\product\\";
+		String path = "C:\\zzz\\workspace_team_git_0802\\littlePick\\src\\main\\webapp\\resources\\img\\product\\";
 		// 업로드 파일 접근
 		if(! file.isEmpty()){
 			for(MultipartFile mf : file) {
@@ -147,7 +147,7 @@ public class AdminVO {
 				
 				//***********************************************
 				// 해당 경로로 변경
-				File f = new File("C:\\zzz\\workspace\\littlePick\\littlePick\\src\\main\\webapp\\resources\\upload\\user\\"+user_image);
+				File f = new File("C:\\zzz\\workspace_team_git_0802\\littlePick\\src\\main\\webapp\\resources\\upload\\user\\"+user_image);
 				//경로도 맞춰줘야 할 것 같은디...
 				try {
 					userImgFile.transferTo(f);

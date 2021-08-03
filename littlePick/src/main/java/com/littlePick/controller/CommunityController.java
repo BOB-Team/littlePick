@@ -79,8 +79,8 @@ public class CommunityController {
 		}
 	}
 	
-	@RequestMapping("community_board_view.do")
-	public String communityView (Model m, CommunityVO vo,HttpSession session) { //커뮤니티 글 보기
+	@RequestMapping("community_board_view.do") //커뮤니티 게시글 보기
+	public String communityView (Model m, CommunityVO vo,HttpSession session) {
 
 		CommunityVO board = comService.selectBoard(vo); //게시글 가져오기
 		m.addAttribute("board", board);
@@ -93,14 +93,12 @@ public class CommunityController {
 		
 		comService.boardCountUp(content_num);//조회수 1 증가
 		
-		if(session.getAttribute("user_num") !=null) {
+		if(session.getAttribute("user_num") !=null) { //세션 확인
 			int user_num = (int)session.getAttribute("user_num");
 			int getUser_num = board.getUser_num();
 			if(user_num == getUser_num) {
-				System.out.println("마이뷰");
-				return "community_board_view_my";
+				return "community_board_view_my"; // 내 글 보기 페이지(수정, 삭제 버튼)
 			}else {
-				System.out.println("뷰");
 				return "community_board_view";
 			}
 		}else {

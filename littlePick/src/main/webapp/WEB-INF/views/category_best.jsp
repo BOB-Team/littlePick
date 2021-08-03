@@ -53,7 +53,7 @@ $(function(){
  		<section class="section-margin calc-60px">
 			<div class="container">
 				<div class="section-intro pb-60px">
-					<p>실시간 인기 상품</p>
+					<p>평점 베스트템!</p>
 					<h2>
 						리틀픽 <span class="section-intro__style">베스트</span>
 					</h2>
