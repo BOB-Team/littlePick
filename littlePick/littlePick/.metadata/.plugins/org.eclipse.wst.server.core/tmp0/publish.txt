@@ -1,3 +1,0 @@
-#Tomcat publish data
-#Mon Aug 02 21:10:10 KST 2021
-org.eclipse.jst.jee.server\:/binary\:/Users/kimjunho/.m2/repository/org/springframework/spring-web/5.0.8.RELEASE/spring-web-5.0.8.RELEASE.jar=WEB-INF/lib/spring-web-5.0.8.RELEASE.jar

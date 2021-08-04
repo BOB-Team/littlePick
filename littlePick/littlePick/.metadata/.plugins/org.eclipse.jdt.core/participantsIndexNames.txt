@@ -1,7 +1,0 @@
-INDEX VERSION 1.131
-/Users/kimjunho/Desktop/littlePick/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/4165315704.index
-/littlePick/java
-/Users/kimjunho/Desktop/littlePick/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1070877279.index
-/littlePick/java
-/Users/kimjunho/Desktop/littlePick/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1297051568.index
-/littlePick/java
